@@ -1,0 +1,40 @@
+== Empty Repository
+
+This is just an empty repository to play around with gitpod, AsciiDoc and docToolchain.
+
+To open this repository in gitpod, just preface the URL with `gitpod.io#`.
+
+Next, gitpod will start a web based visual studio instance with the AsciiDoc-Plugin pre-installed.
+
+Open this `README.adoc` and press `Ctrl+k` then `v` to aktivate the AsciiDoc preview.
+
+If you want to, you can also activate the __Draw.io Integration__ extension.
+
+To install _docToolchain_, switch to the terminal and run
+
+[code, bash]
+----
+curl -Lo dtcw doctoolchain.github.io/dtcw
+chmod +x dtcw
+./dtcw tasks --group=doctoolchain
+----
+
+Now, download the arc42-template and render it as HTML, PDF and Microsite
+
+[code, bash]
+----
+./dtcw downloadTemplate
+./dtcw generateHTML
+./dtcw generatePDF
+./dtcw generateSite
+----
+
+To preview the files, start a small server from within the terminal:
+
+[code, bash]
+----
+python -m http.server 8000
+----
+
+Gitpod will now ask you what to do with the opened port. Just click on "open in browser" and navigate through the `build` folder.
+
