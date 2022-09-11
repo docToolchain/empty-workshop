@@ -1,0 +1,5 @@
+vscode:
+  extensions:
+    - asciidoctor.asciidoctor-vscode
+    - hediet.vscode-drawio
+    - jebbs.plantuml
