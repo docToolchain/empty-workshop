@@ -1,0 +1,184 @@
+== AsciiDoc Deep-Dive
+
+=== AsciiDoc Formatierungen
+
+NOTE: Viele Markdown Formatierungen werden auch von AsciiDoc unterstützt.
+
+==== Textformatierung
+
+Ein Absatz braucht eine Leerzeile,
+sonst ist es keine Absatz
+
+Ein Zeilenumbruch geht mit +
+" +" am Ende einer Zeile
+
+Ansonsten geht *fett*, _kursiv_, `monotype` oder auch *_kombiniert_*.
+
+Teile eines W**ort**es können mit doppelten Zeichen formatiert werden 
+
+==== Überschriften
+
+"=" ist der Dokumententitel und hat eine besondere Bedeutung (Buchtitel, Cover).
+Deshalb alle Dokumente mit "==" als Überschriftenlevel beginnen
+
+==== Links
+
+Links werden durch das Protokoll erkannt und gewandelt:
+
+https://www.google.de
+
+Ohne Protokoll wird das Link-Makro verwendet:
+
+link:andereSeite.html[]
+
+NOTE: Markos sind immer gleich aufgebaut: +
+<name>:{1,2}<parameter>[<optionen>] +
+Häufiger Fehler ist das Vergessen der abschliessenden []-Klammern.
+Ohne die passiert nichts. +
+Auch die `:` sind oft ein Mysterium. `:` oder `::`? +
+`:` ist ein inline-Makro. Es fliesst mit dem Text. +
+`::` ist ein block-Makro. Es steht für sich.
+
+Ein verlinkter Text funktionert umgekehrt wie bei Markdown: erst URL, dann Text.
+Da die URL kein Leerzeichen enthalten kann, wird sie nicht in Klammern gesetzt:
+
+https://www.google.de[Google]
+
+
+== Listen
+
+* Einkaufen
+** Milch
+** Mehl
+** Hefe
+
+Nummeriert geht auch
+
+1. Milch
+2. Mehl
+3. Hefe
+
+wobei man die Nummern einfach streichen kann
+
+. Milch
+. Mehl
+. Hefe
+
+== Attributes
+
+Attribute sind wie Variablen. Sie können gesetzt und dann im Text verwendet werden.
+
+:Konferenz: Software Architecture Summit
+
+Heute sind wir auf der {Konferenz}.
+
+Ist ein {Attribut} nicht definiert, so wird es auch nicht ersetzt.
+
+Über Attribute lassen sich auf viele Konfigurationen von AsciiDoc steuern:
+
+:icons: font
+
+NOTE: mit `:icons: font` werden die Admonitions mit Icons versehen.
+(es sei denn, das System ist blöd ;-)
+
+:icons!:
+
+NOTE: Attribute können mit `:attribut!:` gelöscht werden
+
+Attribute können auch ohne Inhalt einfach gesetzt werden:
+
+:sectanchors:
+:sectnums: 
+
+== Bilder
+
+ifndef::imagesdir[:imagesdir: images]
+
+Bilder werden als image:dtc.png[] referenziert.
+
+Oder als Block-Element:
+
+image:dtc.png[]
+
+Das Attribut \:imagesdir: gibt an, wo AsciiDoc nach den Bildern sucht. 
+Leider immer relativ zum Haupt-Dokument. :-o
+
+== Tabellen
+
+Aus der Ascii-Art von Markdown
+
+|===
+|Header column 1 |Header column 2 |Header column 3
+|Cell 1, row 1 | Cell 2, row 1 | Cell 3, row 1
+|===
+
+Lässt sich leicht etwas pflegbareres machen, solange AsciiDoc weiss, wieviele Spalten vorhanden sind:
+
+|===
+|Header column 1 |Header column 2 |Header column 3
+
+|Cell 1, row 1 
+| Cell 2, row 1 
+| Cell 3, row 1
+
+|===
+
+Spaltenbreiten...
+
+[cols="1,2,3", options="header"]
+|===
+|Header column 1 
+|Header column 2 
+|Header column 3
+
+|Cell 1, row 1 
+| Cell 2, row 1 
+| Cell 3, row 1
+
+|===
+
+AsciiDoc innerhalb einer Tabelle
+
+|===
+|Header column 1 |Header column 2 |Header column 3
+
+|Cell 1, row 1 
+| Cell 2, row 1 
+a| 
+* Milch
+* Mehl
+* Butter
+
+|===
+
+[[ziel]]
+== Anchors
+
+Sprungziele werden als \[[ziel]] geschrieben, der Link zum Ziel als \<<ziel>>.
+
+Beispiel:
+<<ziel>>
+
+NOTE: Eselsbrücke - der Link zum Ziel ist ein Pfeil `>>`
+
+== Source-Code
+
+[source, java]
+----
+class Test {
+    static void main(String[] args) {
+        System.out.println "Hello World";
+    }
+}
+----
+
+== Modulare Dokumentation
+
+Moduleare Dokumentation kann über includes-aufgebaut werden:
+
+\include::chapter1.adoc[]
+
+über `leveloffset` werden die Überschriften-Level korrigiert.
+
+\include::chapter1.adoc[leveloffset=+1]
+
