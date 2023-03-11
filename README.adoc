@@ -8,23 +8,19 @@ Next, gitpod will start a web based visual studio instance with everything pre-i
 
 Open this `README.adoc` and press `Ctrl+k` then `v` to aktivate the AsciiDoc preview.
 
+Now open xref:src/docs/diagrams-as-code.adoc[] and start hacking.
+
+'''
+
+=== advanced
+
 To install _docToolchain_, switch to the terminal and run
 
 [code, bash]
 ----
 curl -Lo dtcw doctoolchain.github.io/dtcw
 chmod +x dtcw
-./dtcw local tasks --group=doctoolchain
-----
-
-Now, download the arc42-template and render it as HTML, PDF and Microsite
-
-[code, bash]
-----
-./dtcw downloadTemplate
-./dtcw generateHTML
-./dtcw generatePDF
-./dtcw generateSite
+./dtcw install
 ----
 
 To preview the files, start a small server from within the terminal:
