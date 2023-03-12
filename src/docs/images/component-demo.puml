@@ -1,3 +1,5 @@
+@startuml demo
+left to right direction
 <style>
 arrow {
     LineThickness: 2;
@@ -21,8 +23,8 @@ rectangle {
   [<size:16>**$name**\n----\n$description] <<component>>
 !endprocedure
 
-title "Component Diagram Demo"
-right footer "Autor: Ralf.D.Mueller@deutschebahn.com\nsource: https://github.com/docToolchain/empty-workshop/tree/diagrams-as-code/src/docs/images/component-demo.puml"
+caption "Component Diagram Demo"
+center footer "Autor: Ralf.D.Mueller@deutschebahn.com\nsource: https://github.com/docToolchain/empty-workshop/tree/diagrams-as-code/src/docs/images/component-demo.puml"
 actor "user"
 rectangle "System" {
     $component("component A",  "This could be a long\ndescription") as a #CEF
@@ -38,11 +40,11 @@ a --> c : User-Profil\nverlinken
 b --> c : User\nblockieren
 b -[#hidden]> a
 c --> f : Wohnort\nreferenzieren
-a -right-> d : Gravatar\nreferenzieren
-f -left-> g
+a -down-> d : Gravatar\nreferenzieren
+f -down-> g
 user -down-> a: Diskussions-\nforum 
 user -down-> b: Administration\n192.168.4.25:678
-f --> e: Wetter-Daten\nholen
+f -down-> e: Wetter-Daten\nholen
 [<size:16>**FAX**\n555-12345] as fax
 f -right->  fax : "\t"
 
@@ -69,5 +71,6 @@ rectangle legende <<legende>> [
     }
 }}
 ]
-g -down[hidden]-> legende
-legende -right[hidden]-> e
+user -down[hidden]-> legende
+'legende -right[hidden]-> e
+@enduml
