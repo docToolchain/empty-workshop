@@ -1,3 +1,10 @@
+:title: Hello World
+
+[plantuml,,png,subs=attributes]
+----
+title {title}
+----
+
 [plantuml,,png]
 ----
 <style>
