@@ -16,7 +16,7 @@ To install _docToolchain_, switch to the terminal and run
 ----
 curl -Lo dtcw doctoolchain.github.io/dtcw
 chmod +x dtcw
-./dtcw local tasks --group=doctoolchain
+./dtcw local install
 ----
 
 Now, download the arc42-template and render it as HTML, PDF and Microsite
