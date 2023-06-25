@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON Stringify Demo</title>
+</head>
+<body>
+    <textarea id="inputTextArea" rows="10" cols="50"></textarea>
+    <button onclick="convertToJSON()">Convert to JSON</button>
+
+    <script>
+        function convertToJSON() {
+            var inputTextArea = document.getElementById('inputTextArea');
+            var inputText = inputTextArea.value;
+
+            // Split the input text into lines
+            var lines = inputText.split('\n');
+
+            // Create an array to hold the JSON-formatted lines
+            var jsonLines = [];
+
+            // Iterate over the lines and format them as JSON strings
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i].trim();
+                if (line.length > 0) {
+                    jsonLines.push('  "' + line + '",');
+                }
+            }
+
+            // Join the JSON-formatted lines with line breaks
+            var jsonText = jsonLines.join('\n');
+
+            // Copy the JSON-formatted text to the clipboard
+            navigator.clipboard.writeText(jsonText).then(function() {
+                alert('JSON string copied to clipboard!');
+            }, function(err) {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
