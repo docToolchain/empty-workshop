@@ -5,6 +5,7 @@ vscode:
     - jebbs.plantuml
 tasks:
   - name: Start web server
+    openMode: tab-after
     init: python -m http.server 8000
 
 ports:
