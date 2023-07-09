@@ -259,7 +259,7 @@ image::demo.dio.png[]
 
 
 
-
+// weitere Tools
 
 
 //== Lucidchart
@@ -269,72 +269,9 @@ image::demo.dio.png[]
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //== gliffy
 
 //https://www.gliffy.com/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
