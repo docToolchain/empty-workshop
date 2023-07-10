@@ -30,8 +30,8 @@ rectangle "System" {
     [<size:16>**Gamma-Service**\n----\nThis could be a long\ndescription] <<component>> as f #CEF
     [<size:16>**Alpha-Service**\n----\nThis could be a long\ndescription] <<component>> as g #CEF
 }
-[<size:16>**Gravatar**\n----\nTurns an eMail into\na visual Avatar] <<external>> as d
-[<size:16>**Wetter-Service**\n----\nwetter.com\n] <<external>> as e
+[<size:16>**ext. Service 1**\n----\nTurns an eMail into\na visual Avatar] <<external>> as d
+[<size:16>**ext. Service 2**\n----\nwetter.com\n] <<external>> as e
 
 a --> c : User-Profil\nverlinken
 b --> c : User\nblockieren
