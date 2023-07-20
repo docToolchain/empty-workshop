@@ -1,4 +1,11 @@
 {
+	"features": {
+        "ghcr.io/devcontainers-contrib/features/doctoolchain-sdkman:2": {
+			"version": "2.2.1",
+			"jdkVersion": "11",
+            "jdkDistro": "tem"
+        }
+    },
     //"build": { "dockerfile": "Dockerfile" }
 	// Configure tool-specific properties.
 	"customizations": {
