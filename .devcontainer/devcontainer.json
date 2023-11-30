@@ -1,0 +1,15 @@
+{
+    //"build": { "dockerfile": "Dockerfile" }
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"asciidoctor.asciidoctor-vscode",
+                "hediet.vscode-drawio",
+                "jebbs.plantuml"
+			]
+		}
+	}
+}

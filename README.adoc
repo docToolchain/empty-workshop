@@ -20,7 +20,7 @@ To install _docToolchain_, switch to the terminal and run
 ----
 curl -Lo dtcw doctoolchain.github.io/dtcw
 chmod +x dtcw
-./dtcw install
+./dtcw install doctoolchain
 ----
 
 To preview the files, start a small server from within the terminal:
