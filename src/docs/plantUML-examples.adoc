@@ -77,8 +77,8 @@ user -down-> b: Administration\n192.168.4.25:678
 f --> e: Wetter-Daten\nholen
 f -right-> [<size:16>**FAX**\n555-12345] : "\t"
 ----
-
-[plantuml,,png]
+        
+[plantuml,a,png]
 ----
 include::images/component-demo.puml[]
 ----

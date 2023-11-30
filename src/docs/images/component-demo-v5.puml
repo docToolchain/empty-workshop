@@ -1,0 +1,39 @@
+@startuml demo
+<style>
+arrow {
+    LineThickness: 2;
+}
+component, actor {
+    LineThickness: 2;
+}
+rectangle {
+    LineColor: #ccc;
+    FontColor: #aaa;
+}
+</style>
+
+actor "user"
+rectangle "System" {
+    [component a] as a #CEF
+    [component b] as b #CEF
+    [component c] as c #CEF
+    [component f] as f #CEF
+    [component g] as g #CEF
+}
+[component d] as d
+[component e] as e
+
+a --> c
+b --> c
+b -[#hidden]> a
+c --> f
+a -right-> d
+f -left-> g
+user -down-> a
+user -down-> b
+f -down-> e
+
+@enduml
+
+
+
