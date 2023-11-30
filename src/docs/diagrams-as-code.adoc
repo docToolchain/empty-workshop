@@ -9,7 +9,11 @@ https://crashedmind.github.io/PlantUMLHitchhikersGuide/
 //include::images/quality-tree.puml[]
 ----
 
+== BigSpender
 
+* https://github.com/rdmueller/chatGPT-architecture/blob/main/src/docs/solution/010-task-1.adoc#utility-tree
+* https://github.com/rdmueller/chatGPT-architecture/blob/main/src/docs/solution/030-task-3.adoc#context-diagram
+* https://github.com/rdmueller/chatGPT-architecture/blob/main/src/docs/solution/040-task-4.adoc#component-diagram
 
 
 
@@ -153,7 +157,7 @@ https://crashedmind.github.io/PlantUMLHitchhikersGuide/
 
 //== draw.io / diagrams.net
 
-image::demo.dio.png[]
+//image::demo.dio.png[]
 
 
 
