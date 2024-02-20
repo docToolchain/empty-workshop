@@ -31,3 +31,7 @@ python -m http.server 8000
 ----
 
 Gitpod will now ask you what to do with the opened port. Just click on "open in browser" and navigate through the `build` folder.
+
+=== Structurizr
+
+    docker run -it --rm -p 8080:8080 -v $(pwd)/workspaces:/usr/local/structurizr structurizr/lite

@@ -3,3 +3,4 @@ vscode:
     - asciidoctor.asciidoctor-vscode
     - hediet.vscode-drawio
     - jebbs.plantuml
+    - ciarant.vscode-structurizr
