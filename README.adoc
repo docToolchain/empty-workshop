@@ -1,6 +1,6 @@
 == Empty Repository
 
-This is just an empty repository to play around with some Diagrams-as-Code tools.
+This is just an "empty" repository to play around with some Docs-as-Code and Diagrams-as-Code tools.
 
 To open this repository in gitpod, just preface the URL with `gitpod.io#`.
 
@@ -8,7 +8,7 @@ Next, gitpod will start a web based visual studio instance with everything pre-i
 
 Open this `README.adoc` and press `Ctrl+k` then `v` to aktivate the AsciiDoc preview.
 
-Now open xref:src/docs/diagrams-as-code.adoc[] and start hacking.
+Now open xref:src/docs/docs-as-code.adoc[] and start hacking.
 
 '''
 
@@ -16,18 +16,40 @@ Now open xref:src/docs/diagrams-as-code.adoc[] and start hacking.
 
 To install _docToolchain_, switch to the terminal and run
 
+.Install docToolchain locally
 [code, bash]
 ----
 curl -Lo dtcw doctoolchain.github.io/dtcw
 chmod +x dtcw
-./dtcw install doctoolchain
+./dtcw local install doctoolchain
+./dtcw local install java
 ----
+
+or
+
+.use docToolchain as Docker image
+[code, bash]
+----
+curl -Lo dtcw doctoolchain.github.io/dtcw
+chmod +x dtcw
+# no need to install something
+----
+
+Now you can use the docToolchain task by executing
+
+    ./dtcw local <task>
+
+or
+
+    ./dtcw docker <task>
+
+Tasks to start with are `downloadTemplate`, `generateSite` and `generatePDF`.
 
 To preview the files, start a small server from within the terminal:
 
 [code, bash]
 ----
-python -m http.server 8000
+python -m http.server 
 ----
 
 Gitpod will now ask you what to do with the opened port. Just click on "open in browser" and navigate through the `build` folder.
@@ -38,7 +60,7 @@ run structurizr lite as docker container
 
     docker run -it --rm -p 8080:8080 -v $(pwd)/workspaces:/usr/local/structurizr structurizr/lite
 
-get the CLI to export images
+get the CLI to export images (the CLI is also available as docker image)
 
     wget https://github.com/structurizr/cli/releases/download/2024.01.02/structurizr-cli.zip
     unzip structurizr-cli.zip
