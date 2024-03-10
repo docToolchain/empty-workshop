@@ -102,9 +102,26 @@ image::C4/systemkontext.dio.svg[]
 Verfeinere den Systemkontext weiter.
 ====
 
+=== ADRs: Pugh-Matrix
+
+Erstelle eine Pugh-Matrix in Excel als graphische Übersicht der bewerteten Qualitätskriterien verschiedener Optionen einer Entscheidung.
+
+Binde die Pugh-Matrix in einen ADR in Kapitel 9 ein.
+
 .Lösung
 [%collapsible]
 ====
+Ein Beispiel einer Pugh-Matrix in Excel findest Du unter `src/docs/Pugh-Matrix-Decision.xlsx`.
+Du kannst sie editieren und Deinen Wünschen anpassen.
+
+Mit dem Kommando
+
+    ./dtcw docker exportExcel
+
+exportierst Du alle Excel-Files im Projekt nach `CSV` und `AsciiDoc`.
+Du findest die Files unter `src/docs/excel/[name des Excel-Files]/[Name des Worksheets].adoc`.
+
+
 ====
 
 .Lösung
