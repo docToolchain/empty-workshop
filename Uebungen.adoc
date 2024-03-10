@@ -1,6 +1,7 @@
 :icons: font
 :diagram-server-url: https://kroki.io
 :diagram-server-type: kroki_io
+:toc: left
 
 ++++
 <style>
