@@ -1,0 +1,113 @@
+:icons: font
+++++
+<style>
+details > div.content {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #eee;
+}
+</style>
+++++
+
+== Vorbereitung
+
+Installiere docToolchain und Lade das aktuelle arc42 Template.
+
+TIP: Im README.adoc steht, wie es geht.
+
+.Lösung
+[%collapsible]
+====
+[source, bash]
+----
+curl -Lo dtcw doctoolchain.github.io/dtcw
+chmod +x dtcw
+./dtcw docker downloadTemplate
+----
+siehe auch https://doctoolchain.org/docToolchain/v2.0.x/020_tutorial/010_Install.html[install docToolchain], https://arc42.org[arc42.org]
+====
+
+== Qualitätsziele
+
+Erstelle einen Qualitätsbaum und baue ihn in Kapitel 10 ein.
+
+Unter `src/docs/images/quality-tree.puml` liegt schon ein vollständiger ISO/IEC 25010 Qualitätsbaum.
+
+.Lösung
+[%collapsible]
+====
+Kapitel 10 liegt unter `src/docs/arc42/chapters/10_quality_requirements.adoc`
+
+Den Qulitätsbaum referenzierst Du als PlantUML über
+
+[source, asciidoc]
+----
+[plantuml, quality-tree]
+....
+\include::../../images/quality-tree.puml[]
+....
+----
+
+siehe auch https://docs.asciidoctor.org/diagram-extension/latest/[AsciiDoc Diagram-Extension], https://docs.asciidoctor.org/asciidoc/latest/directives/include/[AsciiDoc Include-Directive]
+
+====
+
+Der Baum nimmt viel Platz ein wird dadurch klein und unleserlich dargestellt.
+Konzentriere Dich auf den Security-Aspekt und stelle in einem weiteren Absatz `Security` nur den Security-Zweig des Baums dar.
+
+TIP: Schau Dir den Source nochmal genau an.
+Du musst den Include nur leicht erweitern.
+
+.Lösung
+[%collapsible]
+====
+[source,asciidoc]
+----
+==== Security
+
+[plantuml, sec-quality-tree]
+....
+\include::../../images/quality-tree.puml[tags=base;sicherheit]
+....
+----
+
+TIP: achte darauf den Namen `sec-quality-tree` für jedes Diagramm zu überschreiben, da sonst nur ein Diagramm erzeugt wird (die erzeugten Diagramme überschreiben sich sonst)
+
+siehe auch https://docs.asciidoctor.org/asciidoc/latest/directives/include-tagged-regions/[AsciiDoc tagged-regions]
+====
+
+=== Systemkontext
+
+Nutze https://draw.io[draw.io] um einen Systemkontext zu zeichnen.
+Binde den Systemkontext in Kapitel 3 ein.
+
+TIP: das draw.io Plugin ist in der gitpod Umgebung schon vorinstalliert.
+
+.Lösung
+[%collapsible]
+====
+Lege unter `src/docs/images/C4/systemkontext.dio.svg` eine leere Datei an.
+Diese öffnet sich selbst sofort im draw.io-Plugin.
+
+Skizziere den Systemkontext.
+
+Öffne die AsciiDoc-Datei für Kapitel 3 und referenziere den Systemkontext via
+
+[source,asciidoc]
+----
+image::C4/systemkontext.dio.svg[]
+----
+
+Verfeinere den Systemkontext weiter.
+====
+
+.Lösung
+[%collapsible]
+====
+====
+
+.Lösung
+[%collapsible]
+====
+====
