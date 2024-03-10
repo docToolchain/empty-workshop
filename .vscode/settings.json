@@ -1,5 +1,6 @@
 {
     "asciidoc.extensions.enableKroki": true,
     "plantuml.render": "PlantUMLServer",
-    "plantuml.server": "https://www.plantuml.com/plantuml"
+    "plantuml.server": "https://www.plantuml.com/plantuml",
+    "asciidoc.antora.enableAntoraSupport": false
 }
