@@ -2,6 +2,7 @@
 :diagram-server-url: https://kroki.io
 :diagram-server-type: kroki_io
 :toc: left
+:numbered:
 
 ++++
 <style>
@@ -157,12 +158,16 @@ Erstelle eine Lösungsskizze / Big Picture / Informelle Übersicht mit PowerPoin
 
 TIP: Verwende `{slide}` in den Speakernotes um den Dateinamen der exportierten Folie zu erhalten.
 
+WARNING: der hierfür notwendige Task funktioniert momentan nur unter Windows, da er PowerPoint per VisualBasic-Script fernstuert.
+Unter anderen Betriebssystemen können entsprechende Sichten z.B. mit draw.io (nächster Abschnitt) erstellt werden.
+
 .Lösung
 [%collapsible]
 ====
 Powerpoint lässt sich ähnlich wie Excel in Deine Dokumentation einbauen. 
 Verwende dazu den Task `exportPPT`.
 Dabei werden die Folien einzeln als `.jpg` und alle Speakernotes zusammen als `.ad` (AsciiDoc) exportiert.
+
 
 Da die Namen der exportierten Slides nicht ganz einfach zu erkennen sind, kann in den Speakernotes {slide} als Platzhalter verwendet werden, der automatisch ersetzt wird.
 
@@ -187,6 +192,35 @@ Das insteressante daran ist, dass Du per Copy & Paste einen Screenshot in draw.i
 
 Draw.io speichert bei den Formaten `.png` und `.svg` den Source in den Meta-Daten.
 Dadurch kann solch ein annotierter Screenshot jederzeit erneut geöffnet und verändert werden.
+====
+
+== Laufzeitsicht
+
+Erstelle mit PlantUML eine Laufzeitsicht in Form eines Sequenzdiagramms, die das Zusammenspiel der Systeme darstellt.
+Referenziere das Ergebnis aus Kapitel 6.
+
+.Lösung
+[%collapsible]
+====
+Sequenzdiagramme sind für PlantUML ein Kinderspiel, da das Layout direkt von der Diagrammdefinition vorgegeben ist.
+
+Ist nichts vorgegeben, so ist ein PlantUML Diagramm automatisch ein Sequenzdiagramm.
+Somit müssen eigentlich nur noch die Verbindungen definiert werden.
+
+[source, asciidoc]
+----
+[plantuml, sequenz-demo]
+....
+User ->  Browser
+  Browser ->  Server
+    Server ->  Database
+    Server <-- Database
+  Browser <-- Server
+User <-- Browser
+....
+----
+
+siehe auch https://plantuml.com/de/sequence-diagram[Plantuml: Sequenzdiagramm]
 ====
 
 == Bausteinsicht
@@ -219,7 +253,7 @@ image::C4/systemkontext.dio.svg[opts=inline]
 :imagesDir: {currentImagesDir}
 ----
 
-TIP: Dieses Beispiel kann weitergeführt werden, indem die hirarchische Struktur der Bausteinsicht in den Dokumenten und im `images`-VErzeichnis nachgebaut und verlinkt wird
+TIP: Dieses Beispiel kann weitergeführt werden, indem die hirarchische Struktur der Bausteinsicht in den Dokumenten und im `images`-Verzeichnis nachgebaut und verlinkt wird
 
 ====
 
