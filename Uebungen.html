@@ -439,17 +439,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_vorbereitung">Vorbereitung</a></li>
-<li><a href="#_qualitätsziele">Qualitätsziele</a></li>
-<li><a href="#_systemkontext">Systemkontext</a></li>
-<li><a href="#_adrs_pugh_matrix">ADRs: Pugh-Matrix</a></li>
-<li><a href="#_skizzieren_mit_ms_powerpoint">Skizzieren mit MS PowerPoint</a></li>
-<li><a href="#_skizzieren_mit_draw_io">Skizzieren mit draw.io</a></li>
-<li><a href="#_bausteinsicht">Bausteinsicht</a>
+<li><a href="#_vorbereitung">1. Vorbereitung</a></li>
+<li><a href="#_qualitätsziele">2. Qualitätsziele</a></li>
+<li><a href="#_systemkontext">3. Systemkontext</a></li>
+<li><a href="#_adrs_pugh_matrix">4. ADRs: Pugh-Matrix</a></li>
+<li><a href="#_skizzieren_mit_ms_powerpoint">5. Skizzieren mit MS PowerPoint</a></li>
+<li><a href="#_skizzieren_mit_draw_io">6. Skizzieren mit draw.io</a></li>
+<li><a href="#_laufzeitsicht">7. Laufzeitsicht</a></li>
+<li><a href="#_bausteinsicht">8. Bausteinsicht</a>
 <ul class="sectlevel2">
-<li><a href="#_bausteinsicht_mit_draw_io">Bausteinsicht mit draw.io</a></li>
-<li><a href="#_bausteinsicht_mit_plantuml">Bausteinsicht mit PlantUML</a></li>
-<li><a href="#_bausteinsicht_mit_structurizr">Bausteinsicht mit Structurizr</a></li>
+<li><a href="#_bausteinsicht_mit_draw_io">8.1. Bausteinsicht mit draw.io</a></li>
+<li><a href="#_bausteinsicht_mit_plantuml">8.2. Bausteinsicht mit PlantUML</a></li>
+<li><a href="#_bausteinsicht_mit_structurizr">8.3. Bausteinsicht mit Structurizr</a></li>
 </ul>
 </li>
 </ul>
@@ -465,7 +466,7 @@ details > div.content {
 }
 </style>
 <div class="sect1">
-<h2 id="_vorbereitung">Vorbereitung</h2>
+<h2 id="_vorbereitung">1. Vorbereitung</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Installiere docToolchain und Lade das aktuelle arc42 Template.</p>
@@ -500,7 +501,7 @@ chmod +x dtcw
 </div>
 </div>
 <div class="sect1">
-<h2 id="_qualitätsziele">Qualitätsziele</h2>
+<h2 id="_qualitätsziele">2. Qualitätsziele</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Erstelle einen Qualitätsbaum und baue ihn in Kapitel 10 ein.</p>
@@ -601,7 +602,7 @@ achte darauf den Namen <code>sec-quality-tree</code> für jedes Diagramm zu übe
 </div>
 </div>
 <div class="sect1">
-<h2 id="_systemkontext">Systemkontext</h2>
+<h2 id="_systemkontext">3. Systemkontext</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Nutze <a href="https://draw.io">draw.io</a> um einen Systemkontext zu zeichnen.
@@ -645,7 +646,7 @@ Diese öffnet sich selbst sofort im draw.io-Plugin.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_adrs_pugh_matrix">ADRs: Pugh-Matrix</h2>
+<h2 id="_adrs_pugh_matrix">4. ADRs: Pugh-Matrix</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Erstelle eine Pugh-Matrix in Excel als graphische Übersicht der bewerteten Qualitätskriterien verschiedener Optionen einer Entscheidung.</p>
@@ -691,7 +692,7 @@ Du findest die Files unter <code>src/docs/excel/[name des Excel-Files]/[Name des
 </div>
 </div>
 <div class="sect1">
-<h2 id="_skizzieren_mit_ms_powerpoint">Skizzieren mit MS PowerPoint</h2>
+<h2 id="_skizzieren_mit_ms_powerpoint">5. Skizzieren mit MS PowerPoint</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Als Architekt bist Du es wahrscheinlich gewöhnt Deine Architektur mit PowerPoint zu skizzieren und präsentieren.</p>
@@ -707,6 +708,19 @@ Du findest die Files unter <code>src/docs/excel/[name des Excel-Files]/[Name des
 </td>
 <td class="content">
 Verwende <code>{slide}</code> in den Speakernotes um den Dateinamen der exportierten Folie zu erhalten.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+der hierfür notwendige Task funktioniert momentan nur unter Windows, da er PowerPoint per VisualBasic-Script fernstuert.
+Unter anderen Betriebssystemen können entsprechende Sichten z.B. mit draw.io (nächster Abschnitt) erstellt werden.
 </td>
 </tr>
 </table>
@@ -745,7 +759,7 @@ PowerPoint kann mit einem Stift auch sehr gut als digitales Whiteboard eingesetz
 </div>
 </div>
 <div class="sect1">
-<h2 id="_skizzieren_mit_draw_io">Skizzieren mit draw.io</h2>
+<h2 id="_skizzieren_mit_draw_io">6. Skizzieren mit draw.io</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Auch draw.io eigent sich hervorragend für Skizzen.</p>
@@ -769,13 +783,50 @@ Dadurch kann solch ein annotierter Screenshot jederzeit erneut geöffnet und ver
 </div>
 </div>
 <div class="sect1">
-<h2 id="_bausteinsicht">Bausteinsicht</h2>
+<h2 id="_laufzeitsicht">7. Laufzeitsicht</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Erstelle mit PlantUML eine Laufzeitsicht in Form eines Sequenzdiagramms, die das Zusammenspiel der Systeme darstellt.
+Referenziere das Ergebnis aus Kapitel 6.</p>
+</div>
+<details>
+<summary class="title">Lösung</summary>
+<div class="content">
+<div class="paragraph">
+<p>Sequenzdiagramme sind für PlantUML ein Kinderspiel, da das Layout direkt von der Diagrammdefinition vorgegeben ist.</p>
+</div>
+<div class="paragraph">
+<p>Ist nichts vorgegeben, so ist ein PlantUML Diagramm automatisch ein Sequenzdiagramm.
+Somit müssen eigentlich nur noch die Verbindungen definiert werden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-asciidoc" data-lang="asciidoc">[plantuml, sequenz-demo]
+....
+User -&gt;  Browser
+  Browser -&gt;  Server
+    Server -&gt;  Database
+    Server &lt;-- Database
+  Browser &lt;-- Server
+User &lt;-- Browser
+....</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>siehe auch <a href="https://plantuml.com/de/sequence-diagram">Plantuml: Sequenzdiagramm</a></p>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bausteinsicht">8. Bausteinsicht</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Die Bausteinsicht ist durch ihre Hirarchie etwas herausfordernd. Hier gibt es mehrere Ansätze.</p>
 </div>
 <div class="sect2">
-<h3 id="_bausteinsicht_mit_draw_io">Bausteinsicht mit draw.io</h3>
+<h3 id="_bausteinsicht_mit_draw_io">8.1. Bausteinsicht mit draw.io</h3>
 <div class="paragraph">
 <p>Öffne den Systemkontext in draw.io und füge den Elementen in draw.io Links auf Unterseiten hinzu.</p>
 </div>
@@ -821,7 +872,7 @@ image::C4/systemkontext.dio.svg[opts=inline]
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Dieses Beispiel kann weitergeführt werden, indem die hirarchische Struktur der Bausteinsicht in den Dokumenten und im <code>images</code>-VErzeichnis nachgebaut und verlinkt wird
+Dieses Beispiel kann weitergeführt werden, indem die hirarchische Struktur der Bausteinsicht in den Dokumenten und im <code>images</code>-Verzeichnis nachgebaut und verlinkt wird
 </td>
 </tr>
 </table>
@@ -830,7 +881,7 @@ Dieses Beispiel kann weitergeführt werden, indem die hirarchische Struktur der 
 </details>
 </div>
 <div class="sect2">
-<h3 id="_bausteinsicht_mit_plantuml">Bausteinsicht mit PlantUML</h3>
+<h3 id="_bausteinsicht_mit_plantuml">8.2. Bausteinsicht mit PlantUML</h3>
 <div class="paragraph">
 <p>Auch PlantUML unterstützt Links in <code>.svg</code> Diagrammen.
 Hier besteht der Vorteil, dass kein <code>imagesdir</code> manipuliert werden muss.</p>
@@ -918,7 +969,7 @@ SHOW_LEGEND(true)
 </details>
 </div>
 <div class="sect2">
-<h3 id="_bausteinsicht_mit_structurizr">Bausteinsicht mit Structurizr</h3>
+<h3 id="_bausteinsicht_mit_structurizr">8.3. Bausteinsicht mit Structurizr</h3>
 <div class="paragraph">
 <p>Du kannst auch Structurizr von Simon Brown zum Erstellen von C4 Diagrammen verwenden.</p>
 </div>
@@ -931,7 +982,7 @@ SHOW_LEGEND(true)
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-03-10 20:09:09 UTC
+Last updated 2024-03-10 22:20:51 UTC
 </div>
 </div>
 </body>
