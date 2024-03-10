@@ -36,7 +36,7 @@ skinparam person<<User>> {
 }
 
 person "==User\n<size:10>[Person]</size>\n\nA user of my software system." <<User>> as User
-rectangle "==[[01_BigSpender/01_container.html Software System]]\n<size:10>[Software System]</size>\n\nMy software system." <<SoftwareSystem>> as SoftwareSystem
+rectangle "==Software System\n<size:10>[Software System]</size>\n\nMy software system." <<SoftwareSystem>> as SoftwareSystem [[01_BigSpender/01_container.html]]
 
 User .[#707070,thickness=2].> SoftwareSystem : "<color:#707070>Uses"
 @enduml
