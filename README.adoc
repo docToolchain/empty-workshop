@@ -58,7 +58,7 @@ Gitpod will now ask you what to do with the opened port. Just click on "open in 
 
 run structurizr lite as docker container
 
-    docker run -it --rm -p 8080:8080 -v $(pwd)/workspaces:/usr/local/structurizr structurizr/lite
+    docker run -it --rm -p 8080:8080 -v $(pwd)/workspace:/usr/local/structurizr structurizr/lite
 
 get the CLI to export images (the CLI is also available as docker image)
 

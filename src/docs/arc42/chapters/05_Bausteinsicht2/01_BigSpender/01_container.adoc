@@ -1,0 +1,9 @@
+== Big Spender Container View
+
+
+:currentImagesDir: {imagesDir}
+:imagesdir: ../../../../images/
+image::level0/BigSpender/container.dio.svg[opts=inline]
+:imagesDir: {currentImagesDir}
+
+xref:../01_Level0.adoc#context[zurück zum Kontext]

@@ -1,0 +1,39 @@
+:jbake-status: draft
+:jbake-order: -1
+:jbake-type: page_toc
+:jbake-menu: arc42
+:jbake-title: config.adoc
+
+ifndef::dtc-magic-toc[]
+:dtc-magic-toc:
+:toc-title: Inhaltsverzeichnis
+:toc:
+
+
+:toc: left
+
+++++
+<!-- endtoc -->
+++++
+endif::[]
+// asciidoc settings for DE (German)
+// ==================================
+// toc-title definition MUST follow document title without blank line!
+:toc-title: Inhaltsverzeichnis
+
+// enable table-of-contents
+:toc:
+
+:caution-caption: Achtung
+:important-caption: Wichtig
+:note-caption: Hinweis
+:tip-caption: Tip
+:warning-caption: Warnung
+
+:appendix-caption: Anhang
+:example-caption: Beispiel
+:figure-caption: Abbildung
+:table-caption: Tabelle
+
+// where are images located?
+:imagesdir: ../images

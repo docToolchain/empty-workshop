@@ -1,0 +1,81 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="241px" height="421px" viewBox="-0.5 -0.5 241 421" content="&lt;mxfile&gt;&lt;diagram id=&quot;eYNnG_JMBVeueyBpMV41&quot; name=&quot;Page-1&quot;&gt;7VdLj9MwEP41PW6Vd3ePNN2FCwipSMAJuYmbmHXi4Ljbll/P2JkkdpOtWOCAEK3aZr552DOZ+eIuwrQ6vZakKd+KnPJF4OWnRbhZBEEc+/CtgXMH+HHkdUghWY7YCGzZd4pgb3ZgOW0dQyUEV6xxwUzUNc2UgxEpxdE12wvurtqQgk6AbUb4FP3IclV26G2wGvE3lBVlv7Kf3HWaivTGmElbklwcLSi8X4SpFEJ1V9UppVwXr69L5/fwjHbYmKS1+hmHGLehzn1uNIdUUaxFDT/rUlUcJB8uIaw8fwLBW8a9+FmLvbA5OdLZlt5TySqqqESwVVI8DhXU8brd6C08mw9CrTjIDK1CbAEiC4pW0VBLaEIqYFV5BhNJOVHsyY1OsBuKwW4sGFxgzYwodl91P8GOOMloCX1D5UXLRe9IhfEh64P6Dumi5sO5QQ1UohV1j29om0nWKAaQUXcKTnaU90DCIbP1XtTKuV3Jt4PoFTetGZRXYOAnzWlUwlWBvybKbgRi3K9uhE4JGe8uHQDrVnbhnD0NUNwFMylCsHhj+dp2/RbktWAvzda/li1GyQQX0omyCMLMvOZ8Y/e2OPWZq8VlmoE1ZKHVjDh/1sBZ06UDI9v5Ws5JW9Icp+VYMkW3DTFdfwRi1Q6M83RILEzSJFqthsmyNNFGv3EJC9+bl/YoiWnO6lRozl5m0bIxTQo7XxPOCt2aGUyhnt41zAm5z5nCfTeC1crMQaw7QXNDkHrmoxshBczXEuIutnJBBPwLcA4LZsDZkO7asa6DpNA/ZGdugjfcsScqFT1d554pq/QOt0jq+Fi7uUP5OD4jAg+x0n4+9I4vYCIQkYx+hZhYAci2oXU+x05bsVdHSFvbnFtFq2eJyhkRT+wNMQ/OrXFe/mezf4LNOKsf8Ujhf4EOGtrnAWQ4aSnCaiqXhs4c+ouu0p8UBwiTI5PMkZxFkKaJ1iR7LIxbT2R4TrlgQ99L/LV3hfMmtEZk1tPveD6xPL1N7N35U/67JJMJHwZTQpwjyYG5piwZzFHnX0GnFha4HPsnODVxOXX4C2BzajTHqcFvcyqI40HcmFp/Z8L7Hw==&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <path d="M 120 180 L 120 286.16" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 120 294.41 L 114.5 283.41 L 120 286.16 L 125.5 283.41 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-miterlimit="10" pointer-events="all"/>
+        <ellipse cx="120" cy="40.5" rx="40.5" ry="40.5" fill="#6c6477" stroke="#4d4d4d" pointer-events="all"/>
+        <path d="M 20 105.3 C 20 82.93 38.13 64.8 60.5 64.8 L 179.5 64.8 C 201.87 64.8 220 82.93 220 105.3 L 220 139.5 C 220 161.87 201.87 180 179.5 180 L 60.5 180 C 38.13 180 20 161.87 20 139.5 Z" fill="#6c6477" stroke="#4d4d4d" stroke-miterlimit="10" pointer-events="all"/>
+        <ellipse cx="120" cy="40.5" rx="40.5" ry="40.5" fill="#6c6477" stroke="#4d4d4d" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 198px; height: 1px; padding-top: 123px; margin-left: 21px;">
+                        <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 11px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                <font style="font-size: 16px">
+                                    <b>
+                                        Benutzer
+                                    </b>
+                                </font>
+                                <div>
+                                    [Person]
+                                </div>
+                                <br/>
+                                <div>
+                                    <font style="font-size: 11px">
+                                        <font color="#cccccc"></font>
+                                    </font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="120" y="126" fill="#ffffff" font-family="Helvetica" font-size="11px" text-anchor="middle">
+                    Benutzer...
+                </text>
+            </switch>
+        </g>
+        <a xlink:href="01_BigSpender/01_container.html">
+            <rect x="0" y="300" width="240" height="120" rx="12" ry="12" fill="#1061b0" stroke="#0d5091" pointer-events="all"/>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 238px; height: 1px; padding-top: 360px; margin-left: 1px;">
+                            <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                                <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                    <font style="font-size: 16px">
+                                        <b>
+                                            Big Spender
+                                        </b>
+                                    </font>
+                                    <div>
+                                        [Software System]
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        <font style="font-size: 11px">
+                                            <font color="#cccccc">
+                                                Description of software system.
+                                            </font>
+                                        </font>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="120" y="364" fill="#ffffff" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                        Big Spender...
+                    </text>
+                </switch>
+            </g>
+        </a>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Text is not SVG - cannot display
+            </text>
+        </a>
+    </switch>
+</svg>

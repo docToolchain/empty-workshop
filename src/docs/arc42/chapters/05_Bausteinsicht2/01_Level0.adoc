@@ -1,0 +1,67 @@
+:diagram-server-url: https://kroki.io
+:diagram-server-type: kroki_io
+
+[[context]]
+== Big Spender System Context
+
+[plantuml,demo1,svg,opts="inline",svg-type="inline"]
+----
+@startuml
+set separator none
+title Software System - System Context
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<SoftwareSystem>> {
+  BackgroundColor #1168bd
+  FontColor #ffffff
+  BorderColor #0b4884
+  shadowing false
+  HyperlinkColor #ffffff
+}
+skinparam person<<User>> {
+  BackgroundColor #08427b
+  FontColor #ffffff
+  BorderColor #052e56
+  shadowing false
+}
+
+person "==User\n<size:10>[Person]</size>\n\nA user of my software system." <<User>> as User
+rectangle "==[[01_BigSpender/01_container.html Software System]]\n<size:10>[Software System]</size>\n\nMy software system." <<SoftwareSystem>> as SoftwareSystem
+
+User .[#707070,thickness=2].> SoftwareSystem : "<color:#707070>Uses"
+@enduml
+----
+
+[plantuml,demo2,svg,opts="inline",svg-type="inline"]
+----
+@startuml
+set separator none
+title Software System - System Context
+
+skinparam {
+      HyperlinkColor #ffffff
+}
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+
+Person(User, "User", $descr="A user of my software system.", $tags="", $link="")
+System(SoftwareSystem, "Software System", $descr="My software system.", $tags="", $link="01_BigSpender/01_container.html")
+
+Rel(User, SoftwareSystem, "Uses", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml
+----

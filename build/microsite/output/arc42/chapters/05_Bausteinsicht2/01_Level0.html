@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="de">
+<head>
+    
+    <!-- sourceuri: arc42/chapters/05_Bausteinsicht2/01_Level0.html -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="jbake" name="generator">
+    <meta content="INDEX, FOLLOW" name="ROBOTS">
+
+    <title>Big Spender System Context</title>
+    <meta content="docToolchain" property="og:title">
+    <meta content="build your dev docs the easy way..." property="og:description">
+    <meta content="website" property="og:type">
+    <meta content="docToolchain" property="og:site_name">
+    <meta content="docToolchain" itemprop="name">
+    <meta content="build your dev docs the easy way..." itemprop="description">
+    <meta content="summary" name="twitter:card">
+    <meta content="docToolchain" name="twitter:title">
+    <meta content="build your dev docs the easy way..." name="twitter:description">
+
+    <link as="style"
+        href="../../../css/main.min.881fe5f7b53609f55ebfb496c7097c3b30b2e8ceb20a54bc6a48350ded67224f.css"
+        rel="preload">
+    <link href="../../../css/main.min.881fe5f7b53609f55ebfb496c7097c3b30b2e8ceb20a54bc6a48350ded67224f.css"
+        integrity=""
+        rel="stylesheet">
+    <link href="../../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../../css/prettify.css" rel="stylesheet">
+
+    <!-- favicon generated with https://www.favicon-generator.org/ -->
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="../../../apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../../apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../../apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../../apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../../apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../../apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../../apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../../apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../../favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../../../ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="../../../js/jquery-3.5.1.min.js"></script>
+    <style>
+    div.bg-light {
+        background-color: rgba(127, 180, 224, 0.3) !important;
+    }
+
+    /* for blog posts */
+    span.blogtag {
+        border-radius: 10px;
+        background-color: #30638E;
+        color: white;
+        padding: 5px 10px;
+    }
+
+    span.blogblogtag a {
+        color: white;
+        padding: 0
+    }
+
+    span.blogtag span {
+        margin-left: 10px;
+        border-radius: 10px;
+        background-color: white;
+        color: #30638E;
+    }
+
+    div.td-toc {
+        height: calc(100vh - 5rem) !important;
+    }
+
+    div#toctitle {
+        display: none
+    }
+
+    #td-section-nav {
+        max-height: calc(100vh - 4rem);
+        font-size: smaller;
+        line-height: 1.1;
+    }
+
+    .td-page-meta {
+        font-size: smaller;
+        line-height: 1.1;
+    }
+
+    #td-section-nav ul.td-sidebar-nav__section {
+        padding-left: 0;
+    }
+
+    span.navbar-logo {
+        padding-right: 1.5em;
+    }
+
+    .match {
+        font-size: smaller;
+    }
+
+    .admonitionblock td.icon .fa:before {
+        font-size: xxx-large;
+    }
+    </style>
+
+    <style>
+    div.openblock.primary div.content, div.openblock.secondary div.content {
+        border: 1px solid #7a2518;
+        padding: 5px;
+    }
+
+    div.openblock.primary div.content div.content, div.openblock.secondary div.content div.content {
+        border: 0 solid #7a2518;
+        padding: 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .switch {
+        border-width: 1px 1px 0 1px;
+        border-style: solid;
+        border-color: #7a2518;
+        display: inline-block;
+    }
+
+    .switch--item {
+        padding: 2px 10px;
+        background-color: #ffffff;
+        color: #7a2518;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .switch--item:not(:first-child) {
+        border-width: 0 0 0 1px;
+        border-style: solid;
+        border-color: #7a2518;
+    }
+
+    .switch--item.selected {
+        background-color: #7a2519;
+        color: #ffffff;
+    }
+    </style>
+
+    <!-- copy-n-paste.js -->
+    <style>
+        div.listingblock {
+            position: relative;
+        }
+        div.listingblock > span.icon {
+            position: absolute;
+            top: 2px;
+            right: 6px;
+            visibility: hidden;
+            z-index: 2;
+            cursor: pointer;
+        }
+        div.listingblock:hover > span.icon {
+            visibility: visible;
+        }
+        div.listingblock div.content pre {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body onload="prettyPrint()" class="td-section">
+<header>
+	
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+    <a class="navbar-brand" href="../../../index.html">
+        <span class="navbar-logo"><img src="../../../images/doctoolchain-logo-blue.png" width="32px" /></span><span
+            class="font-weight-bold">docToolchain</span>
+    </a>
+    <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+        <ul class="navbar-nav mt-2 mt-lg-0">
+    <li class="nav-item mr-4 mb-2 mb-lg-0"><!--img src="../../../images/status.png" alt="status" width="16" height="16" onerror="this.style.display='none'"--></li>
+
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link active" href="../../../arc42/chapters/01_introduction_and_goals.html"><span>arc42</span></a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="navbar-nav d-none d-lg-block" >
+        <form action="../../../search.html">
+        <input aria-label="Search this site…" autocomplete="off" class="form-control td-search-input"
+               placeholder=" Search this site…" type="search" name="q">
+        </form>
+    </div>
+</nav>
+
+</header>
+<div class="container-fluid td-outer">
+	<div class="td-main">
+		<div class="row flex-xl-nowrap">
+			<div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+				<div class="td-sidebar__inner" id="td-sidebar-menu" >
+					
+        <form class="td-sidebar__search d-flex align-items-center d-lg-none" action="../../../search.html">
+
+            <input aria-label="Search this site…" name="q" autocomplete="off" class="form-control td-search-input"
+                   placeholder=" Search this site…" type="search">
+
+
+            <button aria-controls="td-docs-nav" aria-expanded="false"
+                    aria-label="Toggle section navigation" class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" data-target="#td-section-nav"
+                    data-toggle="collapse" type="button">
+            </button>
+        </form>
+
+        <nav class="collapse td-sidebar-nav" id="td-section-nav" >
+
+            <ul class="td-sidebar-nav__section pr-md-3">
+                <li class="td-sidebar-nav__section-title">
+                    <span class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">arc42</span>
+                </li>
+                <ul>
+                    <li class="collapse show" id="docs">
+                        
+                        <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/01_introduction_and_goals.html">Einführung und Ziele</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/02_architecture_constraints.html">Randbedingungen</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/03_system_scope_and_context.html">Kontextabgrenzung</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/04_solution_strategy.html">Lösungsstrategie</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child">
+                                Bausteinsicht
+                        <ul class="ul-1">
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/05_Bausteinsicht/01_Level0.html">Big Spender System Context</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child">
+                                BigSpender
+                        <ul class="ul-2">
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/05_Bausteinsicht/01_BigSpender/01_container.html">Big Spender Container View</a>
+                            </li>
+                        </ul>
+                            </li>
+                        </ul>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/05_building_block_view.html">Bausteinsicht</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child">
+                                Bausteinsicht2
+                        <ul class="ul-1">
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section active"
+                                   href="../../../arc42/chapters/05_Bausteinsicht2/01_Level0.html">Big Spender System Context</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child">
+                                BigSpender
+                        <ul class="ul-2">
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/05_Bausteinsicht2/01_BigSpender/01_container.html">Big Spender Container View</a>
+                            </li>
+                        </ul>
+                            </li>
+                        </ul>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/06_runtime_view.html">Laufzeitsicht</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/07_deployment_view.html">Verteilungssicht</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/08_concepts.html">Querschnittliche Konzepte</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/09_architecture_decisions.html">Architekturentscheidungen</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/10_quality_requirements.html">Qualitätsanforderungen</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/11_technical_risks.html">Risiken und technische Schulden</a>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../../arc42/chapters/12_glossary.html">Glossar</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+        </nav>
+
+				</div>
+			</div>
+			<div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+				<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+					
+
+        <a href="##git-repo-url##/arc42/chapters/05_Bausteinsicht2/01_Level0.adoc"
+           target="_blank"><i class="fa fa-edit fa-fw"></i> Improve this doc</a>
+
+
+        <a href="##issue-url##?title=Docs%3A+Feedback+for+%27Big+Spender+System+Context%27&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:%20##git-repo-url##/arc42/chapters/05_Bausteinsicht2/01_Level0.adoc%0A%23branch:%20diagrams-as-code" target="_blank"><i
+                class="fab fa-github fa-fw"></i> Create an issue</a>
+
+        
+        <hr />
+
+        <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#context">Big Spender System Context</a></li>
+</ul>
+</div>
+
+
+
+				</div>
+			</div>
+			<main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+				    <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+        <ol class="breadcrumb spb-1">
+            <!--li aria-current="page" class="breadcrumb-item active">
+                <a href="https://example.docsy.dev/docs/">Documentation</a>
+            </li-->
+
+        </ol>
+    </nav>
+
+
+    <div class="td-content">
+        <p>
+            
+<div class="sect1">
+<h2 id="context">Big Spender System Context</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<svg contentStyleType='text/css' preserveAspectRatio='none' version='1.1' viewBox='0 0 304 358' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' zoomAndPan='magnify' width="304" height="358"><defs/><g><text fill='#000000' font-family='sans-serif' font-size='14' font-weight='bold' lengthAdjust='spacing' textLength='276' x='10' y='22.9951'>Software System - System Context</text><g id='elem_User'><ellipse cx='155.5' cy='70.4009' fill='#08427B' rx='27.104' ry='27.104' style='stroke:#052E56;stroke-width:0.5;'/><rect fill='#08427B' height='99.1563' rx='27.104' ry='27.104' style='stroke:#052E56;stroke-width:0.5;' width='168' x='71.5' y='97.5049'/><text fill='#FFFFFF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' textLength='41' x='135' y='122.3565'>User</text><text fill='#FFFFFF' font-family='sans-serif' font-size='10' lengthAdjust='spacing' textLength='42' x='134.5' y='135.4122'>[Person]</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='153.5' y='150.7657'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='9' x='81.5' y='167.0626'>A</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='90.5' y='167.0626'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='31' x='94.5' y='167.0626'>user</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='125.5' y='167.0626'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='13' x='129.5' y='167.0626'>of</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='142.5' y='167.0626'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='20' x='146.5' y='167.0626'>my</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='166.5' y='167.0626'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='59' x='170.5' y='167.0626'>software</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='54' x='128.5' y='183.3594'>system.</text></g><g id='elem_SoftwareSystem'><rect fill='#1168BD' height='82.8594' rx='2.5' ry='2.5' style='stroke:#0B4884;stroke-width:0.5;' width='173' x='69' y='269.6569'/><a xlink:actuate='onRequest' href='01_BigSpender/01_container.html' xlink:href='01_BigSpender/01_container.html' xlink:show='new' target='_top' title='01_BigSpender/01_container.html' xlink:title='01_BigSpender/01_container.html' xlink:type='simple'><text fill='#0000FF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' text-decoration='underline' textLength='81' x='79' y='294.5084'>Software</text></a><a xlink:actuate='onRequest' href='01_BigSpender/01_container.html' xlink:href='01_BigSpender/01_container.html' xlink:show='new' target='_top' title='01_BigSpender/01_container.html' xlink:title='01_BigSpender/01_container.html' xlink:type='simple'><text fill='#0000FF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' text-decoration='underline' textLength='6' x='160' y='294.5084'>&#160;</text></a><a xlink:actuate='onRequest' href='01_BigSpender/01_container.html' xlink:href='01_BigSpender/01_container.html' xlink:show='new' target='_top' title='01_BigSpender/01_container.html' xlink:title='01_BigSpender/01_container.html' xlink:type='simple'><text fill='#0000FF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' text-decoration='underline' textLength='66' x='166' y='294.5084'>System</text></a><text fill='#FFFFFF' font-family='sans-serif' font-size='10' lengthAdjust='spacing' textLength='49' x='108.5' y='307.5641'>[Software</text><text fill='#FFFFFF' font-family='sans-serif' font-size='10' lengthAdjust='spacing' textLength='3' x='157.5' y='307.5641'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='10' lengthAdjust='spacing' textLength='42' x='160.5' y='307.5641'>System]</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='153.5' y='322.9176'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='19' x='85.5' y='339.2145'>My</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='104.5' y='339.2145'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='59' x='108.5' y='339.2145'>software</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='167.5' y='339.2145'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='54' x='171.5' y='339.2145'>system.</text></g><g id='link_User_SoftwareSystem'><path d='M155.5,197.0769 C155.5,221.8169 155.5,242.2969 155.5,263.4069 ' fill='none' id='User-to-SoftwareSystem' style='stroke:#707070;stroke-width:2.0;stroke-dasharray:7.0,7.0;'/><polygon fill='#707070' points='155.5,269.4069,159.5,260.4069,155.5,264.4069,151.5,260.4069,155.5,269.4069' style='stroke:#707070;stroke-width:2.0;'/><text fill='#707070' font-family='sans-serif' font-size='10' lengthAdjust='spacing' textLength='24' x='156.5' y='236.9391'>Uses</text></g></g></svg>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<svg contentStyleType='text/css' preserveAspectRatio='none' version='1.1' viewBox='0 0 304 425' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' zoomAndPan='magnify' width="304" height="425"><defs/><g><text fill='#000000' font-family='sans-serif' font-size='14' font-weight='bold' lengthAdjust='spacing' textLength='276' x='10' y='22.9951'>Software System - System Context</text><g id='elem_User'><rect fill='#08427B' height='135.5156' rx='2.5' ry='2.5' style='stroke:#073B6F;stroke-width:0.5;' width='172' x='69.5' y='44.2969'/><image height='48' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII=' width='48' x='131.5' y='54.2969'/><text fill='#FFFFFF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' textLength='41' x='135' y='117.1484'>User</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='153.5' y='133.917'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='79.5' y='150.2139'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='9' x='83.5' y='150.2139'>A</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='92.5' y='150.2139'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='31' x='96.5' y='150.2139'>user</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='127.5' y='150.2139'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='13' x='131.5' y='150.2139'>of</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='144.5' y='150.2139'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='20' x='148.5' y='150.2139'>my</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='168.5' y='150.2139'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='59' x='172.5' y='150.2139'>software</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='54' x='128.5' y='166.5107'>system.</text></g><g id='elem_SoftwareSystem'><rect fill='#1168BD' height='71.2188' rx='2.5' ry='2.5' style='stroke:#3C7FC0;stroke-width:0.5;' width='173' x='69' y='254.8069'/><a xlink:actuate='onRequest' href='01_BigSpender/01_container.html' xlink:href='01_BigSpender/01_container.html' xlink:show='new' target='_top' title='01_BigSpender/01_container.html' xlink:title='01_BigSpender/01_container.html' xlink:type='simple'><text fill='#FFFFFF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' text-decoration='underline' textLength='81' x='79' y='279.6584'>Software</text></a><a xlink:actuate='onRequest' href='01_BigSpender/01_container.html' xlink:href='01_BigSpender/01_container.html' xlink:show='new' target='_top' title='01_BigSpender/01_container.html' xlink:title='01_BigSpender/01_container.html' xlink:type='simple'><text fill='#FFFFFF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' text-decoration='underline' textLength='6' x='160' y='279.6584'>&#160;</text></a><a xlink:actuate='onRequest' href='01_BigSpender/01_container.html' xlink:href='01_BigSpender/01_container.html' xlink:show='new' target='_top' title='01_BigSpender/01_container.html' xlink:title='01_BigSpender/01_container.html' xlink:type='simple'><text fill='#FFFFFF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' text-decoration='underline' textLength='66' x='166' y='279.6584'>System</text></a><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='153.5' y='296.427'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='83.5' y='312.7239'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='19' x='87.5' y='312.7239'>My</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='106.5' y='312.7239'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='59' x='110.5' y='312.7239'>software</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='169.5' y='312.7239'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='54' x='173.5' y='312.7239'>system.</text></g><g id='link_User_SoftwareSystem'><path d='M155.5,180.2269 C155.5,205.5369 155.5,225.2969 155.5,246.4969 ' fill='none' id='User-to-SoftwareSystem' style='stroke:#666666;stroke-width:1.0;'/><polygon fill='#666666' points='155.5,254.4969,158.5,246.4969,152.5,246.4969,155.5,254.4969' style='stroke:#666666;stroke-width:1.0;'/><text fill='#666666' font-family='sans-serif' font-size='12' font-weight='bold' lengthAdjust='spacing' textLength='35' x='156.5' y='221.9455'>Uses</text></g><rect fill='none' height='16.2969' style='stroke:none;stroke-width:1.0;' width='93' x='124' y='350.0256'/><text fill='#000000' font-family='sans-serif' font-size='14' font-weight='bold' lengthAdjust='spacing' textLength='59' x='124' y='363.0207'>Legend</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='183' y='363.0207'>&#160;</text><rect fill='#08427B' height='16.2969' style='stroke:none;stroke-width:1.0;' width='93' x='124' y='366.3225'/><text fill='#073B6F' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='8' x='128' y='379.3176'>&#9647;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='136' y='379.3176'>&#160;</text><image height='12' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAApklEQVR4XmPgcKpmQMfRjcsb/CoWNqCLgzCGwH80gC6Pwjl17RG6+v9T1h47gFPD95+/0dX/33v2DootKBriW1Y2oGvQjesPxKkBhDuW7D8AUxzfunIiujwKRzWyO8ksdXIxjG+XPaNBNqgNuw3IzkAHIL+haNh67MZndEXooGXh3kVwDeiS2MCtx6/BtoA1/P7zF10eA5y69hihAYQNkyY24MMwdQBvKDvWFDAX9QAAAABJRU5ErkJggg==' width='12' x='140' y='370.6194'/><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='49' x='160' y='379.3176'>person</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='213' y='379.3176'>&#160;</text><rect fill='#1168BD' height='16.2969' style='stroke:none;stroke-width:1.0;' width='93' x='124' y='382.6194'/><text fill='#3C7FC0' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='8' x='128' y='395.6145'>&#9647;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='136' y='395.6145'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='50' x='144' y='395.6145'>system</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='198' y='395.6145'>&#160;</text><line style='stroke:none;stroke-width:1.0;' x1='124' x2='217' y1='350.0256' y2='350.0256'/><line style='stroke:none;stroke-width:1.0;' x1='124' x2='217' y1='366.3225' y2='366.3225'/><line style='stroke:none;stroke-width:1.0;' x1='124' x2='217' y1='382.6194' y2='382.6194'/><line style='stroke:none;stroke-width:1.0;' x1='124' x2='217' y1='398.9163' y2='398.9163'/><line style='stroke:none;stroke-width:1.0;' x1='124' x2='124' y1='350.0256' y2='398.9163'/><line style='stroke:none;stroke-width:1.0;' x1='217' x2='217' y1='350.0256' y2='398.9163'/></g></svg>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<svg contentStyleType='text/css' preserveAspectRatio='none' version='1.1' viewBox='0 0 186 344' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' zoomAndPan='magnify' width="186" height="344"><defs/><g><text fill='#000000' font-family='sans-serif' font-size='14' font-weight='bold' lengthAdjust='spacing' textLength='148' x='12' y='22.9951'>System Landscape</text><g id='elem_Kunde'><rect fill='#08427B' height='86.625' rx='2.5' ry='2.5' style='stroke:#073B6F;stroke-width:0.5;' width='75' x='56' y='44.2969'/><image height='48' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII=' width='48' x='69.5' y='54.2969'/><text fill='#FFFFFF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' textLength='55' x='66' y='117.1484'>Kunde</text></g><g id='elem_SoftwareSystem'><a xlink:actuate='onRequest' href='01_BigSpender/01_container.html' xlink:href='01_BigSpender/01_container.html' xlink:show='new' target='_top' title='01_BigSpender/01_container.html' xlink:title='01_BigSpender/01_container.html' xlink:type='simple'><rect fill='#1168BD' height='38.625' rx='2.5' ry='2.5' style='stroke:#3C7FC0;stroke-width:0.5;' width='173' x='7' y='205.9269'/><text fill='#FFFFFF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' textLength='81' x='17' y='230.7784'>Software</text><text fill='#FFFFFF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' textLength='6' x='98' y='230.7784'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='16' font-weight='bold' lengthAdjust='spacing' textLength='66' x='104' y='230.7784'>System</text></a></g><g id='link_Kunde_SoftwareSystem'><path d='M93.5,131.1469 C93.5,156.1669 93.5,178.5369 93.5,197.6269 ' fill='none' id='Kunde-to-SoftwareSystem' style='stroke:#666666;stroke-width:1.0;'/><polygon fill='#666666' points='93.5,205.6269,96.5,197.6269,90.5,197.6269,93.5,205.6269' style='stroke:#666666;stroke-width:1.0;'/><text fill='#666666' font-family='sans-serif' font-size='12' font-weight='bold' lengthAdjust='spacing' textLength='35' x='94.5' y='173.0655'>Uses</text></g><rect fill='none' height='16.2969' style='stroke:none;stroke-width:1.0;' width='93' x='62' y='268.5519'/><text fill='#000000' font-family='sans-serif' font-size='14' font-weight='bold' lengthAdjust='spacing' textLength='59' x='62' y='281.547'>Legend</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='121' y='281.547'>&#160;</text><rect fill='#08427B' height='16.2969' style='stroke:none;stroke-width:1.0;' width='93' x='62' y='284.8488'/><text fill='#073B6F' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='8' x='66' y='297.8439'>&#9647;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='74' y='297.8439'>&#160;</text><image height='12' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAApklEQVR4XmPgcKpmQMfRjcsb/CoWNqCLgzCGwH80gC6Pwjl17RG6+v9T1h47gFPD95+/0dX/33v2DootKBriW1Y2oGvQjesPxKkBhDuW7D8AUxzfunIiujwKRzWyO8ksdXIxjG+XPaNBNqgNuw3IzkAHIL+haNh67MZndEXooGXh3kVwDeiS2MCtx6/BtoA1/P7zF10eA5y69hihAYQNkyY24MMwdQBvKDvWFDAX9QAAAABJRU5ErkJggg==' width='12' x='78' y='289.1456'/><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='49' x='98' y='297.8439'>person</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='151' y='297.8439'>&#160;</text><rect fill='#1168BD' height='16.2969' style='stroke:none;stroke-width:1.0;' width='93' x='62' y='301.1456'/><text fill='#3C7FC0' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='8' x='66' y='314.1407'>&#9647;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='74' y='314.1407'>&#160;</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='50' x='82' y='314.1407'>system</text><text fill='#FFFFFF' font-family='sans-serif' font-size='14' lengthAdjust='spacing' textLength='4' x='136' y='314.1407'>&#160;</text><line style='stroke:none;stroke-width:1.0;' x1='62' x2='155' y1='268.5519' y2='268.5519'/><line style='stroke:none;stroke-width:1.0;' x1='62' x2='155' y1='284.8488' y2='284.8488'/><line style='stroke:none;stroke-width:1.0;' x1='62' x2='155' y1='301.1456' y2='301.1456'/><line style='stroke:none;stroke-width:1.0;' x1='62' x2='155' y1='317.4425' y2='317.4425'/><line style='stroke:none;stroke-width:1.0;' x1='62' x2='62' y1='268.5519' y2='317.4425'/><line style='stroke:none;stroke-width:1.0;' x1='155' x2='155' y1='268.5519' y2='317.4425'/></g></svg>
+</div>
+</div>
+</div>
+</div>
+        </p>
+
+        <style>
+.feedback--answer {
+    display: inline-block;
+}
+
+.feedback--answer-no {
+    margin-left: 1em;
+}
+
+.feedback--response {
+    display: none;
+    margin-top: 1em;
+}
+
+.feedback--response__visible {
+    display: block;
+}
+</style>
+
+<div class="d-print-none">
+    <h2 class="feedback--title">Feedback</h2>
+    <p class="feedback--question">Was this page helpful?</p>
+    <button class="feedback--answer feedback--answer-yes">Yes</button>
+    <button class="feedback--answer feedback--answer-no">No</button>
+    <p class="feedback--response feedback--response-yes">
+        Glad to hear it! Please <a href="##issue-url##?title=Docs%3A+Feedback+for+%27Big+Spender+System+Context%27%20%F0%9F%91%8D&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:arc42/chapters/05_Bausteinsicht2/01_Level0.adoc">tell us
+    how we can improve</a>.
+    </p>
+    <p class="feedback--response feedback--response-no">
+        Sorry to hear that. Please <a href="##issue-url##?title=Docs%3A+Feedback+for+%27Big+Spender+System+Context%27%20%F0%9F%91%8E&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:arc42/chapters/05_Bausteinsicht2/01_Level0.adoc">tell
+    us how we can improve</a>.
+    </p>
+</div>
+<script>
+    const yesButton = document.querySelector('.feedback--answer-yes');
+    const noButton = document.querySelector('.feedback--answer-no');
+    const yesResponse = document.querySelector('.feedback--response-yes');
+    const noResponse = document.querySelector('.feedback--response-no');
+    const disableButtons = () => {
+        yesButton.disabled = true;
+        noButton.disabled = true;
+    };
+    const sendFeedback = (value) => {
+        if (typeof ga !== 'function') return;
+        const args = {
+            command: 'send',
+            hitType: 'event',
+            category: 'Helpful',
+            action: 'click',
+            label: window.location.pathname,
+            value: value
+        };
+        ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+    };
+    yesButton.addEventListener('click', () => {
+        yesResponse.classList.add('feedback--response__visible');
+        disableButtons();
+        sendFeedback(1);
+    });
+    noButton.addEventListener('click', () => {
+        noResponse.classList.add('feedback--response__visible');
+        disableButtons();
+        sendFeedback(0);
+    });
+</script>
+
+
+        <br>
+
+        <!--div class="text-muted mt-5 pt-3 border-top">Last modified July 3, 2019: <a
+                href="https://github.com/google/docsy-example/commit/d6aa89c8b24089d7e6741030864eff209465e896">Added
+            links to user guide repo (d6aa89c)</a>
+        </div-->
+    </div>
+
+
+			</main>
+
+		</div>
+	</div>
+
+
+	
+    <!--footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">&copy; 2020 | based on <a href="https://arc42.org">arc42 7.0</a> | mixed with <a href="http://getbootstrap.com/">Bootstrap v5.0.0-beta</a> | Baked with <a href="http://jbake.org">JBake v2.6.7</a></span>
+        </div>
+    </footer-->
+
+    <footer class="bg-dark py-5 row d-print-none">
+        <div class="container-fluid mx-sm-5">
+            <div class="row">
+                <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+
+
+                    <ul class="list-inline mb-0">
+                        
+                        <li aria-label="User mailing list" class="list-inline-item mx-2 h3" data-original-title="User mailing list" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a class="text-white" href="mailto:##footer-email##" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </li>
+                        
+                        
+                        <li aria-label="Twitter" class="list-inline-item mx-2 h3" data-original-title="Twitter" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a class="text-white" href="##twitter-url##" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        
+                        
+                        <li aria-label="Stack Overflow" class="list-inline-item mx-2 h3" data-original-title="Stack Overflow" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a class="text-white" href="##Stackoverflow-url##" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fab fa-stack-overflow"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+
+                </div>
+                <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+
+
+                    <ul class="list-inline mb-0">
+
+                        
+                        <li aria-label="GitHub" class="list-inline-item mx-2 h3" data-original-title="GitHub" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a class="text-white" href="##Github-url##" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        
+
+                        
+                        <li aria-label="Slack" class="list-inline-item mx-2 h3" data-original-title="Slack" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a class="text-white" href="##Slack-url##" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fab fa-slack"></i>
+                            </a>
+                        </li>
+                        
+
+
+                    </ul>
+
+
+                </div>
+                <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+
+                        <small class="text-white">built with <a href="https://doctoolchain.org">docToolchain</a> and <a href="https://jbake.org">jBake</a> <br /> theme: <a href="https://www.docsy.dev/">docsy</a></small>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/popper.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+
+
+    <script src="../../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js"></script>
+    <script src="../../../js/blocks.js" ></script>
+    <script src="../../../js/prettify.js"></script>
+    <script src="../../../js/copy-n-paste.js"></script>
+
+
+</body>
+</html>

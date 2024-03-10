@@ -1,0 +1,7 @@
+:diagram-server-url: https://kroki.io
+:diagram-server-type: kroki_io
+
+[bpmn]
+----
+include::images/myProcess.bpmn[]
+----

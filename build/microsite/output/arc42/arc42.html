@@ -1,0 +1,1811 @@
+<!doctype html>
+<html lang="de">
+<head>
+    
+    <!-- sourceuri: arc42/arc42.html -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="jbake" name="generator">
+    <meta content="INDEX, FOLLOW" name="ROBOTS">
+
+    <title>image:arc42-logo.png[arc42] Template</title>
+    <meta content="docToolchain" property="og:title">
+    <meta content="build your dev docs the easy way..." property="og:description">
+    <meta content="website" property="og:type">
+    <meta content="docToolchain" property="og:site_name">
+    <meta content="docToolchain" itemprop="name">
+    <meta content="build your dev docs the easy way..." itemprop="description">
+    <meta content="summary" name="twitter:card">
+    <meta content="docToolchain" name="twitter:title">
+    <meta content="build your dev docs the easy way..." name="twitter:description">
+
+    <link as="style"
+        href="../css/main.min.881fe5f7b53609f55ebfb496c7097c3b30b2e8ceb20a54bc6a48350ded67224f.css"
+        rel="preload">
+    <link href="../css/main.min.881fe5f7b53609f55ebfb496c7097c3b30b2e8ceb20a54bc6a48350ded67224f.css"
+        integrity=""
+        rel="stylesheet">
+    <link href="../css/asciidoctor.css" rel="stylesheet">
+    <link href="../css/prettify.css" rel="stylesheet">
+
+    <!-- favicon generated with https://www.favicon-generator.org/ -->
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="../apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <style>
+    div.bg-light {
+        background-color: rgba(127, 180, 224, 0.3) !important;
+    }
+
+    /* for blog posts */
+    span.blogtag {
+        border-radius: 10px;
+        background-color: #30638E;
+        color: white;
+        padding: 5px 10px;
+    }
+
+    span.blogblogtag a {
+        color: white;
+        padding: 0
+    }
+
+    span.blogtag span {
+        margin-left: 10px;
+        border-radius: 10px;
+        background-color: white;
+        color: #30638E;
+    }
+
+    div.td-toc {
+        height: calc(100vh - 5rem) !important;
+    }
+
+    div#toctitle {
+        display: none
+    }
+
+    #td-section-nav {
+        max-height: calc(100vh - 4rem);
+        font-size: smaller;
+        line-height: 1.1;
+    }
+
+    .td-page-meta {
+        font-size: smaller;
+        line-height: 1.1;
+    }
+
+    #td-section-nav ul.td-sidebar-nav__section {
+        padding-left: 0;
+    }
+
+    span.navbar-logo {
+        padding-right: 1.5em;
+    }
+
+    .match {
+        font-size: smaller;
+    }
+
+    .admonitionblock td.icon .fa:before {
+        font-size: xxx-large;
+    }
+    </style>
+
+    <style>
+    div.openblock.primary div.content, div.openblock.secondary div.content {
+        border: 1px solid #7a2518;
+        padding: 5px;
+    }
+
+    div.openblock.primary div.content div.content, div.openblock.secondary div.content div.content {
+        border: 0 solid #7a2518;
+        padding: 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .switch {
+        border-width: 1px 1px 0 1px;
+        border-style: solid;
+        border-color: #7a2518;
+        display: inline-block;
+    }
+
+    .switch--item {
+        padding: 2px 10px;
+        background-color: #ffffff;
+        color: #7a2518;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .switch--item:not(:first-child) {
+        border-width: 0 0 0 1px;
+        border-style: solid;
+        border-color: #7a2518;
+    }
+
+    .switch--item.selected {
+        background-color: #7a2519;
+        color: #ffffff;
+    }
+    </style>
+
+    <!-- copy-n-paste.js -->
+    <style>
+        div.listingblock {
+            position: relative;
+        }
+        div.listingblock > span.icon {
+            position: absolute;
+            top: 2px;
+            right: 6px;
+            visibility: hidden;
+            z-index: 2;
+            cursor: pointer;
+        }
+        div.listingblock:hover > span.icon {
+            visibility: visible;
+        }
+        div.listingblock div.content pre {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body onload="prettyPrint()" class="td-section">
+<header>
+	
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+    <a class="navbar-brand" href="../index.html">
+        <span class="navbar-logo"><img src="../images/doctoolchain-logo-blue.png" width="32px" /></span><span
+            class="font-weight-bold">docToolchain</span>
+    </a>
+    <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+        <ul class="navbar-nav mt-2 mt-lg-0">
+    <li class="nav-item mr-4 mb-2 mb-lg-0"><!--img src="../images/status.png" alt="status" width="16" height="16" onerror="this.style.display='none'"--></li>
+
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link " href="../arc42/chapters/01_introduction_and_goals.html"><span>arc42</span></a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="navbar-nav d-none d-lg-block" >
+        <form action="../search.html">
+        <input aria-label="Search this site…" autocomplete="off" class="form-control td-search-input"
+               placeholder=" Search this site…" type="search" name="q">
+        </form>
+    </div>
+</nav>
+
+</header>
+<div class="container-fluid td-outer">
+	<div class="td-main">
+		<div class="row flex-xl-nowrap">
+			<div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+				<div class="td-sidebar__inner" id="td-sidebar-menu" >
+					
+        <form class="td-sidebar__search d-flex align-items-center d-lg-none" action="../search.html">
+
+            <input aria-label="Search this site…" name="q" autocomplete="off" class="form-control td-search-input"
+                   placeholder=" Search this site…" type="search">
+
+
+            <button aria-controls="td-docs-nav" aria-expanded="false"
+                    aria-label="Toggle section navigation" class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" data-target="#td-section-nav"
+                    data-toggle="collapse" type="button">
+            </button>
+        </form>
+
+        <nav class="collapse td-sidebar-nav" id="td-section-nav" >
+
+            <ul class="td-sidebar-nav__section pr-md-3">
+                <li class="td-sidebar-nav__section-title">
+                    <span class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">-</span>
+                </li>
+                <ul>
+                    <li class="collapse show" id="docs">
+                        
+                        <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child">
+                                arc42
+                        <ul class="ul-1">
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section active"
+                                   href="../arc42/arc42.html">image:arc42-logo.png[arc42] Template</a>
+                            </li>
+                        </ul>
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../search.html">search</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+        </nav>
+
+				</div>
+			</div>
+			<div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+				<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+					
+
+        <a href="##git-repo-url##/arc42/arc42.adoc"
+           target="_blank"><i class="fa fa-edit fa-fw"></i> Improve this doc</a>
+
+
+        <a href="##issue-url##?title=Docs%3A+Feedback+for+%27image%3Aarc42-logo.png%5Barc42%5D+Template%27&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:%20##git-repo-url##/arc42/arc42.adoc%0A%23branch:%20diagrams-as-code" target="_blank"><i
+                class="fab fa-github fa-fw"></i> Create an issue</a>
+
+        
+        <hr />
+
+        <div id="toc" class="toc">
+<div id="toctitle">Inhaltsverzeichnis</div>
+<ul class="sectlevel1">
+<li><a href="#_template"><span class="image"><img src="../images/arc42-logo.png" alt="arc42"></span> Template</a></li>
+<li><a href="#section-introduction-and-goals">1. Einführung und Ziele</a>
+<ul class="sectlevel2">
+<li><a href="#_aufgabenstellung">1.1. Aufgabenstellung</a></li>
+<li><a href="#_qualitätsziele">1.2. Qualitätsziele</a></li>
+<li><a href="#_stakeholder">1.3. Stakeholder</a></li>
+</ul>
+</li>
+<li><a href="#section-architecture-constraints">2. Randbedingungen</a></li>
+<li><a href="#section-system-scope-and-context">3. Kontextabgrenzung</a>
+<ul class="sectlevel2">
+<li><a href="#_fachlicher_kontext">3.1. Fachlicher Kontext</a></li>
+<li><a href="#_technischer_kontext">3.2. Technischer Kontext</a></li>
+</ul>
+</li>
+<li><a href="#section-solution-strategy">4. Lösungsstrategie</a></li>
+<li><a href="#section-building-block-view">5. Bausteinsicht</a>
+<ul class="sectlevel2">
+<li><a href="#_whitebox_gesamtsystem">5.1. Whitebox Gesamtsystem</a></li>
+<li><a href="#_ebene_2">5.2. Ebene 2</a></li>
+<li><a href="#_ebene_3">5.3. Ebene 3</a></li>
+</ul>
+</li>
+<li><a href="#section-runtime-view">6. Laufzeitsicht</a>
+<ul class="sectlevel2">
+<li><a href="#_bezeichnung_laufzeitszenario_1">6.1. <em>&lt;Bezeichnung Laufzeitszenario 1&gt;</em></a></li>
+<li><a href="#_bezeichnung_laufzeitszenario_2">6.2. <em>&lt;Bezeichnung Laufzeitszenario 2&gt;</em></a></li>
+<li><a href="#_bezeichnung_laufzeitszenario_n">6.3. <em>&lt;Bezeichnung Laufzeitszenario n&gt;</em></a></li>
+</ul>
+</li>
+<li><a href="#section-deployment-view">7. Verteilungssicht</a>
+<ul class="sectlevel2">
+<li><a href="#_infrastruktur_ebene_1">7.1. Infrastruktur Ebene 1</a></li>
+<li><a href="#_infrastruktur_ebene_2">7.2. Infrastruktur Ebene 2</a></li>
+</ul>
+</li>
+<li><a href="#section-concepts">8. Querschnittliche Konzepte</a>
+<ul class="sectlevel2">
+<li><a href="#_konzept_1">8.1. <em>&lt;Konzept 1&gt;</em></a></li>
+<li><a href="#_konzept_2">8.2. <em>&lt;Konzept 2&gt;</em></a></li>
+<li><a href="#_konzept_n">8.3. <em>&lt;Konzept n&gt;</em></a></li>
+</ul>
+</li>
+<li><a href="#section-design-decisions">9. Architekturentscheidungen</a></li>
+<li><a href="#section-quality-scenarios">10. Qualitätsanforderungen</a>
+<ul class="sectlevel2">
+<li><a href="#_qualitätsbaum">10.1. Qualitätsbaum</a></li>
+<li><a href="#_qualitätsszenarien">10.2. Qualitätsszenarien</a></li>
+</ul>
+</li>
+<li><a href="#section-technical-risks">11. Risiken und technische Schulden</a></li>
+<li><a href="#section-glossary">12. Glossar</a></li>
+</ul>
+</div>
+
+
+
+				</div>
+			</div>
+			<main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+				    <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+        <ol class="breadcrumb spb-1">
+            <!--li aria-current="page" class="breadcrumb-item active">
+                <a href="https://example.docsy.dev/docs/">Documentation</a>
+            </li-->
+
+        </ol>
+    </nav>
+
+
+    <div class="td-content">
+        <p>
+            
+<div class="sect1">
+<h2 id="_template"><span class="image"><img src="../images/arc42-logo.png" alt="arc42"></span> Template</h2>
+<div class="sectionbody">
+<style>
+.arc42help {font-size:small; width: 14px; height: 16px; overflow: hidden; position: absolute; right: 0; padding: 2px 0 3px 2px;}
+.arc42help::before {content: "?";}
+.arc42help:hover {width:auto; height: auto; z-index: 100; padding: 10px;}
+.arc42help:hover::before {content: "";}
+@media print {
+	.arc42help {display:none;}
+}
+</style>
+<div class="paragraph">
+<p><strong>Über arc42</strong></p>
+</div>
+<div class="paragraph lead">
+<p>arc42, das Template zur Dokumentation von Software- und Systemarchitekturen.</p>
+</div>
+<div class="paragraph">
+<p>Template Version 8.2 DE. (basiert auf AsciiDoc Version), Januar 2023</p>
+</div>
+<div class="paragraph">
+<p>Created, maintained and &#169; by Dr. Peter Hruschka, Dr. Gernot Starke and contributors.
+Siehe <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
+</div>
+<hr>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Hinweis</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Diese Version des Templates enthält Hilfen und Erläuterungen.
+Sie dient der Einarbeitung in arc42 sowie dem Verständnis der Konzepte.
+Für die Dokumentation eigener System verwenden Sie besser die <em>plain</em> Version.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-introduction-and-goals">1. Einführung und Ziele</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>Beschreibt die wesentlichen Anforderungen und treibenden Kräfte, die bei der Umsetzung der Softwarearchitektur und Entwicklung des Systems berücksichtigt werden müssen.</p>
+</div>
+<div class="paragraph">
+<p>Dazu gehören:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>zugrunde liegende Geschäftsziele,</p>
+</li>
+<li>
+<p>wesentliche Aufgabenstellungen,</p>
+</li>
+<li>
+<p>wesentliche funktionale Anforderungen,</p>
+</li>
+<li>
+<p>Qualitätsziele für die Architektur und</p>
+</li>
+<li>
+<p>relevante Stakeholder und deren Erwartungshaltung.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aufgabenstellung">1.1. Aufgabenstellung</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Kurzbeschreibung der fachlichen Aufgabenstellung, treibenden Kräfte, Extrakt (oder Abstract) der Anforderungen.
+Verweis auf (hoffentlich vorliegende) Anforderungsdokumente (mit Versionsbezeichnungen und Ablageorten).</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Aus Sicht der späteren Nutzung ist die Unterstützung einer fachlichen Aufgabe oder Verbesserung der Qualität der eigentliche Beweggrund, ein neues System zu schaffen oder ein bestehendes zu modifizieren.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Kurze textuelle Beschreibung, eventuell in tabellarischer Use-Case Form.
+Sofern vorhanden, sollte die Aufgabenstellung Verweise auf die entsprechenden Anforderungsdokumente enthalten.</p>
+</div>
+<div class="paragraph">
+<p>Halten Sie diese Auszüge so knapp wie möglich und wägen Sie Lesbarkeit und Redundanzfreiheit gegeneinander ab.</p>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-1/">Anforderungen und Ziele</a> in der online-Dokumentation (auf Englisch!).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_qualitätsziele">1.2. Qualitätsziele</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Die Top-3 bis Top-5 der Qualitätsanforderungen für die Architektur, deren Erfüllung oder Einhaltung den maßgeblichen Stakeholdern besonders wichtig sind.
+Gemeint sind hier wirklich Qualitätsziele, die nicht unbedingt mit den Zielen des Projekts übereinstimmen.
+Beachten Sie den Unterschied.</p>
+</div>
+<div class="paragraph">
+<p>Hier ein Überblick möglicher Themen (basierend auf dem ISO 25010 Standard):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/01_2_iso-25010-topics-DE.drawio.png" alt="Kategorien von Qualitätsanforderungen">
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Weil Qualitätsziele grundlegende Architekturentscheidungen oft maßgeblich beeinflussen, sollten Sie die für Ihre Stakeholder relevanten Qualitätsziele kennen, möglichst konkret und operationalisierbar.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Tabellarische Darstellung der Qualitätsziele mit möglichst konkreten Szenarien, geordnet nach Prioritäten.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stakeholder">1.3. Stakeholder</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Expliziter Überblick über die Stakeholder des Systems – über alle Personen, Rollen oder Organisationen –, die</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>die Architektur kennen sollten oder</p>
+</li>
+<li>
+<p>von der Architektur überzeugt werden müssen,</p>
+</li>
+<li>
+<p>mit der Architektur oder dem Code arbeiten (z.B. Schnittstellen nutzen),</p>
+</li>
+<li>
+<p>die Dokumentation der Architektur für ihre eigene Arbeit benötigen,</p>
+</li>
+<li>
+<p>Entscheidungen über das System und dessen Entwicklung treffen.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Sie sollten die Projektbeteiligten und -betroffenen kennen, sonst erleben Sie später im Entwicklungsprozess Überraschungen.
+Diese Stakeholder bestimmen unter anderem Umfang und Detaillierungsgrad der von Ihnen zu leistenden Arbeit und Ergebnisse.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Tabelle mit Rollen- oder Personennamen, sowie deren Erwartungshaltung bezüglich der Architektur und deren Dokumentation.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Rolle</th>
+<th class="tableblock halign-left valign-top">Kontakt</th>
+<th class="tableblock halign-left valign-top">Erwartungshaltung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Rolle-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Kontakt-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Erwartung-1&gt;</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Rolle-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Kontakt-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Erwartung-2&gt;</em></p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-architecture-constraints">2. Randbedingungen</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Randbedingungen und Vorgaben, die ihre Freiheiten bezüglich Entwurf, Implementierung oder Ihres Entwicklungsprozesses einschränken.
+Diese Randbedingungen gelten manchmal organisations- oder firmenweit über die Grenzen einzelner Systeme hinweg.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Für eine tragfähige Architektur sollten Sie genau wissen, wo Ihre Freiheitsgrade bezüglich der Entwurfsentscheidungen liegen und wo Sie Randbedingungen beachten müssen.
+Sie können Randbedingungen vielleicht noch verhandeln, zunächst sind sie aber da.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Einfache Tabellen der Randbedingungen mit Erläuterungen.
+Bei Bedarf unterscheiden Sie technische, organisatorische und politische Randbedingungen oder übergreifende Konventionen (beispielsweise Programmier- oder Versionierungsrichtlinien, Dokumentations- oder Namenskonvention).</p>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-2/">Randbedingungen</a> in der online-Dokumentation (auf Englisch!).</p>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-system-scope-and-context">3. Kontextabgrenzung</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Die Kontextabgrenzung grenzt das System gegen alle Kommunikationspartner (Nachbarsysteme und Benutzerrollen) ab.
+Sie legt damit die externen Schnittstellen fest und zeigt damit auch die Verantwortlichkeit (scope) Ihres Systems: Welche Verantwortung trägt das System und welche Verantwortung übernehmen die Nachbarsysteme?</p>
+</div>
+<div class="paragraph">
+<p>Differenzieren Sie fachlichen (Ein- und Ausgaben) und technischen Kontext (Kanäle, Protokolle, Hardware), falls nötig.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Die fachlichen und technischen Schnittstellen zur Kommunikation gehören zu den kritischsten Aspekten eines Systems.
+Stellen Sie sicher, dass Sie diese komplett verstanden haben.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Verschiedene Optionen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Diverse Kontextdiagramme</p>
+</li>
+<li>
+<p>Listen von Kommunikationsbeziehungen mit deren Schnittstellen</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-3/">Kontextabgrenzung</a> in der online-Dokumentation (auf Englisch!).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fachlicher_kontext">3.1. Fachlicher Kontext</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Festlegung <strong>aller</strong> Kommunikationsbeziehungen (Nutzer, IT-Systeme, &#8230;&#8203;) mit Erklärung der fachlichen Ein- und Ausgabedaten oder Schnittstellen.
+Zusätzlich (bei Bedarf) fachliche Datenformate oder Protokolle der Kommunikation mit den Nachbarsystemen.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Alle Beteiligten müssen verstehen, welche fachlichen Informationen mit der Umwelt ausgetauscht werden.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Alle Diagrammarten, die das System als Blackbox darstellen und die fachlichen Schnittstellen zu den Nachbarsystemen beschreiben.</p>
+</div>
+<div class="paragraph">
+<p>Alternativ oder ergänzend können Sie eine Tabelle verwenden.
+Der Titel gibt den Namen Ihres Systems wieder; die drei Spalten sind: Kommunikationsbeziehung, Eingabe, Ausgabe.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>&lt;Diagramm und/oder Tabelle&gt;</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>&lt;optional: Erläuterung der externen fachlichen Schnittstellen&gt;</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_technischer_kontext">3.2. Technischer Kontext</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Technische Schnittstellen (Kanäle, Übertragungsmedien) zwischen dem System und seiner Umwelt.
+Zusätzlich eine Erklärung (<em>mapping</em>), welche fachlichen Ein- und Ausgaben über welche technischen Kanäle fließen.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Viele Stakeholder treffen Architekturentscheidungen auf Basis der technischen Schnittstellen des Systems zu seinem Kontext.</p>
+</div>
+<div class="paragraph">
+<p>Insbesondere bei der Entwicklung von Infrastruktur oder Hardware sind diese technischen Schnittstellen durchaus entscheidend.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Beispielsweise UML Deployment-Diagramme mit den Kanälen zu Nachbarsystemen, begleitet von einer Tabelle, die Kanäle auf Ein-/Ausgaben abbildet.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>&lt;Diagramm oder Tabelle&gt;</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>&lt;optional: Erläuterung der externen technischen Schnittstellen&gt;</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>&lt;Mapping fachliche auf technische Schnittstellen&gt;</strong></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-solution-strategy">4. Lösungsstrategie</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Kurzer Überblick über die grundlegenden Entscheidungen und Lösungsansätze, die Entwurf und Implementierung des Systems prägen.
+Hierzu gehören:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Technologieentscheidungen</p>
+</li>
+<li>
+<p>Entscheidungen über die Top-Level-Zerlegung des Systems, beispielsweise die Verwendung gesamthaft prägender Entwurfs- oder Architekturmuster,</p>
+</li>
+<li>
+<p>Entscheidungen zur Erreichung der wichtigsten Qualitätsanforderungen sowie</p>
+</li>
+<li>
+<p>relevante organisatorische Entscheidungen, beispielsweise für bestimmte Entwicklungsprozesse oder Delegation bestimmter Aufgaben an andere Stakeholder.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Diese wichtigen Entscheidungen bilden wesentliche „Eckpfeiler“ der Architektur.
+Von ihnen hängen viele weitere Entscheidungen oder Implementierungsregeln ab.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Fassen Sie die zentralen Entwurfsentscheidungen <strong>kurz</strong> zusammen.
+Motivieren Sie, ausgehend von Aufgabenstellung, Qualitätszielen und Randbedingungen, was Sie entschieden haben und warum Sie so entschieden haben.
+Vermeiden Sie redundante Beschreibungen und verweisen Sie eher auf weitere Ausführungen in Folgeabschnitten.</p>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-4/">Lösungsstrategie</a> in der online-Dokumentation (auf Englisch!).</p>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-building-block-view">5. Bausteinsicht</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Die Bausteinsicht zeigt die statische Zerlegung des Systems in Bausteine (Module, Komponenten, Subsysteme, Klassen, Schnittstellen, Pakete, Bibliotheken, Frameworks, Schichten, Partitionen, Tiers, Funktionen, Makros, Operationen, Datenstrukturen, &#8230;&#8203;) sowie deren Abhängigkeiten (Beziehungen, Assoziationen, &#8230;&#8203;)</p>
+</div>
+<div class="paragraph">
+<p>Diese Sicht sollte in jeder Architekturdokumentation vorhanden sein.
+In der Analogie zum Hausbau bildet die Bausteinsicht den <em>Grundrissplan</em>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Behalten Sie den Überblick über den Quellcode, indem Sie die statische Struktur des Systems durch Abstraktion verständlich machen.</p>
+</div>
+<div class="paragraph">
+<p>Damit ermöglichen Sie Kommunikation auf abstrakterer Ebene, ohne zu viele Implementierungsdetails offenlegen zu müssen.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Die Bausteinsicht ist eine hierarchische Sammlung von Blackboxen und Whiteboxen (siehe Abbildung unten) und deren Beschreibungen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/05_building_blocks-DE.png" alt="Hierarchie in der Bausteinsicht">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Ebene 1</strong> ist die Whitebox-Beschreibung des Gesamtsystems, zusammen mit Blackbox-Beschreibungen der darin enthaltenen Bausteine.</p>
+</div>
+<div class="paragraph">
+<p><strong>Ebene 2</strong> zoomt in einige Bausteine der Ebene 1 hinein.
+Sie enthält somit die Whitebox-Beschreibungen ausgewählter Bausteine der Ebene 1, jeweils zusammen mit Blackbox-Beschreibungen darin enthaltener Bausteine.</p>
+</div>
+<div class="paragraph">
+<p><strong>Ebene 3</strong> zoomt in einige Bausteine der Ebene 2 hinein, usw.</p>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-5/">Bausteinsicht</a> in der online-Dokumentation (auf Englisch!).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_whitebox_gesamtsystem">5.1. Whitebox Gesamtsystem</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>An dieser Stelle beschreiben Sie die Zerlegung des Gesamtsystems anhand des nachfolgenden Whitebox-Templates.
+Dieses enthält:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ein Übersichtsdiagramm</p>
+</li>
+<li>
+<p>die Begründung dieser Zerlegung</p>
+</li>
+<li>
+<p>Blackbox-Beschreibungen der hier enthaltenen Bausteine.
+Dafür haben Sie verschiedene Optionen:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>in <em>einer</em> Tabelle, gibt einen kurzen und pragmatischen Überblick über die enthaltenen Bausteine sowie deren Schnittstellen.</p>
+</li>
+<li>
+<p>als Liste von Blackbox-Beschreibungen der Bausteine, gemäß dem Blackbox-Template (siehe unten).
+Diese Liste können Sie, je nach Werkzeug, etwa in Form von Unterkapiteln (Text), Unter-Seiten (Wiki) oder geschachtelten Elementen (Modellierungswerkzeug) darstellen.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optional:) wichtige Schnittstellen, die nicht bereits im Blackbox-Template eines der Bausteine erläutert werden, aber für das Verständnis der Whitebox von zentraler Bedeutung sind.
+Aufgrund der vielfältigen Möglichkeiten oder Ausprägungen von Schnittstellen geben wir hierzu kein weiteres Template vor.
+Im schlimmsten Fall müssen Sie Syntax, Semantik, Protokolle, Fehlerverhalten, Restriktionen, Versionen, Qualitätseigenschaften, notwendige Kompatibilitäten und vieles mehr spezifizieren oder beschreiben.
+Im besten Fall kommen Sie mit Beispielen oder einfachen Signaturen zurecht.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><em><strong>&lt;Übersichtsdiagramm&gt;</strong></em></p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Begründung</dt>
+<dd>
+<p><em>&lt;Erläuternder Text&gt;</em></p>
+</dd>
+<dt class="hdlist1">Enthaltene Bausteine</dt>
+<dd>
+<p><em>&lt;Beschreibung der enthaltenen Bausteine (Blackboxen)&gt;</em></p>
+</dd>
+<dt class="hdlist1">Wichtige Schnittstellen</dt>
+<dd>
+<p><em>&lt;Beschreibung wichtiger Schnittstellen&gt;</em></p>
+</dd>
+</dl>
+</div>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>Hier folgen jetzt Erläuterungen zu Blackboxen der Ebene 1.</p>
+</div>
+<div class="paragraph">
+<p>Falls Sie die tabellarische Beschreibung wählen, so werden Blackboxen darin nur mit Name und Verantwortung nach folgendem Muster beschrieben:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Name</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Verantwortung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Blackbox 1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> <em>&lt;Text&gt;</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Blackbox 2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> <em>&lt;Text&gt;</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Falls Sie die ausführliche Liste von Blackbox-Beschreibungen wählen, beschreiben Sie jede wichtige Blackbox in einem eigenen Blackbox-Template.
+Dessen Überschrift ist jeweils der Namen dieser Blackbox.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_blackbox_1">5.1.1. &lt;Name Blackbox 1&gt;</h4>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>Beschreiben Sie die &lt;Blackbox 1&gt; anhand des folgenden Blackbox-Templates:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Zweck/Verantwortung</p>
+</li>
+<li>
+<p>Schnittstelle(n), sofern diese nicht als eigenständige Beschreibungen herausgezogen sind.
+Hierzu gehören eventuell auch Qualitäts- und Leistungsmerkmale dieser Schnittstelle.</p>
+</li>
+<li>
+<p>(Optional) Qualitäts-/Leistungsmerkmale der Blackbox, beispielsweise Verfügbarkeit, Laufzeitverhalten o. Ä.</p>
+</li>
+<li>
+<p>(Optional) Ablageort/Datei(en)</p>
+</li>
+<li>
+<p>(Optional) Erfüllte Anforderungen, falls Sie Traceability zu Anforderungen benötigen.</p>
+</li>
+<li>
+<p>(Optional) Offene Punkte/Probleme/Risiken</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><em>&lt;Zweck/Verantwortung&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;Schnittstelle(n)&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(Optional) Qualitäts-/Leistungsmerkmale&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(Optional) Ablageort/Datei(en)&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(Optional) Erfüllte Anforderungen&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(optional) Offene Punkte/Probleme/Risiken&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_blackbox_2">5.1.2. &lt;Name Blackbox 2&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;Blackbox-Template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_blackbox_n">5.1.3. &lt;Name Blackbox n&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;Blackbox-Template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_schnittstelle_1">5.1.4. &lt;Name Schnittstelle 1&gt;</h4>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_schnittstelle_m">5.1.5. &lt;Name Schnittstelle m&gt;</h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ebene_2">5.2. Ebene 2</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>Beschreiben Sie den inneren Aufbau (einiger) Bausteine aus Ebene 1 als Whitebox.</p>
+</div>
+<div class="paragraph">
+<p>Welche Bausteine Ihres Systems Sie hier beschreiben, müssen Sie selbst entscheiden.
+Bitte stellen Sie dabei Relevanz vor Vollständigkeit.
+Skizzieren Sie wichtige, überraschende, riskante, komplexe oder besonders volatile Bausteine.
+Normale, einfache oder standardisierte Teile sollten Sie weglassen.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_whitebox_baustein_1">5.2.1. Whitebox <em>&lt;Baustein 1&gt;</em></h4>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>&#8230;&#8203;zeigt das Innenleben von <em>Baustein 1</em>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><em>&lt;Whitebox-Template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_whitebox_baustein_2">5.2.2. Whitebox <em>&lt;Baustein 2&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;Whitebox-Template&gt;</em></p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_whitebox_baustein_m">5.2.3. Whitebox <em>&lt;Baustein m&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;Whitebox-Template&gt;</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ebene_3">5.3. Ebene 3</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>Beschreiben Sie den inneren Aufbau (einiger) Bausteine aus Ebene 2 als Whitebox.</p>
+</div>
+<div class="paragraph">
+<p>Bei tieferen Gliederungen der Architektur kopieren Sie diesen Teil von arc42 für die weiteren Ebenen.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_whitebox_baustein_x_1">5.3.1. Whitebox &lt;_Baustein x.1_&gt;</h4>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>&#8230;&#8203;zeigt das Innenleben von <em>Baustein x.1</em>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><em>&lt;Whitebox-Template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_whitebox_baustein_x_2">5.3.2. Whitebox &lt;_Baustein x.2_&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;Whitebox-Template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_whitebox_baustein_y_1">5.3.3. Whitebox &lt;_Baustein y.1_&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;Whitebox-Template&gt;</em></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-runtime-view">6. Laufzeitsicht</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Diese Sicht erklärt konkrete Abläufe und Beziehungen zwischen Bausteinen in Form von Szenarien aus den folgenden Bereichen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wichtige Abläufe oder <em>Features</em>:
+Wie führen die Bausteine der Architektur die wichtigsten Abläufe durch?</p>
+</li>
+<li>
+<p>Interaktionen an kritischen externen Schnittstellen:
+Wie arbeiten Bausteine mit Nutzern und Nachbarsystemen zusammen?</p>
+</li>
+<li>
+<p>Betrieb und Administration: Inbetriebnahme, Start, Stop.</p>
+</li>
+<li>
+<p>Fehler- und Ausnahmeszenarien</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Anmerkung:
+Das Kriterium für die Auswahl der möglichen Szenarien (d.h. Abläufe) des Systems ist deren Architekturrelevanz.
+Es geht nicht darum, möglichst viele Abläufe darzustellen, sondern eine angemessene Auswahl zu dokumentieren.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Sie sollten verstehen, wie (Instanzen von) Bausteine(n) Ihres Systems ihre jeweiligen Aufgaben erfüllen und zur Laufzeit miteinander kommunizieren.</p>
+</div>
+<div class="paragraph">
+<p>Nutzen Sie diese Szenarien in der Dokumentation hauptsächlich für eine verständlichere Kommunikation mit denjenigen Stakeholdern, die die statischen Modelle (z.B. Bausteinsicht, Verteilungssicht) weniger verständlich finden.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Für die Beschreibung von Szenarien gibt es zahlreiche Ausdrucksmöglichkeiten.
+Nutzen Sie beispielsweise:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Nummerierte Schrittfolgen oder Aufzählungen in Umgangssprache</p>
+</li>
+<li>
+<p>Aktivitäts- oder Flussdiagramme</p>
+</li>
+<li>
+<p>Sequenzdiagramme</p>
+</li>
+<li>
+<p>BPMN (Geschäftsprozessmodell und -notation) oder EPKs (Ereignis-Prozessketten)</p>
+</li>
+<li>
+<p>Zustandsautomaten</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-6/">Laufzeitsicht</a> in der online-Dokumentation (auf Englisch!).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bezeichnung_laufzeitszenario_1">6.1. <em>&lt;Bezeichnung Laufzeitszenario 1&gt;</em></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen&gt;</p>
+</li>
+<li>
+<p>&lt;hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem Szenario erläutern&gt;</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bezeichnung_laufzeitszenario_2">6.2. <em>&lt;Bezeichnung Laufzeitszenario 2&gt;</em></h3>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bezeichnung_laufzeitszenario_n">6.3. <em>&lt;Bezeichnung Laufzeitszenario n&gt;</em></h3>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-deployment-view">7. Verteilungssicht</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Die Verteilungssicht beschreibt:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>die technische Infrastruktur, auf der Ihr System ausgeführt wird, mit Infrastrukturelementen wie Standorten, Umgebungen, Rechnern, Prozessoren, Kanälen und Netztopologien sowie sonstigen Bestandteilen, und</p>
+</li>
+<li>
+<p>die Abbildung von (Software-)Bausteinen auf diese Infrastruktur.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Häufig laufen Systeme in unterschiedlichen Umgebungen, beispielsweise Entwicklung-/Test- oder Produktionsumgebungen.
+In solchen Fällen sollten Sie alle relevanten Umgebungen aufzeigen.</p>
+</div>
+<div class="paragraph">
+<p>Nutzen Sie die Verteilungssicht insbesondere dann, wenn Ihre Software auf mehr als einem Rechner, Prozessor, Server oder Container abläuft oder Sie Ihre Hardware sogar selbst konstruieren.</p>
+</div>
+<div class="paragraph">
+<p>Aus Softwaresicht genügt es, auf die Aspekte zu achten, die für die Softwareverteilung relevant sind.
+Insbesondere bei der Hardwareentwicklung kann es notwendig sein, die Infrastruktur mit beliebigen Details zu beschreiben.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Software läuft nicht ohne Infrastruktur.
+Diese zugrundeliegende Infrastruktur beeinflusst Ihr System und/oder querschnittliche Lösungskonzepte, daher müssen Sie diese Infrastruktur kennen.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Das oberste Verteilungsdiagramm könnte bereits in Ihrem technischen Kontext enthalten sein, mit Ihrer Infrastruktur als EINE Blackbox.
+Jetzt zoomen Sie in diese Infrastruktur mit weiteren Verteilungsdiagrammen hinein:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Die UML stellt mit Verteilungsdiagrammen (Deployment diagrams) eine Diagrammart zur Verfügung, um diese Sicht auszudrücken.
+Nutzen Sie diese, evtl. auch geschachtelt, wenn Ihre Verteilungsstruktur es verlangt.</p>
+</li>
+<li>
+<p>Falls Ihre Infrastruktur-Stakeholder andere Diagrammarten bevorzugen, die beispielsweise Prozessoren und Kanäle zeigen, sind diese hier ebenfalls einsetzbar.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-7/">Verteilungssicht</a> in der online-Dokumentation (auf Englisch!).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_infrastruktur_ebene_1">7.1. Infrastruktur Ebene 1</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>An dieser Stelle beschreiben Sie (als Kombination von Diagrammen mit Tabellen oder Texten):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>die Verteilung des Gesamtsystems auf mehrere Standorte, Umgebungen, Rechner, Prozessoren o. Ä., sowie die physischen Verbindungskanäle zwischen diesen,</p>
+</li>
+<li>
+<p>wichtige Begründungen für diese Verteilungsstruktur,</p>
+</li>
+<li>
+<p>Qualitäts- und/oder Leistungsmerkmale dieser Infrastruktur,</p>
+</li>
+<li>
+<p>Zuordnung von Softwareartefakten zu Bestandteilen der Infrastruktur</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Für mehrere Umgebungen oder alternative Deployments kopieren Sie diesen Teil von arc42 für alle wichtigen Umgebungen/Varianten.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><em><strong>&lt;Übersichtsdiagramm&gt;</strong></em></p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Begründung</dt>
+<dd>
+<p><em>&lt;Erläuternder Text&gt;</em></p>
+</dd>
+<dt class="hdlist1">Qualitäts- und/oder Leistungsmerkmale</dt>
+<dd>
+<p><em>&lt;Erläuternder Text&gt;</em></p>
+</dd>
+<dt class="hdlist1">Zuordnung von Bausteinen zu Infrastruktur</dt>
+<dd>
+<p><em>&lt;Beschreibung der Zuordnung&gt;</em></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_infrastruktur_ebene_2">7.2. Infrastruktur Ebene 2</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>An dieser Stelle können Sie den inneren Aufbau (einiger) Infrastrukturelemente aus Ebene 1 beschreiben.</p>
+</div>
+<div class="paragraph">
+<p>Für jedes Infrastrukturelement kopieren Sie die Struktur aus Ebene 1.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infrastrukturelement_1">7.2.1. <em>&lt;Infrastrukturelement 1&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;Diagramm + Erläuterungen&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infrastrukturelement_2">7.2.2. <em>&lt;Infrastrukturelement 2&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;Diagramm + Erläuterungen&gt;</em></p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infrastrukturelement_n">7.2.3. <em>&lt;Infrastrukturelement n&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;Diagramm + Erläuterungen&gt;</em></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-concepts">8. Querschnittliche Konzepte</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Dieser Abschnitt beschreibt übergreifende, prinzipielle Regelungen und Lösungsansätze, die an mehreren Stellen (=<em>querschnittlich</em>) relevant sind.</p>
+</div>
+<div class="paragraph">
+<p>Solche Konzepte betreffen oft mehrere Bausteine.
+Dazu können vielerlei Themen gehören, beispielsweise:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Modelle, insbesondere fachliche Modelle</p>
+</li>
+<li>
+<p>Architektur- oder Entwurfsmuster</p>
+</li>
+<li>
+<p>Regeln für den konkreten Einsatz von Technologien</p>
+</li>
+<li>
+<p>prinzipielle&#8201;&#8212;&#8201;meist technische&#8201;&#8212;&#8201;Festlegungen übergreifender Art</p>
+</li>
+<li>
+<p>Implementierungsregeln</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Konzepte bilden die Grundlage für <em>konzeptionelle Integrität</em> (Konsistenz, Homogenität) der Architektur und damit eine wesentliche Grundlage für die innere Qualität Ihrer Systeme.</p>
+</div>
+<div class="paragraph">
+<p>Manche dieser Themen lassen sich nur schwer als Baustein in der Architektur unterbringen (z.B. das Thema „Sicherheit“).</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Kann vielfältig sein:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Konzeptpapiere mit beliebiger Gliederung,</p>
+</li>
+<li>
+<p>übergreifende Modelle/Szenarien mit Notationen, die Sie auch in den Architektursichten nutzen,</p>
+</li>
+<li>
+<p>beispielhafte Implementierung speziell für technische Konzepte,</p>
+</li>
+<li>
+<p>Verweise auf „übliche“ Nutzung von Standard-Frameworks (beispielsweise die Nutzung von Hibernate als Object/Relational Mapper).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Struktur</div>
+<p>Eine mögliche (nicht aber notwendige!) Untergliederung dieses Abschnittes könnte wie folgt aussehen (wobei die Zuordnung von Themen zu den Gruppen nicht immer eindeutig ist):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fachliche Konzepte</p>
+</li>
+<li>
+<p>User Experience (UX)</p>
+</li>
+<li>
+<p>Sicherheitskonzepte (Safety und Security)</p>
+</li>
+<li>
+<p>Architektur- und Entwurfsmuster</p>
+</li>
+<li>
+<p>Unter-der-Haube</p>
+</li>
+<li>
+<p>Entwicklungskonzepte</p>
+</li>
+<li>
+<p>Betriebskonzepte</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/08-Crosscutting-Concepts-Structure-DE.png" alt="Possible topics for crosscutting concepts">
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-8/">Querschnittliche Konzepte</a> in der online-Dokumentation (auf Englisch).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_konzept_1">8.1. <em>&lt;Konzept 1&gt;</em></h3>
+<div class="paragraph">
+<p><em>&lt;Erklärung&gt;</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_konzept_2">8.2. <em>&lt;Konzept 2&gt;</em></h3>
+<div class="paragraph">
+<p><em>&lt;Erklärung&gt;</em></p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_konzept_n">8.3. <em>&lt;Konzept n&gt;</em></h3>
+<div class="paragraph">
+<p><em>&lt;Erklärung&gt;</em></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-design-decisions">9. Architekturentscheidungen</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Wichtige, teure, große oder riskante Architektur- oder Entwurfsentscheidungen inklusive der jeweiligen Begründungen.
+Mit "Entscheidungen" meinen wir hier die Auswahl einer von mehreren Alternativen unter vorgegebenen Kriterien.</p>
+</div>
+<div class="paragraph">
+<p>Wägen Sie ab, inwiefern Sie Entscheidungen hier zentral beschreiben, oder wo eine lokale Beschreibung (z.B. in der Whitebox-Sicht von Bausteinen) sinnvoller ist.
+Vermeiden Sie Redundanz.
+Verweisen Sie evtl. auf Abschnitt 4, wo schon grundlegende strategische Entscheidungen beschrieben wurden.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Stakeholder des Systems sollten wichtige Entscheidungen verstehen und nachvollziehen können.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Verschiedene Möglichkeiten:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ADR (<a href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions">Documenting Architecture Decisions</a>) für jede wichtige Entscheidung</p>
+</li>
+<li>
+<p>Liste oder Tabelle, nach Wichtigkeit und Tragweite der Entscheidungen geordnet</p>
+</li>
+<li>
+<p>ausführlicher in Form einzelner Unterkapitel je Entscheidung</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-9/">Architekturentscheidungen</a> in der arc42 Dokumentation (auf Englisch!).
+Dort finden Sie Links und Beispiele zum Thema ADR.</p>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-quality-scenarios">10. Qualitätsanforderungen</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Dieser Abschnitt enthält möglichst alle Qualitätsanforderungen als Qualitätsbaum mit Szenarien.
+Die wichtigsten davon haben Sie bereits in Abschnitt 1.2 (Qualitätsziele) hervorgehoben.</p>
+</div>
+<div class="paragraph">
+<p>Nehmen Sie hier auch Qualitätsanforderungen geringerer Priorität auf, deren Nichteinhaltung oder -erreichung geringe Risiken birgt.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Weil Qualitätsanforderungen die Architekturentscheidungen oft maßgeblich beeinflussen, sollten Sie die für Ihre Stakeholder relevanten Qualitätsanforderungen kennen, möglichst konkret und operationalisiert.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-10/">Qualitätsanforderungen</a> in der online-Dokumentation (auf Englisch!).</p>
+</div>
+<div class="sect2">
+<h3 id="_qualitätsbaum">10.1. Qualitätsbaum</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Der Qualitätsbaum (à la ATAM) mit Qualitätsszenarien an den Blättern.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Die mit Prioritäten versehene Baumstruktur gibt Überblick über die&#8201;&#8212;&#8201;oftmals zahlreichen&#8201;&#8212;&#8201;Qualitätsanforderungen.</p>
+</div>
+<div class="ulist">
+<div class="title">Form</div>
+<ul>
+<li>
+<p>Baumartige Verfeinerung des Begriffes „Qualität“, mit „Qualität“ oder „Nützlichkeit“ als Wurzel.</p>
+</li>
+<li>
+<p>Mindmap mit Qualitätsoberbegriffen als Hauptzweige</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In jedem Fall sollten Sie hier Verweise auf die Qualitätsszenarien des folgenden Abschnittes aufnehmen.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_qualitätsszenarien">10.2. Qualitätsszenarien</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Konkretisierung der (in der Praxis oftmals vagen oder impliziten) Qualitätsanforderungen durch (Qualitäts-)Szenarien.</p>
+</div>
+<div class="paragraph">
+<p>Diese Szenarien beschreiben, was beim Eintreffen eines Stimulus auf ein System in bestimmten Situationen geschieht.</p>
+</div>
+<div class="paragraph">
+<p>Wesentlich sind zwei Arten von Szenarien:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Nutzungsszenarien (auch bekannt als Anwendungs- oder Anwendungsfallszenarien) beschreiben, wie das System zur Laufzeit auf einen bestimmten Auslöser reagieren soll.
+Hierunter fallen auch Szenarien zur Beschreibung von Effizienz oder Performance.
+Beispiel: Das System beantwortet eine Benutzeranfrage innerhalb einer Sekunde.</p>
+</li>
+<li>
+<p>Änderungsszenarien beschreiben eine Modifikation des Systems oder seiner unmittelbaren Umgebung.
+Beispiel: Eine zusätzliche Funktionalität wird implementiert oder die Anforderung an ein Qualitätsmerkmal ändert sich.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Szenarien operationalisieren Qualitätsanforderungen und machen deren Erfüllung mess- oder entscheidbar.</p>
+</div>
+<div class="paragraph">
+<p>Insbesondere wenn Sie die Qualität Ihrer Architektur mit Methoden wie ATAM überprüfen wollen, bedürfen die in Abschnitt 1.2 genannten Qualitätsziele einer weiteren Präzisierung bis auf die Ebene von diskutierbaren und nachprüfbaren Szenarien.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Entweder tabellarisch oder als Freitext.</p>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-technical-risks">11. Risiken und technische Schulden</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken und/oder technischen Schulden.</p>
+</div>
+<div class="quoteblock">
+<div class="title">Motivation</div>
+<blockquote>
+Risikomanagement ist Projektmanagement für Erwachsene.
+</blockquote>
+<div class="attribution">
+&#8212; Tim Lister<br>
+<cite>Atlantic Systems Guild</cite>
+</div>
+</div>
+<div class="paragraph">
+<p>Unter diesem Motto sollten Sie Architekturrisiken und/oder technische Schulden gezielt ermitteln, bewerten und Ihren Management-Stakeholdern (z.B. Projektleitung, Product-Owner) transparent machen.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Liste oder Tabelle von Risiken und/oder technischen Schulden, eventuell mit vorgeschlagenen Maßnahmen zur Risikovermeidung, Risikominimierung oder dem Abbau der technischen Schulden.</p>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-11/">Risiken und technische Schulden</a> in der online-Dokumentation (auf Englisch!).</p>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-glossary">12. Glossar</h2>
+<div class="sectionbody">
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<div class="title">Inhalt</div>
+<p>Die wesentlichen fachlichen und technischen Begriffe, die Stakeholder im Zusammenhang mit dem System verwenden.</p>
+</div>
+<div class="paragraph">
+<p>Nutzen Sie das Glossar ebenfalls als Übersetzungsreferenz, falls Sie in mehrsprachigen Teams arbeiten.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Sie sollten relevante Begriffe klar definieren, so dass alle Beteiligten</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>diese Begriffe identisch verstehen, und</p>
+</li>
+<li>
+<p>vermeiden, mehrere Begriffe für die gleiche Sache zu haben.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Zweispaltige Tabelle mit &lt;Begriff&gt; und &lt;Definition&gt;.</p>
+</div>
+<div class="paragraph">
+<p>Eventuell weitere Spalten mit Übersetzungen, falls notwendig.</p>
+</div>
+<div class="paragraph">
+<div class="title">Weiterführende Informationen</div>
+<p>Siehe <a href="https://docs.arc42.org/section-12/">Glossar</a> in der online-Dokumentation (auf Englisch!).</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Begriff</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Begriff-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Definition-1&gt;</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Begriff-2</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Definition-2&gt;</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+        </p>
+
+        <style>
+.feedback--answer {
+    display: inline-block;
+}
+
+.feedback--answer-no {
+    margin-left: 1em;
+}
+
+.feedback--response {
+    display: none;
+    margin-top: 1em;
+}
+
+.feedback--response__visible {
+    display: block;
+}
+</style>
+
+<div class="d-print-none">
+    <h2 class="feedback--title">Feedback</h2>
+    <p class="feedback--question">Was this page helpful?</p>
+    <button class="feedback--answer feedback--answer-yes">Yes</button>
+    <button class="feedback--answer feedback--answer-no">No</button>
+    <p class="feedback--response feedback--response-yes">
+        Glad to hear it! Please <a href="##issue-url##?title=Docs%3A+Feedback+for+%27image%3Aarc42-logo.png%5Barc42%5D+Template%27%20%F0%9F%91%8D&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:arc42/arc42.adoc">tell us
+    how we can improve</a>.
+    </p>
+    <p class="feedback--response feedback--response-no">
+        Sorry to hear that. Please <a href="##issue-url##?title=Docs%3A+Feedback+for+%27image%3Aarc42-logo.png%5Barc42%5D+Template%27%20%F0%9F%91%8E&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:arc42/arc42.adoc">tell
+    us how we can improve</a>.
+    </p>
+</div>
+<script>
+    const yesButton = document.querySelector('.feedback--answer-yes');
+    const noButton = document.querySelector('.feedback--answer-no');
+    const yesResponse = document.querySelector('.feedback--response-yes');
+    const noResponse = document.querySelector('.feedback--response-no');
+    const disableButtons = () => {
+        yesButton.disabled = true;
+        noButton.disabled = true;
+    };
+    const sendFeedback = (value) => {
+        if (typeof ga !== 'function') return;
+        const args = {
+            command: 'send',
+            hitType: 'event',
+            category: 'Helpful',
+            action: 'click',
+            label: window.location.pathname,
+            value: value
+        };
+        ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+    };
+    yesButton.addEventListener('click', () => {
+        yesResponse.classList.add('feedback--response__visible');
+        disableButtons();
+        sendFeedback(1);
+    });
+    noButton.addEventListener('click', () => {
+        noResponse.classList.add('feedback--response__visible');
+        disableButtons();
+        sendFeedback(0);
+    });
+</script>
+
+
+        <br>
+
+        <!--div class="text-muted mt-5 pt-3 border-top">Last modified July 3, 2019: <a
+                href="https://github.com/google/docsy-example/commit/d6aa89c8b24089d7e6741030864eff209465e896">Added
+            links to user guide repo (d6aa89c)</a>
+        </div-->
+    </div>
+
+
+			</main>
+
+		</div>
+	</div>
+
+
+	
+    <!--footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">&copy; 2020 | based on <a href="https://arc42.org">arc42 7.0</a> | mixed with <a href="http://getbootstrap.com/">Bootstrap v5.0.0-beta</a> | Baked with <a href="http://jbake.org">JBake v2.6.7</a></span>
+        </div>
+    </footer-->
+
+    <footer class="bg-dark py-5 row d-print-none">
+        <div class="container-fluid mx-sm-5">
+            <div class="row">
+                <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+
+
+                    <ul class="list-inline mb-0">
+                        
+                        <li aria-label="User mailing list" class="list-inline-item mx-2 h3" data-original-title="User mailing list" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a class="text-white" href="mailto:##footer-email##" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </li>
+                        
+                        
+                        <li aria-label="Twitter" class="list-inline-item mx-2 h3" data-original-title="Twitter" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a class="text-white" href="##twitter-url##" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        
+                        
+                        <li aria-label="Stack Overflow" class="list-inline-item mx-2 h3" data-original-title="Stack Overflow" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a class="text-white" href="##Stackoverflow-url##" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fab fa-stack-overflow"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+
+                </div>
+                <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+
+
+                    <ul class="list-inline mb-0">
+
+                        
+                        <li aria-label="GitHub" class="list-inline-item mx-2 h3" data-original-title="GitHub" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a class="text-white" href="##Github-url##" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        
+
+                        
+                        <li aria-label="Slack" class="list-inline-item mx-2 h3" data-original-title="Slack" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a class="text-white" href="##Slack-url##" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fab fa-slack"></i>
+                            </a>
+                        </li>
+                        
+
+
+                    </ul>
+
+
+                </div>
+                <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+
+                        <small class="text-white">built with <a href="https://doctoolchain.org">docToolchain</a> and <a href="https://jbake.org">jBake</a> <br /> theme: <a href="https://www.docsy.dev/">docsy</a></small>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+
+    <script src="../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js"></script>
+    <script src="../js/blocks.js" ></script>
+    <script src="../js/prettify.js"></script>
+    <script src="../js/copy-n-paste.js"></script>
+
+
+</body>
+</html>

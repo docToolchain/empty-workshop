@@ -1,0 +1,8 @@
+[[context]]
+== Big Spender System Context
+
+
+:currentImagesDir: {imagesDir}
+:imagesdir: ../../../images/
+image::level0/level0.dio.svg[opts=inline]
+:imagesDir: {currentImagesDir}
