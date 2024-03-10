@@ -8,6 +8,8 @@ Next, gitpod will start a web based visual studio instance with everything pre-i
 
 Open this `README.adoc` and press `Ctrl+k` then `v` to aktivate the AsciiDoc preview.
 
+There are some german exercises which can be found at https://doctoolchain.org/empty-workshop/Uebungen.html .
+
 Now open xref:src/docs/diagrams-as-code.adoc[] and start hacking.
 
 '''
