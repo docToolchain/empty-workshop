@@ -1,42 +1,45 @@
-[[context]]
-== Big Spender System Context
-
-
-:currentImagesDir: {imagesDir}
-:imagesdir: ../../../images/
-[.center]
-image::level0/level0.dio.svg[opts=inline]
-:imagesDir: {currentImagesDir}
-
+// tag::base[]
 .Beschreibung der Systeme
 [cols="1,3,2", opts=header]
 |===
 | Name | Beschreibung | Ansprechpartner
+// end::base[]
 
+// tag::mailsystem[]
 | [[mailsystem]]
   Mail-System
 | Standard SMTP-Server
 | Frank Müller
+// end::mailsystem[]
 
+// tag::rechnungen[]
 | [[rechnungen]]
   Rechnungen (SAP)
 | Rechnungs-Modul unseres SAP hosters
 | Ada Lovelace
+// end::rechnungen[]
 
+// tag::dokumentensystem[]
 | [[dokumentensystem]]
   Dokumentensystem
 | Write Only ;-) Archiv für unsere Dokumente
 | ?
+// end::dokumentensystem[]
 
+// tag::gehaltsabrechnung[]
 | [[gehaltsabrechnung]] 
   Gehaltsabrechnung (SAP)
 | Gehaltsabrechnungs-Modul unseres SAP hosters
 | Ada Lovelace
+// end::gehaltsabrechnung[]
 
+// tag::iam[]
 | [[iam]] 
   Identity & Access Management
 | MS Active Directory
 | Bill Gates
+// end::iam[]
 
+// tag::base[]
 |===
-
+// end::base[]

@@ -1,6 +1,0 @@
-== Bigspender Components
-
-=== Kundenabrechnung
-
-xref:../01_container.adoc#container[zurück zum Container]
-

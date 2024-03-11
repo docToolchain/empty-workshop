@@ -1,0 +1,14 @@
+[[context]]
+== System Context
+
+:currentImagesDir: {imagesDir}
+
+:imagesdir: ../../../images/
+
+[.center]
+
+image::level0/level0.dio.svg[opts=inline,svg-type="inline"]
+
+:imagesDir: {currentImagesDir}
+
+include::_descriptions.adoc[tags=base;mailsystem;rechnungen;dokumentensystem;gehaltsabrechnung;iam]

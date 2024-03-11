@@ -70,6 +70,9 @@ include::chapters/04_solution_strategy.adoc[]
 <<<<
 // 5. Bausteinsicht
 include::chapters/05_building_block_view.adoc[]
+include::chapters/05_Bausteinsicht3/01_Systemkontext.adoc[leveloffset=+1]
+include::chapters/05_Bausteinsicht3/02_container.adoc[leveloffset=+1]
+include::chapters/05_Bausteinsicht3/03_components.adoc[leveloffset=+1]
 
 <<<<
 // 6. Laufzeitsicht

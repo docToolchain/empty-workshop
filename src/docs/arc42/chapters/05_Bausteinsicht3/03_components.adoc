@@ -1,0 +1,36 @@
+== Components
+
+[[scanner]]
+=== Scanner
+
+[plantuml]
+....
+[Eingang]
+[Scanner]
+[Ausgang]
+[Eingang] -> [Scanner] 
+[Scanner] -> [Ausgang]
+....
+
+xref:02_container.adoc#container[zurück zum Container]
+
+[[genehmigung]]
+=== Genehmigung
+
+xref:02_container.adoc#container[zurück zum Container]
+
+[[erstattung]]
+=== Erstattung
+
+xref:02_container.adoc#container[zurück zum Container]
+
+[[geschaeftslogik]]
+=== Geschäftslogik
+
+xref:02_container.adoc#container[zurück zum Container]
+
+[[kundenabrechnung]]
+=== Kundenabrechnung
+
+xref:02_container.adoc#container[zurück zum Container]
+
