@@ -1,24 +1,53 @@
-== Empty Repository
+= Diagrams-as-Code Workshop
+:toc: left
+:numbered:
+:icons: font
+:experimental:
+:imagesdir: images
 
-This is just an empty repository to play around with some Diagrams-as-Code tools.
+== Über diesen Workshop
 
-To open this repository in gitpod, just preface the URL with `gitpod.io#`.
+Willkommen zum "Diagrams-as-Code" Workshop! Dieser Workshop bietet eine praktische Einführung in verschiedene Tools und Techniken zur Erstellung von Diagrammen mittels Code. Diagramme-als-Code bieten viele Vorteile gegenüber traditionellen grafischen Editoren:
 
-Next, gitpod will start a web based visual studio instance with everything pre-installed.
+* *Versionierung*: Diagramme können wie normaler Code versioniert werden
+* *Wiederverwendbarkeit*: Elemente und Stile können wiederverwendet werden
+* *Automatisierung*: Diagramme können durch CI/CD-Pipelines automatisch generiert werden
+* *Konsistenz*: Einheitliches Design über alle Diagramme hinweg
+* *Textbasiert*: Einfache Bearbeitung in jedem Texteditor
 
-Open this `README.adoc` and press `Ctrl+k` then `v` to aktivate the AsciiDoc preview.
+== Schnellstart
 
-There are some german exercises which can be found at https://doctoolchain.org/empty-workshop/Uebungen.html .
+=== Online mit Gitpod
 
-Now open xref:src/docs/diagrams-as-code.adoc[] and start hacking.
+Der einfachste Weg, diesen Workshop zu starten, ist über Gitpod:
 
-'''
+1. Öffne diese Repository-URL mit dem Präfix `gitpod.io#`:
++
+```
+gitpod.io#https://github.com/docToolchain/empty-workshop
+```
 
-=== advanced
+2. Gitpod startet eine web-basierte Visual Studio Code Instanz mit allen benötigten Erweiterungen.
 
-To install _docToolchain_, switch to the terminal and run
+3. Öffne diese README.adoc-Datei und drücke kbd:[Ctrl+k] gefolgt von kbd:[v], um die AsciiDoc Vorschau zu aktivieren.
 
-[code, bash]
+4. Navigiere zu xref:src/docs/workshop/index.adoc[], um mit dem Workshop zu beginnen.
+
+=== Lokale Installation
+
+Um den Workshop lokal durchzuführen:
+
+1. Klone dieses Repository:
++
+[source, bash]
+----
+git clone https://github.com/docToolchain/empty-workshop.git
+cd empty-workshop
+----
+
+2. Installiere docToolchain:
++
+[source, bash]
 ----
 curl -Lo dtcw doctoolchain.github.io/dtcw
 chmod +x dtcw
@@ -26,11 +55,71 @@ chmod +x dtcw
 ./dtcw install doctoolchain
 ----
 
-To preview the files, start a small server from within the terminal:
-
-[code, bash]
+3. Starte einen lokalen Webserver zur Vorschau der Dokumente:
++
+[source, bash]
 ----
 python -m http.server 8000
 ----
 
-Gitpod will now ask you what to do with the opened port. Just click on "open in browser" and navigate through the `build` folder.
+4. Öffne http://localhost:8000 in deinem Browser.
+
+== Workshopstruktur
+
+Der Workshop ist in folgenden Ordnern und Dateien organisiert:
+
+* `src/docs/workshop/` - Die Hauptdokumente des Workshops
+** `index.adoc` - Startpunkt und Übersicht des Workshops
+** `plantuml/` - Materialien zum PlantUML-Teil des Workshops
+** `drawio/` - Materialien zum draw.io-Teil des Workshops
+** `c4model/` - Materialien zum C4-Modellierung mit verschiedenen Tools
+
+* `src/docs/images/` - Beispielbilder und -diagramme
+* `Uebungen.adoc` - Praktische Übungen (auf Deutsch)
+
+== Unterstützte Diagramm-Tools
+
+In diesem Workshop werden folgende Diagramm-als-Code Tools behandelt:
+
+[cols="1,2,3"]
+|===
+| Tool | Typ | Haupteinsatzgebiete
+
+| PlantUML
+| Textbasierte Diagramme
+| UML-Diagramme, Sequenzdiagramme, Klassendiagramme, u.v.m.
+
+| Draw.io / diagrams.net
+| Grafischer Editor mit Code-Export
+| Freiformdiagramme, Flowcharts, Netzwerkdiagramme
+
+| C4 Model
+| Architekturmodellierung
+| Systemkontext, Container, Komponenten, Codestruktur
+
+| Structurizr
+| DSL für C4 Model
+| Vollständige Systemarchitekturdokumentation
+
+| Kroki.io
+| Diagramm-Rendering-Service
+| Unterstützt zahlreiche Diagrammsprachen
+|===
+
+== Für Trainer und Workshop-Leiter
+
+Wenn du diesen Workshop selbst durchführen möchtest, lies bitte die xref:src/docs/workshop/trainer-guide.adoc[Anleitung für Trainer].
+
+== Beitragende und Lizenz
+
+* Erstellt und gepflegt vom docToolchain-Team
+* Lizensiert unter der link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons BY-SA 4.0 Lizenz]
+* Beiträge sind willkommen! Siehe link:CONTRIBUTING.adoc[CONTRIBUTING.adoc] für Details.
+
+== Weiterführende Ressourcen
+
+* link:https://doctoolchain.org/[docToolchain-Website]
+* link:https://arc42.org/[arc42-Website]
+* link:https://crashedmind.github.io/PlantUMLHitchhikersGuide/[PlantUML Hitchhiker's Guide]
+* link:https://c4model.com/[C4 Model]
+* link:https://structurizr.com/[Structurizr]

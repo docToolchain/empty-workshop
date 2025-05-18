@@ -1,0 +1,265 @@
+= Erste Schritte mit PlantUML
+:toc: left
+:icons: font
+:experimental:
+:imagesdir: ../../images
+
+== Was ist PlantUML?
+
+PlantUML ist ein Open-Source-Tool, mit dem du verschiedene Arten von UML-Diagrammen durch eine einfache textbasierte Sprache erstellen kannst. Es wurde 2009 von Arnaud Roques entwickelt und hat sich zu einem der beliebtesten Diagrams-as-Code Tools entwickelt.
+
+=== Hauptmerkmale von PlantUML
+
+* Unterstützt zahlreiche Diagrammtypen: Sequenz-, Klassen-, Komponenten-, Aktivitäts-, Anwendungsfall-, Zustands-, Objekt-, Deployment-, Timing- und Netzwerkdiagramme
+* Einfache, leicht zu erlernende Syntax
+* Integration in viele Editoren und Tools (VS Code, IntelliJ, Eclipse, etc.)
+* Exportformate: PNG, SVG, LaTeX, EPS, PDF und andere
+* Erweiterbar durch Includes und eigene Stile
+* Große Community und umfangreiche Dokumentation
+
+== Installation und Einrichtung
+
+=== Online-Nutzung (ohne Installation)
+
+Du kannst PlantUML ohne Installation über folgende Dienste nutzen:
+
+* link:http://www.plantuml.com/plantuml/uml/[PlantUML Online Server]
+* link:https://kroki.io/[Kroki.io]
+* In Gitpod ist PlantUML bereits vorinstalliert
+
+=== Lokale Installation
+
+Für die lokale Nutzung benötigst du:
+
+1. *Java Runtime Environment (JRE)*: PlantUML ist in Java geschrieben.
+2. *PlantUML JAR-Datei*: Herunterladen von link:https://plantuml.com/download[plantuml.com/download].
+3. *Graphviz* (optional): Für komplexere Layouts.
+
+[source,bash]
+----
+# PlantUML ausführen (mit Kommandozeile)
+java -jar plantuml.jar diagramm.puml
+
+# Mehrere Diagramme verarbeiten
+java -jar plantuml.jar *.puml
+----
+
+=== Integration in Editoren
+
+==== Visual Studio Code
+
+1. Installiere die Erweiterung "PlantUML" von jebbs.
+2. Du kannst Diagramme direkt im Editor vorschauen (Alt+D).
+
+==== IntelliJ IDEA
+
+1. Installiere das "PlantUML integration" Plugin.
+2. Erstelle Dateien mit .puml Endung.
+
+==== Online-Editoren
+
+* link:https://www.planttext.com/[PlantText]
+* link:https://plantuml-editor.kkeisuke.com/[PlantUML Editor]
+
+== Grundlegende Syntax
+
+Jedes PlantUML-Diagramm beginnt mit einem Start-Tag und endet mit einem End-Tag. Die Tags variieren je nach Diagrammtyp.
+
+=== Sequenzdiagramm (Beispiel)
+
+[source,plantuml]
+----
+@startuml
+Alice -> Bob: Authentifizierungsanfrage
+Bob --> Alice: Authentifizierungsantwort
+Alice -> Bob: Weitere Anfrage
+Alice <-- Bob: Weitere Antwort
+@enduml
+----
+
+=== Klassendiagramm (Beispiel)
+
+[source,plantuml]
+----
+@startuml
+class User {
+  +String username
+  +String password
+  +login(): boolean
+}
+
+class Admin extends User {
+  +resetUserPassword(User user)
+}
+
+class Customer extends User {
+  +placeOrder(Order order)
+}
+
+class Order {
+  +Date orderDate
+  +List<Product> products
+  +calculateTotal(): double
+}
+
+Customer "1" -- "*" Order: places
+@enduml
+----
+
+=== Komponentendiagramm (Beispiel)
+
+[source,plantuml]
+----
+@startuml
+package "Frontend" {
+  [Web UI] as UI
+  [API Client] as Client
+}
+
+package "Backend" {
+  [REST API] as API
+  [Business Logic] as Logic
+  [Data Access] as DAO
+}
+
+database "Database" {
+  [SQL Database] as DB
+}
+
+UI --> Client
+Client --> API
+API --> Logic
+Logic --> DAO
+DAO --> DB
+@enduml
+----
+
+== Wichtige Konzepte
+
+=== Pfeiltypen
+
+PlantUML unterscheidet verschiedene Arten von Pfeilen, je nach Beziehung oder Kommunikationsart:
+
+[source,plantuml]
+----
+@startuml
+' Synchrone Nachricht
+A -> B: Synchrone Anfrage
+
+' Asynchrone Nachricht
+A ->> B: Asynchrone Anfrage
+
+' Antwort
+B --> A: Antwort
+
+' Bidirektional
+A <-> B: Bidirektional
+
+' Abhängigkeit (in Klassendiagrammen)
+A ..> B: abhängig von
+@enduml
+----
+
+=== Styling und Formatierung
+
+Die Darstellung von Diagrammen kann angepasst werden:
+
+[source,plantuml]
+----
+@startuml
+' Farben
+rectangle "Frontend" #LightBlue {
+  [Web UI]
+}
+
+' Schriftart und -größe
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+' Ausrichtung und Layout
+top to bottom direction
+@enduml
+----
+
+=== Includes und Wiederverwendung
+
+PlantUML erlaubt das Einbinden von externen Definitionen, was die Wiederverwendung und Modularität fördert:
+
+[source,plantuml]
+----
+@startuml
+!include common-styles.puml
+!include models/user.puml
+
+' Verwende die eingebundenen Definitionen
+User -> Order: erstellt
+@enduml
+----
+
+== Tipps & Tricks
+
+=== Komplexe Diagramme strukturieren
+
+* Teile große Diagramme in mehrere Dateien auf
+* Verwende includes für gemeinsame Elemente
+* Nutze Gruppierungen mit `package`, `rectangle`, `folder` etc.
+
+=== Layoutoptimierung
+
+* Verwende `top to bottom direction` oder `left to right direction`
+* Passe die Abstände mit `skinparam` an
+* Verwende explizite Positionierung mit Hidden Links: `A -[hidden]-> B`
+
+=== Debugging
+
+Wenn ein Diagramm nicht wie erwartet dargestellt wird:
+
+1. Überprüfe die Syntax auf fehlende End-Tags (`@enduml`)
+2. Versuche, das Diagramm schrittweise aufzubauen
+3. Nutze den Verbose-Modus: `java -jar plantuml.jar -verbose diagramm.puml`
+
+== Praktische Übung
+
+Erstelle ein einfaches Sequenzdiagramm, das die Anmeldung eines Benutzers zeigt:
+
+1. Erstelle eine neue Datei `login-sequence.puml`
+2. Definiere ein Sequenzdiagramm mit folgenden Akteuren:
+   * User (Person)
+   * Web Interface
+   * Authentication Service
+   * User Database
+3. Modelliere den Anmeldeablauf:
+   * User gibt Credentials ein
+   * Web Interface leitet Anfrage an Authentication Service weiter
+   * Authentication Service prüft Credentials gegen die Datenbank
+   * Rückmeldung erfolgt in umgekehrter Reihenfolge
+
+Beispiellösung:
+
+[source,plantuml]
+----
+@startuml
+actor User
+participant "Web Interface" as Web
+participant "Authentication Service" as Auth
+database "User Database" as DB
+
+User -> Web: Enter credentials
+Web -> Auth: Forward login request
+Auth -> DB: Validate credentials
+Auth <-- DB: Return user details
+Web <-- Auth: Authentication result
+User <-- Web: Login success/failure
+@enduml
+----
+
+== Weiterführende Ressourcen
+
+* link:https://plantuml.com/guide[Offizielle PlantUML-Dokumentation]
+* link:https://crashedmind.github.io/PlantUMLHitchhikersGuide/[PlantUML Hitchhiker's Guide]
+* link:https://real-world-plantuml.com/[Real World PlantUML] - Sammlung von Beispielen
+
+== Nächste Schritte
+
+* Weiter zu xref:sequence-diagrams.adoc[Sequenzdiagramme mit PlantUML]
+* Oder zurück zu xref:../index.adoc[Workshop-Übersicht]

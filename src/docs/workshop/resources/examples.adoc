@@ -1,0 +1,375 @@
+= Beispieldiagramme
+:toc: left
+:icons: font
+:experimental:
+:imagesdir: ../../images
+
+== Übersicht
+
+In diesem Abschnitt findest du eine Sammlung von Beispieldiagrammen, die du als Referenz oder Ausgangspunkt für deine eigenen Diagramme verwenden kannst. Die Beispiele decken verschiedene Diagrammtypen und Tools ab.
+
+== PlantUML-Beispiele
+
+=== Sequenzdiagramm: Bestellprozess
+
+[source,plantuml]
+----
+@startuml
+title Bestellprozess
+actor "Kunde" as Customer
+participant "Webshop Frontend" as Frontend
+participant "Bestellservice" as OrderService
+participant "Zahlungsservice" as PaymentService
+database "Bestelldatenbank" as OrderDB
+
+Customer -> Frontend: Warenkorb zur Kasse
+activate Frontend
+
+Frontend -> OrderService: createOrder(items)
+activate OrderService
+
+OrderService -> OrderDB: speichereVorläufigeBestellung()
+OrderDB --> OrderService: Bestellnummer
+
+OrderService --> Frontend: Bestellnummer, Zahlungsoptionen
+deactivate OrderService
+
+Frontend --> Customer: Zahlungsoptionen anzeigen
+Customer -> Frontend: Zahlungsmethode auswählen
+
+Frontend -> PaymentService: initializePayment(orderId, method)
+activate PaymentService
+
+PaymentService --> Frontend: Zahlungs-URL/Token
+deactivate PaymentService
+
+Frontend --> Customer: Weiterleitung zur Zahlungsseite
+deactivate Frontend
+
+Customer -> PaymentService: Zahlungsdaten eingeben
+activate PaymentService
+
+PaymentService -> OrderService: Zahlungsbestätigung
+activate OrderService
+
+OrderService -> OrderDB: Bestellung finalisieren
+OrderDB --> OrderService: Bestätigung
+
+OrderService --> PaymentService: Erfolg
+deactivate OrderService
+
+PaymentService --> Customer: Zahlungsbestätigung
+deactivate PaymentService
+
+@enduml
+----
+
+=== Klassendiagramm: E-Commerce-System
+
+[source,plantuml]
+----
+@startuml
+title E-Commerce-Klassenhierarchie
+
+package "Users" {
+  abstract class User {
+    +id: String
+    +name: String
+    +email: String
+    +register(): void
+    +login(): boolean
+    +logout(): void
+  }
+  
+  class Customer extends User {
+    +address: Address
+    +paymentMethods: List<PaymentMethod>
+    +placeOrder(cart: ShoppingCart): Order
+    +viewOrderHistory(): List<Order>
+  }
+  
+  class Admin extends User {
+    +role: String
+    +manageProducts(): void
+    +manageUsers(): void
+    +viewReports(): void
+  }
+}
+
+package "Order System" {
+  class Order {
+    +id: String
+    +customer: Customer
+    +items: List<OrderItem>
+    +date: Date
+    +status: OrderStatus
+    +calculateTotal(): Money
+    +updateStatus(status: OrderStatus): void
+  }
+  
+  class OrderItem {
+    +product: Product
+    +quantity: int
+    +calculateSubtotal(): Money
+  }
+  
+  enum OrderStatus {
+    PENDING
+    PAID
+    SHIPPED
+    DELIVERED
+    CANCELLED
+  }
+  
+  class ShoppingCart {
+    +items: List<OrderItem>
+    +addItem(product: Product, quantity: int): void
+    +removeItem(item: OrderItem): void
+    +calculateTotal(): Money
+    +checkout(): Order
+  }
+}
+
+package "Products" {
+  class Product {
+    +id: String
+    +name: String
+    +description: String
+    +price: Money
+    +category: Category
+    +isAvailable(): boolean
+  }
+  
+  class Category {
+    +id: String
+    +name: String
+    +parent: Category
+    +getFullPath(): String
+  }
+}
+
+Customer "1" -- "0..*" Order: places
+Customer "1" -- "0..1" ShoppingCart: has
+Order "1" *-- "1..*" OrderItem: contains
+OrderItem "1" -- "1" Product: references
+Product "0..*" -- "1" Category: belongs to
+
+@enduml
+----
+
+=== C4-Modell: Container-Diagramm eines Mikroservice-Systems
+
+[source,plantuml]
+----
+@startuml
+!include <C4/C4_Container>
+
+LAYOUT_WITH_LEGEND()
+
+title Container-Diagramm für ein Mikroservice-basiertes E-Commerce-System
+
+Person(customer, "Kunde", "Ein registrierter Kunde, der Produkte kaufen möchte.")
+
+System_Boundary(ecommerce_system, "E-Commerce-System") {
+    Container(web_app, "Web-Anwendung", "JavaScript, React", "Stellt die E-Commerce-Funktionalität im Browser des Kunden bereit.")
+    Container(mobile_app, "Mobile App", "Swift, Kotlin", "Stellt die E-Commerce-Funktionalität auf mobilen Geräten bereit.")
+    
+    Container(api_gateway, "API Gateway", "Java, Spring Cloud Gateway", "Einheitlicher Zugangspunkt zu allen Backend-Diensten.")
+    
+    Container(product_service, "Produktservice", "Java, Spring Boot", "Verwaltet Produkte, Kategorien und Suchfunktionen.")
+    Container(order_service, "Bestellservice", "Java, Spring Boot", "Verwaltet Bestellungen und den Bestellprozess.")
+    Container(user_service, "Benutzerservice", "Node.js, Express", "Verwaltet Benutzer, Authentifizierung und Berechtigungen.")
+    Container(payment_service, "Zahlungsservice", "Python, Flask", "Verarbeitet Zahlungen und kommuniziert mit externen Zahlungsdienstleistern.")
+    
+    ContainerDb(product_db, "Produktdatenbank", "MongoDB", "Speichert Produktinformationen, Kategorien und Suchdaten.")
+    ContainerDb(order_db, "Bestelldatenbank", "PostgreSQL", "Speichert Bestelldaten und -status.")
+    ContainerDb(user_db, "Benutzerdatenbank", "PostgreSQL", "Speichert Benutzerprofile und Anmeldedaten.")
+}
+
+System_Ext(payment_provider, "Zahlungsdienstleister", "Externer Zahlungsdienst für die Verarbeitung von Kreditkarten und anderen Zahlungsmethoden.")
+System_Ext(shipping_provider, "Versanddienstleister", "Externer Dienst für die Abwicklung des Versands von Bestellungen.")
+
+Rel(customer, web_app, "Nutzt", "HTTPS")
+Rel(customer, mobile_app, "Nutzt", "HTTPS")
+
+Rel(web_app, api_gateway, "API-Anfragen", "JSON/HTTPS")
+Rel(mobile_app, api_gateway, "API-Anfragen", "JSON/HTTPS")
+
+Rel(api_gateway, product_service, "Routen", "JSON/HTTPS")
+Rel(api_gateway, order_service, "Routen", "JSON/HTTPS")
+Rel(api_gateway, user_service, "Routen", "JSON/HTTPS")
+Rel(api_gateway, payment_service, "Routen", "JSON/HTTPS")
+
+Rel(product_service, product_db, "Lesen/Schreiben", "MongoDB Driver")
+Rel(order_service, order_db, "Lesen/Schreiben", "JDBC")
+Rel(user_service, user_db, "Lesen/Schreiben", "Sequelize ORM")
+
+Rel(order_service, product_service, "Produktverfügbarkeit prüfen", "JSON/HTTPS")
+Rel(order_service, user_service, "Benutzerdetails abrufen", "JSON/HTTPS")
+Rel(order_service, payment_service, "Zahlung initiieren", "JSON/HTTPS")
+Rel(order_service, shipping_provider, "Versand anfordern", "JSON/HTTPS")
+
+Rel(payment_service, payment_provider, "Zahlung verarbeiten", "JSON/HTTPS")
+
+@enduml
+----
+
+== Draw.io-Beispiele
+
+=== Systemkontext-Diagramm
+
+image::examples/drawio-system-context.svg[Systemkontext mit Draw.io]
+
+=== Infrastruktur-Diagramm
+
+image::examples/drawio-infrastructure.svg[Infrastruktur mit Draw.io]
+
+== Kombinierte Beispiele für Dokumentation
+
+=== arc42-Dokumentation mit integrierten Diagrammen
+
+Hier ist ein Beispiel, wie verschiedene Diagrammtypen in einer arc42-Dokumentation zusammenspielen können:
+
+* *Kontextdiagramm* (C4-Modell mit PlantUML)
+* *Container-Diagramm* (C4-Modell mit PlantUML)
+* *Lösungsstrategie* (Konzeptdiagramm mit Draw.io)
+* *Building Block View* (Komponentendiagramm mit PlantUML)
+* *Runtime View* (Sequenzdiagramme mit PlantUML)
+* *Deployment View* (Infrastrukturdiagramm mit Draw.io)
+* *Querschnittliche Konzepte* (Konzeptdiagramm mit Draw.io)
+* *Architekturentscheidungen* (Entscheidungstabellen aus Excel)
+* *Qualitätsszenarien* (Qualitätsbaum mit PlantUML)
+
+=== Living Dokumentation mit CI/CD-Integration
+
+[source,yaml]
+----
+# .github/workflows/docs.yml
+name: Documentation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - 'src/main/plantuml/**'
+      - 'src/main/drawio/**'
+      - '.github/workflows/docs.yml'
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      
+      - name: Install Asciidoctor and PlantUML
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ruby graphviz
+          sudo gem install asciidoctor asciidoctor-diagram
+      
+      - name: Generate PlantUML diagrams
+        run: |
+          mkdir -p docs/images/generated
+          for file in src/main/plantuml/*.puml; do
+            filename=$(basename "$file" .puml)
+            java -jar .tools/plantuml.jar -tsvg -o "../../docs/images/generated" "$file"
+          done
+      
+      - name: Export Draw.io diagrams
+        run: |
+          mkdir -p docs/images/generated
+          for file in src/main/drawio/*.drawio; do
+            filename=$(basename "$file" .drawio)
+            npx @drawio/drawio-cli -x -f svg -o "docs/images/generated/$filename.svg" "$file"
+          done
+      
+      - name: Generate Documentation
+        run: |
+          asciidoctor -r asciidoctor-diagram -D docs/generated docs/index.adoc
+      
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: docs/generated
+----
+
+== Cheatsheets
+
+=== PlantUML Cheatsheet
+
+[cols="1,1,2"]
+|===
+| Diagrammtyp | Start/Ende | Grundelemente
+
+| Sequenzdiagramm
+| @startuml / @enduml
+| actor, participant, -> (Nachricht), <- (Antwort), activate/deactivate
+
+| Klassendiagramm
+| @startuml / @enduml
+| class, interface, abstract class, extends, implements, -- (Assoziation), *-- (Komposition)
+
+| Komponentendiagramm
+| @startuml / @enduml
+| [Komponente], component, interface, -> (Verwendung), ()- (Schnittstelle)
+
+| C4 Context
+| @startuml + !include <C4/C4_Context> / @enduml
+| Person(), System(), System_Ext(), Rel()
+
+| C4 Container
+| @startuml + !include <C4/C4_Container> / @enduml
+| Container(), ContainerDb(), System_Boundary()
+|===
+
+=== Draw.io Tastenkürzel
+
+[cols="1,2"]
+|===
+| Tastenkombination | Funktion
+
+| Strg+A
+| Alles auswählen
+
+| Strg+D
+| Duplizieren
+
+| Strg+G
+| Gruppieren
+
+| Strg+Shift+G
+| Gruppierung aufheben
+
+| Strg+L
+| Verbindung erstellen
+
+| Strg+M
+| Bearbeiten (Edit)
+
+| Strg+Shift+L
+| Layout anwenden
+
+| Alt+Shift+X
+| Verbindungspunkte anzeigen/ausblenden
+|===
+
+== Weiterführende Ressourcen
+
+* link:https://real-world-plantuml.com/[Real World PlantUML] - Sammlung praktischer PlantUML-Beispiele
+* link:https://crashedmind.github.io/PlantUMLHitchhikersGuide/[PlantUML Hitchhiker's Guide]
+* link:https://drawio-app.com/blog/[Draw.io Blog] - Tipps und Tricks für Draw.io
+* link:https://c4model.com/[C4 Model] - Offizielle Website des C4-Modells
+* link:https://github.com/plantuml-stdlib/C4-PlantUML[C4-PlantUML auf GitHub]
+
+== Nächste Schritte
+
+* Zurück zu xref:../index.adoc[Workshop-Übersicht]
+* Weiter zu xref:cheatsheets.adoc[Ausführliche Cheatsheets]

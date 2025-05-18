@@ -1,0 +1,138 @@
+= Anleitung für Trainer
+:toc: left
+:icons: font
+:experimental:
+:imagesdir: ../images
+
+== Überblick
+
+Diese Anleitung ist für Trainer und Workshop-Leiter gedacht, die den "Diagrams-as-Code" Workshop durchführen möchten. Sie enthält Hinweise zur Vorbereitung, Durchführung und typischen Fragen der Teilnehmer.
+
+== Vorbereitungen
+
+=== Zeitplanung
+
+Der Workshop ist modular aufgebaut und kann je nach verfügbarer Zeit angepasst werden:
+
+* *Kompletter Workshop*: 6-8 Stunden (empfohlen für ein umfassendes Verständnis)
+* *Kurzversion*: 3-4 Stunden (Fokus auf PlantUML und C4-Grundlagen)
+* *Einführung*: 1-2 Stunden (Nur Grundlagen und ein ausgewähltes Tool)
+
+Empfohlene Zeitaufteilung für den kompletten Workshop:
+
+[cols="1,2,1"]
+|===
+| Modul | Inhalt | Zeit
+
+| Grundlagen
+| Einführung, Konzepte, Vorteile
+| 30-45 Minuten
+
+| PlantUML
+| Syntax, Diagrammtypen, Übungen
+| 2-2,5 Stunden
+
+| Draw.io
+| Grundlagen, Code-Integration
+| 1-1,5 Stunden
+
+| C4 Modellierung
+| Konzepte, Implementierung mit verschiedenen Tools
+| 1,5-2 Stunden
+
+| Integration
+| Einbindung in Dokumentation, Automatisierung
+| 1-1,5 Stunden
+
+| Pausen
+| Mehrere kurze Pausen einplanen
+| 30-60 Minuten
+|===
+
+=== Technische Voraussetzungen
+
+==== Für den Trainer
+
+* Laptop mit installierter Software
+* Präsentationsmöglichkeit (Beamer, großer Bildschirm)
+* Stabile Internetverbindung
+* Vorkonfigurierte Gitpod-Umgebung zum Demonstrieren
+
+==== Für die Teilnehmer
+
+* Laptop mit Internetzugang
+* GitHub-Account (für Gitpod und Repository-Zugriff)
+* Alternativ: Installierte Tools (Java, VS Code mit Erweiterungen)
+
+=== Vor dem Workshop
+
+1. *Testlauf durchführen*: Alle Übungen und Beispiele vorher selbst durcharbeiten
+2. *Umgebung prüfen*: Gitpod-Umgebung auf Funktionalität testen
+3. *Materialien vorbereiten*: Zusätzliche Handouts oder Beispiele bei Bedarf
+4. *Teilnehmerliste*: Erfahrungslevel der Teilnehmer erfragen, um Schwerpunkte anzupassen
+
+== Durchführung des Workshops
+
+=== Einstieg
+
+* Kurze Vorstellungsrunde mit Erfahrungslevel
+* Abfrage der Erwartungen der Teilnehmer
+* Überblick über die geplanten Module und Zeiten
+* Technische Einrichtung der Arbeitsumgebung
+
+=== Didaktische Hinweise
+
+* *Hands-on*: Nach jeder theoretischen Einführung praktische Übungen durchführen
+* *Zwischenfragen*: Regelmäßig Verständnisfragen stellen
+* *Pair-Programming*: Bei größeren Übungen Teilnehmer in Paaren arbeiten lassen
+* *Tempo anpassen*: Je nach Gruppe das Tempo anpassen, Fortgeschrittene können Bonus-Aufgaben bearbeiten
+
+=== Typische Herausforderungen und Lösungen
+
+[cols="1,2"]
+|===
+| Herausforderung | Lösung
+
+| Unterschiedliche Erfahrungslevel
+| Buddy-System: Erfahrene und Anfänger zusammenbringen
+
+| Technische Probleme
+| Gitpod als robuste Alternative nutzen, Fallback-Optionen vorbereiten
+
+| Zeitmanagement
+| Module mit niedrigerer Priorität identifizieren, die bei Zeitdruck gekürzt werden können
+
+| Komplexe Syntax (besonders PlantUML)
+| Cheat-Sheets verteilen, auf einfache Beispiele fokussieren, die iterativ erweitert werden
+|===
+
+== Nach dem Workshop
+
+=== Nachbereitung
+
+* Feedback der Teilnehmer einholen
+* Workshop-Materialien zur Verfügung stellen
+* Weiterführende Ressourcen teilen
+* Kontaktmöglichkeit für Nachfragen anbieten
+
+=== Zusätzliche Ressourcen für Trainer
+
+* link:https://doctoolchain.org/[docToolchain-Dokumentation]
+* link:https://arc42.org/[arc42-Website] (für Architekturbeispiele)
+* link:https://plantuml.com/guide[PlantUML Offizielle Dokumentation]
+* link:https://c4model.com/[C4 Model - Offizielle Website]
+
+== Häufig gestellte Fragen
+
+[qanda]
+Wie integriere ich die Diagramme in größere Dokumentationsprojekte?::
+  Für AsciiDoc-basierte Projekte empfiehlt sich docToolchain. Für andere Formate wie Markdown können CI/CD-Pipelines eingerichtet werden, die die Diagramm-Generierung automatisieren.
+
+Wie gehe ich mit komplexen Diagrammen und Übersichtlichkeit um?::
+  Bei PlantUML empfiehlt sich die Nutzung von Includes, um Diagramme in wiederverwendbare Teile zu zerlegen. Bei C4 ist eine schrittweise Verfeinerung nach dem C4-Modell sinnvoll.
+
+Welches Tool ist für Anfänger am besten geeignet?::
+  Draw.io bietet den einfachsten Einstieg durch die graphische Oberfläche mit Code-Export. PlantUML ist jedoch mächtiger für strukturierte Diagramme und hat eine steilere, aber lohnende Lernkurve.
+
+Wie kann ich eigene Stilvorlagen für konsistente Diagramme erstellen?::
+  In PlantUML können Stilvorlagen als `.puml`-Dateien definiert und inkludiert werden. In Draw.io können Bibliotheken und Vorlagen erstellt und geteilt werden.

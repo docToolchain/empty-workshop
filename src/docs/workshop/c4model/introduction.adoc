@@ -1,0 +1,226 @@
+= Einführung in das C4-Modell
+:toc: left
+:icons: font
+:experimental:
+:imagesdir: ../../images
+
+== Was ist das C4-Modell?
+
+Das C4-Modell ist ein Ansatz zur Visualisierung und Dokumentation von Softwarearchitekturen, der von Simon Brown entwickelt wurde. C4 steht für die vier Abstraktionsebenen des Modells:
+
+* *Context* (Kontext): Das Gesamtsystem im Kontext seiner Umgebung
+* *Container*: Die hochrangigen technischen Bausteine des Systems
+* *Component* (Komponente): Die logischen Komponenten innerhalb der Container
+* *Code*: Die Implementierungsdetails der Komponenten
+
+Das C4-Modell folgt dem Prinzip des "Zoomens" von einer abstrakten Übersicht bis hin zu detaillierten Implementierungsaspekten.
+
+== Warum C4?
+
+Das C4-Modell wurde entwickelt, um einige der Herausforderungen der Softwarearchitekturdokumentation zu lösen:
+
+* *Einfachheit*: Es verwendet eine verständliche Sprache und klare Konzepte.
+* *Hierarchie*: Die vier Ebenen ermöglichen eine schrittweise Verfeinerung.
+* *Konsistenz*: Eine einheitliche Methodik über verschiedene Projekte hinweg.
+* *Zielgruppenorientierung*: Verschiedene Diagramme für verschiedene Stakeholder.
+
+== Die vier C4-Ebenen im Detail
+
+=== Level 1: Context-Diagramm
+
+Das *Context-Diagramm* zeigt das zu bauende Softwaresystem im Kontext seiner Nutzer und anderer Systeme, mit denen es interagiert.
+
+[plantuml,c4-context-example,svg]
+....
+!include <C4/C4_Context>
+
+LAYOUT_WITH_LEGEND()
+
+title Kontextdiagramm für ein Internet-Banking-System
+
+Person(customer, "Bankkunde", "Ein Kunde der Bank, mit persönlichen Bankkonten.")
+System(banking_system, "Internet-Banking-System", "Ermöglicht Kunden, ihre Konten einzusehen und Transaktionen durchzuführen.")
+
+System_Ext(email_system, "E-Mail-System", "Das interne Microsoft Exchange E-Mail-System.")
+System_Ext(mainframe, "Mainframe-Banksystem", "Speichert alle Kernbankdaten.")
+
+Rel(customer, banking_system, "Nutzt")
+Rel_Back(customer, email_system, "Sendet E-Mails an")
+Rel_Neighbor(banking_system, email_system, "Sendet E-Mails", "SMTP")
+Rel(banking_system, mainframe, "Nutzt")
+....
+
+*Kernelemente:*
+
+* *Personen* - Nutzer oder Rollen, die mit dem System interagieren
+* *Software-Systeme* - Eigenes System und externe Systeme
+* *Beziehungen* - Datenflüsse und Abhängigkeiten zwischen Akteuren
+
+*Zielgruppe:* Alle Stakeholder, insbesondere nicht-technische.
+
+=== Level 2: Container-Diagramm
+
+Das *Container-Diagramm* zoomt in das Softwaresystem und zeigt die Container (Anwendungen, Datenspeicher, Microservices), aus denen das System besteht.
+
+[plantuml,c4-container-example,svg]
+....
+!include <C4/C4_Container>
+
+LAYOUT_WITH_LEGEND()
+
+title Container-Diagramm für das Internet-Banking-System
+
+Person(customer, "Bankkunde", "Ein Kunde der Bank, mit persönlichen Bankkonten.")
+
+System_Boundary(banking_system, "Internet-Banking-System") {
+    Container(web_app, "Web-Anwendung", "Java, Spring MVC", "Stellt statische und dynamische Inhalte für Kunden im Browser bereit.")
+    Container(mobile_app, "Mobile App", "Swift, iOS", "Bietet eine eingeschränkte Funktionalität für Kunden unterwegs.")
+    Container(api, "API-Anwendung", "Java, Spring Boot", "Bietet Internet-Banking-Funktionalität über eine JSON/HTTPS-API.")
+    ContainerDb(database, "Datenbank", "Oracle", "Speichert Benutzerregistrierungsinformationen, Audit-Logs, etc.")
+}
+
+System_Ext(mainframe, "Mainframe-Banksystem", "Speichert alle Kernbankdaten.")
+System_Ext(email_system, "E-Mail-System", "Internes Microsoft Exchange-System.")
+
+Rel(customer, web_app, "Nutzt", "HTTPS")
+Rel(customer, mobile_app, "Nutzt")
+Rel(web_app, api, "Nutzt", "JSON/HTTPS")
+Rel(mobile_app, api, "Nutzt", "JSON/HTTPS")
+Rel(api, database, "Liest von und schreibt in", "JDBC")
+Rel(api, mainframe, "Nutzt", "XML/HTTPS")
+Rel(api, email_system, "Sendet E-Mail über", "SMTP")
+....
+
+*Kernelemente:*
+
+* *Container* - Anwendungen, Dienste, Datenbanken usw.
+* *Technologien* - Verwendete Technologien für jeden Container
+* *Kommunikationspfade* - Wie die Container interagieren
+
+*Zielgruppe:* Techniker und Entwickler.
+
+=== Level 3: Component-Diagramm
+
+Das *Component-Diagramm* zoomt in einen einzelnen Container und zeigt die wichtigsten Komponenten, aus denen er besteht.
+
+[plantuml,c4-component-example,svg]
+....
+!include <C4/C4_Component>
+
+LAYOUT_WITH_LEGEND()
+
+title Komponentendiagramm für die API-Anwendung
+
+Container_Boundary(api, "API-Anwendung") {
+    Component(sign_in_controller, "Anmeldecontroller", "Spring MVC Rest Controller", "Ermöglicht Benutzern, sich bei der Internet-Banking-Anwendung anzumelden.")
+    Component(accounts_controller, "Kontocontroller", "Spring MVC Rest Controller", "Stellt Kontoübersicht und -details bereit.")
+    Component(security_component, "Sicherheitskomponente", "Spring Bean", "Verwaltet Authentifizierung und Autorisierung.")
+    Component(data_access, "Datenzugriffskomponente", "Spring Bean", "Bietet Zugriff auf die Datenbank.")
+}
+
+ContainerDb(database, "Datenbank", "Oracle", "Speichert Benutzerregistrierungsinformationen, Audit-Logs, etc.")
+System_Ext(mainframe, "Mainframe-Banksystem", "Speichert alle Kernbankdaten.")
+
+Rel(sign_in_controller, security_component, "Nutzt")
+Rel(accounts_controller, security_component, "Nutzt")
+Rel(security_component, data_access, "Nutzt")
+Rel(data_access, database, "Liest von und schreibt in", "JDBC")
+Rel(accounts_controller, mainframe, "Ruft Kontodetails ab", "XML/HTTPS")
+....
+
+*Kernelemente:*
+
+* *Komponenten* - Hauptfunktionale Bausteine innerhalb eines Containers
+* *Verantwortlichkeiten* - Was jede Komponente tut
+* *Schnittstellen* - Wie Komponenten interagieren
+
+*Zielgruppe:* Softwarearchitekten und Entwickler.
+
+=== Level 4: Code-Diagramm
+
+Das *Code-Diagramm* zoomt in eine Komponente und zeigt, wie sie implementiert wird, z.B. mit UML-Klassendiagrammen oder Ähnlichem.
+
+[plantuml,c4-code-example,svg]
+....
+@startuml
+package "Sicherheitskomponente" {
+  class SecurityComponent {
+    -userRepository: UserRepository
+    +authenticate(username: String, password: String): boolean
+    +authorize(user: User, resource: String): boolean
+  }
+  
+  interface UserRepository {
+    +findByUsername(username: String): User
+    +save(user: User): void
+  }
+  
+  class JdbcUserRepository implements UserRepository {
+    -dataSource: DataSource
+    +findByUsername(username: String): User
+    +save(user: User): void
+  }
+  
+  class User {
+    -id: Long
+    -username: String
+    -passwordHash: String
+    -roles: List<Role>
+    +hasPermission(resource: String): boolean
+  }
+  
+  class Role {
+    -name: String
+    -permissions: List<Permission>
+  }
+  
+  SecurityComponent --> UserRepository
+  JdbcUserRepository --> User
+  User --> Role
+}
+@enduml
+....
+
+*Kernelemente:*
+
+* *Klassen* - Die tatsächlichen Implementierungsklassen
+* *Beziehungen* - Vererbung, Implementierung, Abhängigkeiten
+* *Details* - Methoden, Attribute, etc.
+
+*Zielgruppe:* Entwickler.
+
+== C4-Modell und Diagramm-als-Code
+
+Das C4-Modell lässt sich hervorragend mit dem Diagrams-as-Code-Ansatz kombinieren:
+
+1. *Versionierung*: Die Architektur kann zusammen mit dem Code versioniert werden
+2. *Automatisierung*: C4-Diagramme können automatisch generiert und aktualisiert werden
+3. *Konsistenz*: Einheitliche Darstellung über alle Projekte hinweg
+
+Es gibt mehrere Tools, die C4 mit Diagrams-as-Code unterstützen:
+
+* *PlantUML mit C4-Makros* - Siehe `!include <C4/...>` in den Beispielen
+* *Structurizr* - Eine spezielle DSL für C4
+* *C4-PlantUML* - Eine Erweiterung für PlantUML mit C4-spezifischer Syntax
+
+== Praktische Übung
+
+1. Erstelle ein Context-Diagramm für ein eigenes Projekt oder ein fiktives System (z.B. ein Online-Shop).
+2. Identifiziere die Container in diesem System und erstelle ein Container-Diagramm.
+
+*Tipps:*
+* Beginne mit wenigen Elementen und erweitere schrittweise
+* Denke an die Zielgruppe des jeweiligen Diagramms
+* Achte auf konsistente Benennungen über alle Ebenen hinweg
+
+== Weiterführende Ressourcen
+
+* link:https://c4model.com/[Offizielle C4-Modell Website]
+* link:https://github.com/plantuml-stdlib/C4-PlantUML[C4-PlantUML GitHub Repository]
+* link:https://structurizr.com/[Structurizr]
+* link:https://www.infoq.com/articles/C4-architecture-model/[InfoQ-Artikel über das C4-Modell]
+
+== Nächste Schritte
+
+* Weiter zu xref:with-plantuml.adoc[C4 mit PlantUML]
+* Oder zurück zu xref:../index.adoc[Workshop-Übersicht]

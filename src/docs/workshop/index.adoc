@@ -1,0 +1,87 @@
+= Diagrams-as-Code Workshop
+:toc: left
+:numbered:
+:icons: font
+:experimental:
+:imagesdir: ../images
+
+== Willkommen zum Workshop
+
+Dieser Workshop führt dich in die Welt der "Diagrams-as-Code" ein. Du wirst lernen, wie du verschiedene Arten von Diagrammen mit Code erstellen, versionieren und automatisieren kannst.
+
+== Workshop-Übersicht
+
+Der Workshop ist in folgende Abschnitte unterteilt:
+
+* *Grundlagen*: Einführung und Konzepte hinter Diagrams-as-Code
+* *PlantUML*: Erstellen von UML-Diagrammen mit PlantUML
+* *Draw.io/diagrams.net*: Nutzung des grafischen Editors mit Code-Integration
+* *C4 Modellierung*: Architekturmodellierung mit dem C4-Ansatz
+* *Integration*: Einbindung der Diagramme in Dokumentation
+
+Zu jedem Abschnitt gibt es praktische Übungen, die dir helfen, das Gelernte anzuwenden.
+
+== Voraussetzungen
+
+=== Technische Voraussetzungen
+
+* Git-Grundkenntnisse
+* Texteditor (idealerweise mit Syntax-Highlighting für die verwendeten Sprachen)
+* Java Runtime Environment (für PlantUML)
+* Web-Browser (für draw.io und andere webbasierte Tools)
+
+=== Empfohlene Entwicklungsumgebungen
+
+* *Online*: Gitpod (alle notwendigen Tools vorinstalliert)
+* *Lokal*: Visual Studio Code mit folgenden Erweiterungen:
+** AsciiDoctor Extension (für die Dokumentation)
+** PlantUML Extension (für PlantUML-Diagramme)
+** Draw.io Extension (für Draw.io-Diagramme)
+
+== Workshop-Module
+
+=== Modul 1: Grundlagen
+
+* xref:basics/introduction.adoc[Einführung in Diagrams-as-Code]
+* xref:basics/advantages.adoc[Vorteile gegenüber grafischen Editoren]
+* xref:basics/version-control.adoc[Versionierung von Diagrammen]
+
+=== Modul 2: PlantUML
+
+* xref:plantuml/getting-started.adoc[Erste Schritte mit PlantUML]
+* xref:plantuml/sequence-diagrams.adoc[Sequenzdiagramme]
+* xref:plantuml/class-diagrams.adoc[Klassendiagramme]
+* xref:plantuml/component-diagrams.adoc[Komponentendiagramme]
+* xref:plantuml/styling.adoc[Styling und Anpassung]
+
+=== Modul 3: Draw.io / diagrams.net
+
+* xref:drawio/getting-started.adoc[Erste Schritte mit Draw.io]
+* xref:drawio/code-integration.adoc[Code-Integration in Draw.io]
+* xref:drawio/collaborative-editing.adoc[Gemeinsames Bearbeiten]
+
+=== Modul 4: C4 Modellierung
+
+* xref:c4model/introduction.adoc[Einführung in das C4-Modell]
+* xref:c4model/with-plantuml.adoc[C4 mit PlantUML]
+* xref:c4model/with-structurizr.adoc[C4 mit Structurizr]
+
+=== Modul 5: Integration in Dokumentation
+
+* xref:integration/asciidoc.adoc[Integration in AsciiDoc]
+* xref:integration/markdown.adoc[Integration in Markdown]
+* xref:integration/automation.adoc[Automatisierung mit CI/CD]
+
+== Praktische Übungen
+
+Jeder Abschnitt enthält praktische Übungen. Du findest alle Übungen in den jeweiligen Modulen oder in der xref:../../Uebungen.adoc[Übungen-Datei].
+
+== Zusätzliche Ressourcen
+
+* xref:resources/examples.adoc[Beispieldiagramme]
+* xref:resources/cheatsheets.adoc[Cheatsheets]
+* xref:resources/links.adoc[Weiterführende Links]
+
+== Nächste Schritte
+
+Beginne mit dem ersten Modul: xref:basics/introduction.adoc[Einführung in Diagrams-as-Code]

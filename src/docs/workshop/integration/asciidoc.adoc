@@ -1,0 +1,295 @@
+= Integration in AsciiDoc
+:toc: left
+:icons: font
+:experimental:
+:imagesdir: ../../images
+
+== Warum Diagramme in Dokumentation integrieren?
+
+Diagramme sind ein mächtiges Mittel, um komplexe Konzepte zu visualisieren und Dokumentation zu verbessern. Die Integration von Diagrams-as-Code in AsciiDoc-Dokumentation bietet mehrere Vorteile:
+
+* *Single Source of Truth*: Diagramme und Dokumentation in einem Repository
+* *Versionierung*: Änderungen an Diagrammen und Dokumentation werden gemeinsam nachverfolgt
+* *Automatisierung*: Automatische Generierung von Diagrammen beim Dokumentationsbuild
+* *Konsistenz*: Einheitliches Erscheinungsbild von Diagrammen in der gesamten Dokumentation
+
+== AsciiDoc und Diagramme
+
+AsciiDoc ist ein leichtgewichtiges Markup-Format für technische Dokumentation, das sich hervorragend für die Integration von Diagrammen eignet. Mit dem AsciiDoctor-Prozessor kann AsciiDoc in verschiedene Ausgabeformate wie HTML, PDF oder EPUB konvertiert werden.
+
+=== AsciiDoctor Diagram Extension
+
+Die AsciiDoctor Diagram Extension ermöglicht die Einbindung verschiedener Diagramm-Tools in AsciiDoc:
+
+* PlantUML
+* Graphviz/DOT
+* Mermaid
+* Ditaa
+* und viele mehr
+
+Die Extension rendert die Diagramme während der Dokumentationsgenerierung und bindet die erzeugten Bilder automatisch ein.
+
+== Integration von PlantUML in AsciiDoc
+
+=== Installation und Konfiguration
+
+Um PlantUML in AsciiDoc zu integrieren, benötigst du:
+
+1. AsciiDoctor: `gem install asciidoctor`
+2. AsciiDoctor Diagram Extension: `gem install asciidoctor-diagram`
+3. Java Runtime Environment (für PlantUML)
+4. PlantUML JAR-Datei
+
+=== Einbetten eines PlantUML-Diagramms
+
+Es gibt zwei Hauptmethoden, um PlantUML-Diagramme in AsciiDoc einzubinden:
+
+==== Methode 1: Inline-Diagramme
+
+Diagramme direkt im AsciiDoc-Dokument definieren:
+
+[source,asciidoc]
+----
+[plantuml,diagram-name,svg]
+....
+@startuml
+Alice -> Bob: Authentifizierungsanfrage
+Bob --> Alice: Authentifizierungsantwort
+@enduml
+....
+----
+
+Die Parameter in den eckigen Klammern bedeuten:
+- `plantuml`: Der Diagrammtyp
+- `diagram-name`: Ein eindeutiger Name für das Diagramm (wird für den Dateinamen verwendet)
+- `svg`: Das Ausgabeformat (alternativ: png, pdf, etc.)
+
+==== Methode 2: Externe Diagrammdateien
+
+Verweis auf externe PlantUML-Dateien:
+
+[source,asciidoc]
+----
+[plantuml,diagram-name,svg]
+....
+include::path/to/diagram.puml[]
+....
+----
+
+oder kürzer:
+
+[source,asciidoc]
+----
+plantuml::path/to/diagram.puml[format=svg]
+----
+
+=== Generierung der Dokumentation
+
+Um die Dokumentation mit eingebetteten Diagrammen zu generieren:
+
+[source,bash]
+----
+asciidoctor -r asciidoctor-diagram document.adoc
+----
+
+Dies erzeugt eine HTML-Datei mit den gerenderten Diagrammen.
+
+== Integration von Draw.io in AsciiDoc
+
+=== Vorbereitung der Draw.io-Dateien
+
+1. Diagramm in Draw.io erstellen
+2. Als SVG oder PNG exportieren
+3. Optional: Verweise und Hyperlinks im Diagramm definieren
+
+=== Einbinden in AsciiDoc
+
+==== Als Bild einbinden
+
+[source,asciidoc]
+----
+image::path/to/diagram.svg[Diagramm-Beschreibung]
+----
+
+==== Mit interaktiven Elementen (SVG)
+
+Für SVG-Dateien mit interaktiven Elementen:
+
+[source,asciidoc]
+----
+// Aktuellen imagesdir speichern
+:currentImagesDir: {imagesdir}
+// Temporär auf den tatsächlichen Pfad umstellen
+:imagesdir: path/to/images/directory
+image::diagram.svg[opts=interactive]
+// Zurück zum ursprünglichen imagesdir
+:imagesdir: {currentImagesDir}
+----
+
+Die Option `opts=interactive` behält interaktive Elemente wie Hyperlinks im SVG bei.
+
+== Integration von C4-Diagrammen
+
+C4-Diagramme können mit verschiedenen Tools erstellt und dann in AsciiDoc integriert werden:
+
+=== Mit PlantUML und C4-Makros
+
+[source,asciidoc]
+----
+[plantuml,c4-context,svg]
+....
+!include <C4/C4_Context>
+
+LAYOUT_WITH_LEGEND()
+
+Person(user, "Benutzer", "Ein Benutzer des Systems")
+System(system, "Mein System", "Das zu bauende Softwaresystem")
+System_Ext(external, "Externes System", "Ein externes System")
+
+Rel(user, system, "Benutzt")
+Rel(system, external, "Nutzt API von")
+....
+----
+
+=== Mit Structurizr und DSL
+
+1. Structurizr DSL verwenden, um Diagramme zu definieren
+2. Diagramme als PNG oder SVG exportieren
+3. In AsciiDoc einbinden
+
+[source,asciidoc]
+----
+image::structurizr-context.svg[C4 Kontextdiagramm]
+----
+
+== Automatisierung mit docToolchain
+
+docToolchain ist ein Open-Source-Tool, das die Dokumentationserstellung mit AsciiDoc automatisiert und erweitert. Es ist besonders nützlich für die Integration von Diagrammen.
+
+=== Vorteile von docToolchain
+
+* Automatische Generierung von Diagrammen
+* Build-Pipeline für Dokumentation
+* Exportieren von Diagrammen aus verschiedenen Quellen (Excel, PlantUML, etc.)
+* Integration in CI/CD-Pipelines
+
+=== Einrichtung von docToolchain
+
+1. docToolchain installieren:
+
+[source,bash]
+----
+curl -Lo dtcw doctoolchain.github.io/dtcw
+chmod +x dtcw
+./dtcw install java
+./dtcw install doctoolchain
+----
+
+2. Dokumentation generieren:
+
+[source,bash]
+----
+./dtcw generateHTML
+----
+
+=== Diagramme aus Excel generieren
+
+docToolchain kann auch Diagramme aus Excel-Dateien generieren:
+
+[source,bash]
+----
+./dtcw exportExcel
+----
+
+Die generierten Diagramme werden als AsciiDoc-Dateien im Verzeichnis `src/docs/excel` abgelegt und können dann in die Hauptdokumentation eingebunden werden.
+
+== Beispiel: Komplettes Dokument mit integrierten Diagrammen
+
+Hier ist ein Beispiel für ein AsciiDoc-Dokument, das verschiedene Arten von Diagrammen integriert:
+
+[source,asciidoc]
+----
+= Systemarchitektur-Dokumentation
+:toc: left
+:numbered:
+:imagesdir: images
+
+== Überblick
+
+Dieses Dokument beschreibt die Architektur unseres Systems.
+
+== Systemkontext
+
+Das folgende Diagramm zeigt den Systemkontext:
+
+[plantuml,system-context,svg]
+....
+!include <C4/C4_Context>
+
+LAYOUT_WITH_LEGEND()
+
+Person(user, "Benutzer", "Ein Benutzer des Systems")
+System(system, "Mein System", "Das zu bauende Softwaresystem")
+System_Ext(external, "Externes System", "Ein externes System")
+
+Rel(user, system, "Benutzt")
+Rel(system, external, "Nutzt API von")
+....
+
+== Container-Diagramm
+
+image::container-diagram.svg[Container-Diagramm]
+
+== Komponentendiagramm
+
+plantuml::components.puml[format=svg]
+
+== Qualitätsanforderungen
+
+Die folgende Tabelle wurde aus Excel generiert:
+
+include::excel/quality-requirements.adoc[]
+----
+
+== Tipps und Tricks
+
+=== Performance-Optimierung
+
+* Diagramme im SVG-Format einbinden für bessere Skalierbarkeit und kleinere Dateigröße
+* Bei großen Dokumenten mit vielen Diagrammen kann die Generierung länger dauern - erwäge, Diagramme zu cachen
+* Für komplexe PlantUML-Diagramme: Preprocessor-Direktiven nutzen, um wiederholende Elemente zu definieren
+
+=== Layoutverbesserungen
+
+* Für PlantUML-Diagramme: Layoutrichtung explizit angeben (`top to bottom direction` oder `left to right direction`)
+* In Draw.io: Konsistente Farben und Formen für ähnliche Elemente verwenden
+* Diagramme mit aussagekräftigen Titeln und Legenden versehen
+
+=== Fehlersuche
+
+Wenn Diagramme nicht korrekt generiert werden:
+
+1. Prüfe die Syntax des Diagramm-Codes
+2. Überprüfe Pfade zu externen Dateien
+3. Verwende Debug-Optionen: `asciidoctor -r asciidoctor-diagram -a diagram-verbose document.adoc`
+
+== Praktische Übung
+
+Erstelle ein AsciiDoc-Dokument, das:
+
+1. Ein PlantUML-Sequenzdiagramm enthält
+2. Ein in Draw.io erstelltes und als SVG exportiertes Diagramm einbindet
+3. Eine aus Excel exportierte Tabelle enthält
+
+== Weiterführende Ressourcen
+
+* link:https://docs.asciidoctor.org/diagram-extension/latest/[AsciiDoctor Diagram Extension Dokumentation]
+* link:https://doctoolchain.org/[docToolchain Website]
+* link:https://plantuml.com/[PlantUML Website]
+* link:https://diagrams.net/[Draw.io Website]
+
+== Nächste Schritte
+
+* Weiter zu xref:markdown.adoc[Integration in Markdown]
+* Oder zu xref:automation.adoc[Automatisierung mit CI/CD]
+* Zurück zur xref:../index.adoc[Workshop-Übersicht]

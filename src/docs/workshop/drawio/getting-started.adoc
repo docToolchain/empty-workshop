@@ -1,0 +1,202 @@
+= Erste Schritte mit Draw.io
+:toc: left
+:icons: font
+:experimental:
+:imagesdir: ../../images
+
+== Was ist Draw.io?
+
+Draw.io (auch bekannt als diagrams.net) ist ein kostenloses, quelloffenes Diagramm-Tool, das sowohl online als auch als Desktop-Anwendung genutzt werden kann. Im Gegensatz zu rein textbasierten Diagramm-Tools wie PlantUML bietet Draw.io eine grafische Benutzeroberfläche zum Erstellen von Diagrammen.
+
+Was Draw.io besonders für den Diagrams-as-Code Ansatz wertvoll macht, ist seine Fähigkeit, Diagramme im XML-Format zu speichern und zu bearbeiten, sowie die mögliche Integration in Code-Repositories.
+
+=== Hauptmerkmale von Draw.io
+
+* Intuitive grafische Benutzeroberfläche
+* Rein browserbasiert (keine Installation nötig) oder als Desktop-App
+* Unterstützt zahlreiche Diagrammtypen und Bibliotheken
+* Speichert Diagramme im XML-Format, was Versionierung ermöglicht
+* Integration in VS Code, verschiedene Cloud-Dienste und Atlassian-Produkte
+* Export in verschiedene Formate (PNG, SVG, PDF, HTML, etc.)
+* Kompatibilität mit anderen Diagramm-Tools (z.B. Lucidchart, Visio)
+
+== Zugang zu Draw.io
+
+=== Online-Nutzung
+
+Draw.io kann direkt im Browser verwendet werden, ohne Anmeldung oder Installation:
+
+* link:https://app.diagrams.net/[diagrams.net] (offizieller Name für Draw.io)
+
+=== Desktop-Anwendung
+
+Für die Offline-Nutzung gibt es eine Desktop-Version für verschiedene Plattformen:
+
+* link:https://github.com/jgraph/drawio-desktop/releases[Download der Desktop-App]
+
+=== Integration in VS Code
+
+In diesem Workshop verwenden wir die VS Code-Integration:
+
+1. Die Erweiterung "Draw.io Integration" von Henning Dieterichs installieren
+2. `.drawio` oder `.dio` Dateien in VS Code erstellen oder öffnen
+3. Die Diagramme direkt im VS Code-Editor bearbeiten
+
+== Die Benutzeroberfläche
+
+Die Draw.io-Benutzeroberfläche besteht aus mehreren Hauptbereichen:
+
+* *Arbeitsfläche*: Zentraler Bereich zum Erstellen von Diagrammen
+* *Menüleiste*: Enthält Funktionen für Datei, Bearbeiten, Ansicht, etc.
+* *Seitenleiste*: Bibliotheken mit Formen und Symbolen
+* *Formatierungsleiste*: Optionen zur Formatierung von Elementen
+* *Statusleiste*: Informationen über das Diagramm und aktuelle Aktionen
+
+=== Wichtige Funktionen
+
+* *Bibliotheken*: Vordefinierte Symbole und Formen für verschiedene Diagrammtypen
+* *Stile*: Anpassung von Farben, Linien, Füllungen, etc.
+* *Verbindungen*: Verschiedene Arten von Pfeilen und Verbindungen
+* *Ebenen*: Organisation von Elementen in Schichten
+* *Hyperlinks*: Verlinkung zwischen Diagrammen oder zu externen Ressourcen
+
+== Grafiken erstellen mit Draw.io
+
+=== Neues Diagramm beginnen
+
+In VS Code:
+
+1. `.dio` oder `.drawio` Datei erstellen
+2. Vorlage auswählen oder mit einem leeren Diagramm beginnen
+
+=== Grundlegende Elemente hinzufügen
+
+1. Formen durch Drag & Drop aus der Seitenleiste hinzufügen
+2. Text hinzufügen durch Doppelklick auf Elemente
+3. Elemente verbinden durch Ziehen von Verbindungspunkten
+4. Elemente formatieren über die Formatierungsleiste oder Kontextmenü
+
+=== Bibliotheken verwenden
+
+Draw.io verfügt über zahlreiche eingebaute Bibliotheken:
+
+* Allgemeine Formen
+* UML-Elemente
+* Netzwerk-Komponenten
+* C4-Modell-Komponenten
+* AWS-, Azure-, GCP-Icons
+* Und viele mehr...
+
+So fügst du eine Bibliothek hinzu:
+
+1. Auf das "+"-Symbol in der linken Seitenleiste klicken
+2. Gewünschte Bibliothek auswählen
+3. Die Bibliothek erscheint in der Seitenleiste
+
+== Draw.io und Diagrams-as-Code
+
+Obwohl Draw.io primär ein grafisches Tool ist, passt es gut zum Diagrams-as-Code Ansatz:
+
+=== XML-Basierte Dateien
+
+Draw.io speichert Diagramme im XML-Format, was mehrere Vorteile bietet:
+
+* Textbasiertes Format, gut für Versionskontrolle geeignet
+* Menschenlesbar und bei Bedarf manuell editierbar
+* Kompakt und effizient für die Speicherung
+
+Beispiel für das XML-Format einer einfachen Draw.io-Datei:
+
+[source,xml]
+----
+<mxfile>
+  <diagram id="sample-diagram" name="Page-1">
+    <mxGraphModel dx="1024" dy="768" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Beispielbox" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+----
+
+=== Integration in Git-Workflows
+
+1. Draw.io-Dateien in Git-Repositorys speichern
+2. Änderungen nachverfolgen mit normalen Git-Befehlen
+3. Pull Requests für Diagrammänderungen erstellen
+4. Diagramme gemeinsam mit dem Code entwickeln
+
+=== Automatisierung
+
+Draw.io bietet auch Möglichkeiten zur Automatisierung:
+
+* Command-Line-Rendering mit der Desktop-Version
+* Integration in CI/CD-Pipelines für automatische Diagrammaktualisierung
+* Programmgesteuerte Erstellung und Bearbeitung von Diagrammen
+
+== Praktisches Beispiel: Systemkontext mit Draw.io
+
+Lass uns ein einfaches Systemkontext-Diagramm erstellen:
+
+1. Neue Datei `system-context.drawio` erstellen
+2. Aus der Bibliothek "Softwareentwicklung > C4" auswählen
+3. Elemente hinzufügen:
+   * Person (Benutzer)
+   * System (Kernkomponente)
+   * External System (externe Systeme)
+4. Mit Pfeilen verbinden und Beschreibungen hinzufügen
+
+image::drawio-example-system-context.png[Beispiel eines Systemkontext-Diagramms mit Draw.io]
+
+== Tipps & Tricks
+
+=== Effiziente Arbeitsweise
+
+* *Tastenkürzel* lernen (z.B. Strg+D zum Duplizieren)
+* *Vorlagen* erstellen für wiederkehrende Diagramme
+* *Bibliotheken* anpassen und eigene erstellen
+* *Stile* speichern und wiederverwenden
+
+=== Diagramme zwischen Anwendungen teilen
+
+* Diagramme lassen sich zwischen der Online-Version, Desktop-App und VS Code-Erweiterung austauschen
+* Bibliotheken können exportiert und importiert werden
+* Team-Bibliotheken für konsistente Diagramme einrichten
+
+=== Integration mit anderen Tools
+
+* Git-basierte Workflows
+* Einbindung in Dokumentation (AsciiDoc, Markdown)
+* Exportieren für Präsentationen
+
+== Vor- und Nachteile gegenüber textbasierten Tools
+
+=== Vorteile von Draw.io
+
+* Intuitive grafische Benutzeroberfläche
+* Keine Syntax zu lernen
+* Freie Platzierung und Layout
+* Unterstützung für komplexe Designs und Anpassungen
+
+=== Nachteile gegenüber rein textbasierten Tools
+
+* Weniger strukturiert für systematische Diagramme
+* Schwieriger zu automatisieren
+* XML kann bei komplexen Diagrammen unübersichtlich werden
+* Merge-Konflikte können schwieriger zu lösen sein
+
+== Weiterführende Ressourcen
+
+* link:https://www.diagrams.net/doc/[Offizielle Draw.io-Dokumentation]
+* link:https://desk.draw.io/support/solutions/articles/16000042546[Draw.io Tastenkürzel]
+* link:https://www.youtube.com/c/diagramsnet[Draw.io YouTube-Kanal mit Tutorials]
+
+== Nächste Schritte
+
+* Weiter zu xref:code-integration.adoc[Code-Integration in Draw.io]
+* Oder zurück zu xref:../index.adoc[Workshop-Übersicht]

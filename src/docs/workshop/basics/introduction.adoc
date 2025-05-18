@@ -1,0 +1,163 @@
+= Einführung in Diagrams-as-Code
+:toc: left
+:icons: font
+:experimental:
+:imagesdir: ../../images
+
+== Was sind Diagrams-as-Code?
+
+*Diagrams-as-Code* ist ein Ansatz, bei dem Diagramme nicht mit grafischen Editoren erstellt werden, sondern durch Code oder textbasierte Beschreibungen. Diese Beschreibungen werden dann automatisch in visuelle Diagramme umgewandelt.
+
+Der grundlegende Ablauf ist:
+
+1. Textbasierte Beschreibung erstellen (in einer speziellen Syntax)
+2. Compiler oder Renderer verarbeitet den Code
+3. Visuelle Darstellung wird generiert (in Formaten wie SVG, PNG, etc.)
+
+== Warum Diagrams-as-Code?
+
+Der Diagrams-as-Code Ansatz bietet gegenüber traditionellen grafischen Editoren zahlreiche Vorteile:
+
+[cols="1,3"]
+|===
+| Vorteil | Beschreibung
+
+| *Versionierung*
+| Diagramme können wie Code in Git versioniert werden. Dies ermöglicht eine transparente Änderungshistorie und eine einfache Zusammenarbeit im Team.
+
+| *Wiederverwendbarkeit*
+| Elemente, Stile und ganze Teildiagramme können wiederverwendet werden, was die Konsistenz erhöht und Zeit spart.
+
+| *Automatisierung*
+| Diagramme können automatisch aus Codebasen oder Datenbanken generiert und in CI/CD-Pipelines integriert werden.
+
+| *Textbasierte Bearbeitung*
+| Diagramme können in jedem Texteditor bearbeitet werden, was die Integration in bestehende Entwicklungsumgebungen erleichtert.
+
+| *Kollaboration*
+| Teams können gemeinsam an Diagrammen arbeiten, indem sie Pull Requests und andere Git-Workflow-Funktionen nutzen.
+
+| *Konsistenz*
+| Durch einheitliche Stile und wiederverwendbare Komponenten wird eine konsistente Darstellung über alle Diagramme hinweg gewährleistet.
+|===
+
+== Unterschied zu traditionellen Diagramm-Tools
+
+[cols="1,1,1"]
+|===
+| Aspekt | Traditionelle Tools | Diagrams-as-Code
+
+| Primäre Bearbeitungsmethode
+| Grafische Benutzeroberfläche
+| Text/Code-Editor
+
+| Dateiformat
+| Oft proprietär oder binär
+| Textbasiert (ASCII/UTF-8)
+
+| Versionierung
+| Schwierig, oft nur auf Dateiebene
+| Einfach, zeilenbasiert wie Code
+
+| Automatisierung
+| Limitiert oder nicht möglich
+| Einfach zu integrieren
+
+| Lernkurve
+| Initial flacher, intuitiver
+| Steiler, erfordert Kenntnis der Syntax
+|===
+
+== Überblick über die wichtigsten Tools
+
+=== PlantUML
+
+PlantUML ist eines der bekanntesten und vielseitigsten Diagrams-as-Code Tools. Es unterstützt eine breite Palette von UML-Diagrammen und anderen Diagrammtypen.
+
+[source,plantuml]
+----
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Another authentication Response
+@enduml
+----
+
+=== Draw.io / diagrams.net
+
+Draw.io (jetzt diagrams.net) ist primär ein grafischer Editor, bietet aber auch XML-Export und -Import, was es zu einem Hybrid zwischen traditionellen Editoren und Diagrams-as-Code macht.
+
+=== C4 Model mit verschiedenen Tools
+
+Das C4-Modell ist ein Ansatz zur Beschreibung von Softwarearchitekturen. Es kann mit verschiedenen Tools umgesetzt werden, darunter:
+
+* PlantUML mit C4-Erweiterungen
+* Structurizr, das eine eigene DSL bietet
+* Draw.io mit C4-Bibliotheken
+
+=== Weitere Tools
+
+* Mermaid: JavaScript-basiertes Diagramm-Tool, gut für die Integration in Markdown
+* Graphviz/DOT: Fokus auf automatisches Layout von Graphen
+* AsciiDoctor Diagrams: Integration verschiedener Diagramm-Tools in AsciiDoc
+* Kroki.io: Unified API für verschiedene Diagramm-Sprachen
+
+== Anwendungsbereiche
+
+Diagrams-as-Code eignet sich besonders für:
+
+* Softwarearchitekturdokumentation
+* Infrastrukturdiagramme (z.B. mit IaC)
+* UML-Diagramme in Entwicklungsteams
+* Dynamisch generierte Diagramme (z.B. aus Datenbankschemata)
+* Diagramme, die eng mit Code oder Dokumentation verknüpft sind
+
+== Praxisbeispiel: Ein einfaches Diagramm mit PlantUML
+
+Hier ist ein einfaches Beispiel für ein Komponentendiagramm mit PlantUML:
+
+[source,plantuml]
+----
+@startuml
+package "Frontend" {
+  [Web UI] as UI
+  [API Client] as Client
+}
+
+package "Backend" {
+  [REST API] as API
+  [Business Logic] as Logic
+  [Data Access] as DAO
+}
+
+database "Database" {
+  [SQL Database] as DB
+}
+
+UI --> Client
+Client --> API
+API --> Logic
+Logic --> DAO
+DAO --> DB
+@enduml
+----
+
+Dieses Beispiel zeigt:
+
+1. Definition von Komponenten in Paketen
+2. Beziehungen zwischen den Komponenten
+3. Verschiedene Symboltypen (Komponenten, Datenbank)
+
+== Grundlegende Konzepte zum Mitnehmen
+
+* Diagrams-as-Code ist ein *Paradigma*, kein einzelnes Tool
+* Die *Syntax* variiert je nach verwendetem Tool
+* *Automatisierung* und *Versionierung* sind Hauptvorteile
+* Für komplexe Diagramme ist eine gute *Strukturierung* wichtig
+* *Wiederverwendbarkeit* durch Includes und gemeinsame Stile erreichen
+
+== Nächste Schritte
+
+* Weiter zu xref:advantages.adoc[Vorteile von Diagrams-as-Code]
+* Direkt zu xref:../plantuml/getting-started.adoc[Erste Schritte mit PlantUML]
