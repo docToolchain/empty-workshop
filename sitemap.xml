@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/12_glossary.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/10_quality_requirements.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/09_architecture_decisions.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/07_deployment_view.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/06_runtime_view.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/05_building_block_view.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/08_concepts.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/11_technical_risks.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/02_architecture_constraints.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/04_solution_strategy.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/01_introduction_and_goals.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/chapters/03_context_and_scope.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/arc42.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/01-arc42/Fachlich.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/02-prompts/ADR.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/search.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+    <url>
+    	<loc>http://jbake.org/lunrjsindex.html</loc>
+    	<lastmod>2025-05-22</lastmod>
+    </url>
+
+</urlset>
