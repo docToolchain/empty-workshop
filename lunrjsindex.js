@@ -66,18 +66,18 @@ var documents = [
 
 {
     "id": 8,
-    "uri": "01-arc42/chapters/02_architecture_constraints.html",
-    "menu": "arc42",
-    "title": "Randbedingungen",
-    "text": " Table of Contents Randbedingungen Randbedingungen ID Title Description RB1 Java Wir haben ein Java-Team RB2 React Frontend mit React "
-},
-
-{
-    "id": 9,
     "uri": "01-arc42/chapters/04_solution_strategy.html",
     "menu": "arc42",
     "title": "Lösungsstrategie",
     "text": " Table of Contents Lösungsstrategie Lösungsstrategie "
+},
+
+{
+    "id": 9,
+    "uri": "01-arc42/chapters/02_architecture_constraints.html",
+    "menu": "arc42",
+    "title": "Randbedingungen",
+    "text": " Table of Contents Randbedingungen Randbedingungen ID Title Description RB1 Java Wir haben ein Java-Team RB2 React Frontend mit React "
 },
 
 {
