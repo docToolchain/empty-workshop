@@ -152,6 +152,8 @@ Es werden nicht nur die Daten aus dem Excel-File exportiert, sondern auch Farben
 
 == Skizzieren mit MS PowerPoint
 
+WARNING: Dieser Schritt funktioniert momentan nur unter Windows
+
 Als Architekt bist Du es wahrscheinlich gewöhnt Deine Architektur mit PowerPoint zu skizzieren und präsentieren.
 
 Erstelle eine Lösungsskizze / Big Picture / Informelle Übersicht mit PowerPoint und binde 1-2 Slides in Deine Dokumentation ein.
