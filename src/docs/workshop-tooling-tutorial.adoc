@@ -1,0 +1,146 @@
+= Tutorial: arc42, AsciiDoc-Linter, dacli und b11t
+
+Dieses Tutorial ist fuer den Workshop gedacht und kann Schritt fuer Schritt direkt im Repository ausgefuehrt werden.
+
+== Ziel
+
+Am Ende hast du:
+
+* eine kleine arc42-Dokumentation unter `src/docs/arc42/`
+* den AsciiDoc-Linter lokal einsatzbereit
+* einen pre-commit Hook als Absicherung
+* eine einfache KI-Arbeitsweise mit dacli und b11t
+
+== Voraussetzungen
+
+* Du bist im Repository-Root.
+* Python 3 ist verfuegbar.
+* Git ist verfuegbar.
+
+== 1) Tooling vorbereiten
+
+Das Skript holt die Tools in einen separaten Ordner `.workshop-tools`.
+
+[source,bash]
+----
+./scripts/prepare-docs-tooling.sh
+----
+
+== 2) arc42 unter src/docs anlegen
+
+[source,bash]
+----
+./dtcw docker downloadTemplate
+----
+
+== 3) AsciiDoc-Linter lokal nutzen
+
+Installiere den Linter in eine lokale venv und starte ihn gegen `src/docs`.
+
+[source,bash]
+----
+python3 -m venv .workshop-tools/.venv
+. .workshop-tools/.venv/bin/activate
+pip install -U pip
+pip install -e .workshop-tools/asciidoc-linter
+asciidoc-linter src/docs
+----
+
+TIP: Falls du nur das arc42-Beispiel pruefen willst:
+
+[source,bash]
+----
+asciidoc-linter src/docs/arc42
+----
+
+== 4) Linter als pre-commit Hook setzen
+
+Variante A (einfach, lokal im Repo):
+
+[source,bash]
+----
+cat > .git/hooks/pre-commit <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ -f .workshop-tools/.venv/bin/activate ]]; then
+  . .workshop-tools/.venv/bin/activate
+fi
+
+if command -v asciidoc-linter >/dev/null 2>&1; then
+  asciidoc-linter src/docs
+else
+  echo "asciidoc-linter nicht gefunden. Bitte zuerst Tooling vorbereiten."
+  exit 1
+fi
+EOF
+chmod +x .git/hooks/pre-commit
+----
+
+Variante B (empfohlen fuer Team, mit pre-commit Framework):
+
+[source,yaml]
+----
+repos:
+  - repo: local
+    hooks:
+      - id: asciidoc-linter
+        name: asciidoc-linter
+        entry: asciidoc-linter src/docs
+        language: system
+        pass_filenames: false
+----
+
+Datei als `.pre-commit-config.yaml` speichern und dann:
+
+[source,bash]
+----
+pip install pre-commit
+pre-commit install
+----
+
+== 5) dacli im Workshop einsetzen
+
+dacli indexiert und durchsucht Doku-Strukturen fuer schnelle Rueckfragen.
+
+[source,bash]
+----
+. .workshop-tools/.venv/bin/activate
+pip install -e .workshop-tools/dacli
+dacli --help
+----
+
+Praktischer Ablauf fuer KI-Assistenz:
+
+* Erst mit dacli relevante Kapitel/Dateien finden.
+* Dann nur die passenden Fundstellen an die KI geben.
+* KI-Antworten in der Doku umsetzen und erneut linten.
+
+== 6) b11t fuer Bausteinsicht nutzen
+
+Teste zuerst das Binary:
+
+[source,bash]
+----
+./b11t/b11t --help
+----
+
+Beispielideen fuer den Workshop:
+
+* `validate`: Modellkonsistenz pruefen
+* `export-diagram`: C4-Diagramme fuer Doku erzeugen
+* `export-table`: Tabellen fuer Bausteineigenschaften erzeugen
+
+== 7) Empfohlene Demo-Reihenfolge (15-20 min)
+
+1. arc42-Ministruktur unter `src/docs/arc42` erstellen
+2. Linter laufen lassen und 1-2 Findings zeigen
+3. pre-commit Hook aktivieren und Commit-Blockade demonstrieren
+4. dacli fuer gezielte Doku-Suche zeigen
+5. b11t `validate`/`export` kurz anreissen
+
+== Troubleshooting
+
+* `asciidoc-linter: command not found`: venv aktivieren.
+* `Module not found`: `pip install -e` fuer das jeweilige Tool erneut ausfuehren.
+* Hook laeuft nicht: Rechte mit `chmod +x .git/hooks/pre-commit` setzen.

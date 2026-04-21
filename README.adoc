@@ -17,6 +17,8 @@ Open this `README.adoc` and press `Ctrl+k` then `v` to activate the AsciiDoc pre
 
 For the Docs-as-Code approach open xref:src/docs/docs-as-code.adoc[]
 
+For a step-by-step workshop tutorial (arc42 + linter + dacli + b11t) open xref:src/docs/workshop-tooling-tutorial.adoc[]
+
 For the Diagrams-as-Code approach open xref:src/docs/diagrams-as-code.adoc[] and start hacking.
 
 Further informations:

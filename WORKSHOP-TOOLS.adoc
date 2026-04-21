@@ -1,0 +1,33 @@
+= Workshop Tooling Prep
+
+Stand: 2026-04-21
+
+Diese Vorbereitung zieht zwei zusaetzliche Tools aus dem docToolchain GitHub Space lokal in einen separaten Ordner.
+
+* dacli: https://github.com/docToolchain/dacli
+* asciidoc-linter: https://github.com/docToolchain/asciidoc-linter
+
+Die Vorbereitung ueberschreibt keine bestehenden Workshop-Dateien.
+
+== Schnellstart
+
+[source,bash]
+----
+chmod +x scripts/prepare-docs-tooling.sh
+./scripts/prepare-docs-tooling.sh
+----
+
+Standard-Zielpfad ist `.workshop-tools` im Repo-Root.
+
+Optional mit eigenem Zielordner:
+
+[source,bash]
+----
+./scripts/prepare-docs-tooling.sh /tmp/workshop-tools
+----
+
+== Warum so?
+
+* getrennt vom eigentlichen Workshop-Inhalt
+* update-faehig per erneutem Skriptlauf
+* kein Risiko, bestehende AsciiDoc-Dateien zu ueberschreiben
