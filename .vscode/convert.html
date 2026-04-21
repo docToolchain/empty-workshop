@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSON Stringify Demo</title>
+    <title>Workshop Snippet Converter</title>
 </head>
 <body>
     <textarea id="inputTextArea" rows="10" cols="50"></textarea>
@@ -15,14 +15,15 @@
             // Split the input text into lines
             var lines = inputText.split('\n');
 
-            // Create an array to hold the JSON-formatted lines
+            // Create an array to hold JSON-safe snippet body lines
             var jsonLines = [];
 
             // Iterate over the lines and format them as JSON strings
             for (var i = 0; i < lines.length; i++) {
                 var line = lines[i].trim();
                 if (line.length > 0) {
-                    jsonLines.push('  "' + line + '",');
+                    // JSON.stringify escapes quotes, backslashes and control chars correctly.
+                    jsonLines.push('  ' + JSON.stringify(line) + ',');
                 }
             }
 

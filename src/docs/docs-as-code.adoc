@@ -8,6 +8,9 @@ Headline
 
 The quick brown fox jumps over the lazy dog
 
+include::images/quality-tree.puml[]
+
+
 == Listen
 
 // normal, numbered, checkbox, css-class

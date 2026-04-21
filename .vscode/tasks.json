@@ -22,7 +22,7 @@
     {
       "label": "Workshop Demo: dacli",
       "type": "shell",
-      "command": "bash -lc 'set -euo pipefail; if [ ! -d .workshop-tools/dacli ]; then echo \"dacli repo fehlt. Bitte zuerst Task: Workshop: Prepare docs tooling\"; exit 1; fi; python3 -m venv .workshop-tools/.venv; . .workshop-tools/.venv/bin/activate; pip install -q --upgrade pip; pip install -q -e .workshop-tools/dacli; dacli --help | head -n 40'",
+      "command": "bash -lc 'set -euo pipefail; if [ ! -d .workshop-tools/dacli ] || [ ! -f .workshop-tools/.venv/bin/activate ]; then echo \"Tooling nicht vorbereitet. Bitte zuerst Task: Workshop: Prepare docs tooling\"; exit 1; fi; . .workshop-tools/.venv/bin/activate; dacli --help | head -n 40'",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -31,7 +31,7 @@
     {
       "label": "Workshop Demo: AsciiDoc Linter",
       "type": "shell",
-      "command": "bash -lc 'set -euo pipefail; if [ ! -d .workshop-tools/asciidoc-linter ]; then echo \"asciidoc-linter repo fehlt. Bitte zuerst Task: Workshop: Prepare docs tooling\"; exit 1; fi; python3 -m venv .workshop-tools/.venv; . .workshop-tools/.venv/bin/activate; pip install -q --upgrade pip; pip install -q -e .workshop-tools/asciidoc-linter; asciidoc-linter --help | head -n 40'",
+      "command": "bash -lc 'set -euo pipefail; if [ ! -d .workshop-tools/asciidoc-linter ] || [ ! -f .workshop-tools/.venv/bin/activate ]; then echo \"Tooling nicht vorbereitet. Bitte zuerst Task: Workshop: Prepare docs tooling\"; exit 1; fi; . .workshop-tools/.venv/bin/activate; asciidoc-linter --help | head -n 40'",
       "options": {
         "cwd": "${workspaceFolder}"
       },

@@ -22,8 +22,14 @@
 		"body": "include::images/quality-tree.puml[]",
 		"description": "include quality tree as mindmap"
 	},
+	"ad: quality tree tags": {
+		"scope": "asciidoc",
+		"prefix": "wstags",
+		"body": "include::images/quality-tree.puml[tags=base;${1:sicherheit}]",
+		"description": "include tagged quality tree sections"
+	},
 	"puml: quality tree": {
-		"scope": "plantuml",
+		"scope": "plantuml,asciidoc",
 		"prefix": "ws",
 		"body": [
 			"' tag::base[]",
@@ -97,5 +103,15 @@
 			
 		],
 		"description": "full quality tree"
+	},
+	"ad: tagged block": {
+		"scope": "plantuml,asciidoc",
+		"prefix": "wstag",
+		"body": [
+			"// tag::${1:section}[]",
+			"${2:content}",
+			"// end::${1:section}[]"
+		],
+		"description": "tag block for include::...[tags=...] in AsciiDoc"
 	}
 }	

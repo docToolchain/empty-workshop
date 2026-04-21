@@ -1,5 +1,9 @@
 {
     "asciidoc.extensions.enableKroki": true,
     "plantuml.render": "PlantUMLServer",
-    "plantuml.server": "https://www.plantuml.com/plantuml"
+    "plantuml.server": "https://www.plantuml.com/plantuml",
+    "[asciidoc]": {
+        "editor.tabCompletion": "on",
+        "editor.snippetSuggestions": "top"
+    }
 }

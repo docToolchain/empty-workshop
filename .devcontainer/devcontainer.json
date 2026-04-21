@@ -2,6 +2,11 @@
     //"build": { "dockerfile": "Dockerfile" }
 	// Configure tool-specific properties.
 	"customizations": {
+		"codespaces": {
+			"openFiles": [
+				"README.adoc"
+			]
+		},
 		// Configure properties specific to VS Code.
 		"vscode": {
 			"settings": {},

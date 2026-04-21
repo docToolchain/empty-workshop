@@ -349,3 +349,12 @@ SHOW_LEGEND(true)
 Du kannst auch Structurizr von Simon Brown zum Erstellen von C4 Diagrammen verwenden.
 
 Schlage im README.adoc nach, wie Du Structurizr-Lite starten kannst um eine workspace.dsl zu verwenden.
+
+== GenAI
+
+=== Multimodalität
+
+Nimm ein Foto von einem Diagramm und weise Deinen KI Assistenten an, das Diagramm als PlantUML nachzubauen.
+
+.Diagramm von c4model.com
+image::https://c4model.com/images/sketch-2.jpg[]
