@@ -100,7 +100,7 @@ siehe auch https://docs.asciidoctor.org/asciidoc/latest/directives/include-tagge
 Nutze https://draw.io[draw.io] um einen Systemkontext zu zeichnen.
 Binde den Systemkontext in Kapitel 3 ein.
 
-TIP: das draw.io Plugin ist in der gitpod Umgebung schon vorinstalliert.
+TIP: das draw.io Plugin ist in der Codespaces-Umgebung schon vorinstalliert.
 
 .Lösung
 [%collapsible]

@@ -5,12 +5,11 @@ This is just an empty repository to play around with some Docs-as-Code and Diagr
 To open this repository you have different options:
 
 * clone locally and use the IDE of your choice with plugins for AsciiDoc, PlantUML, draw.io and so on (we recommend IntelliJ IDEA or Visual Studio Code)
-* in gitpod: just preface the URL with `gitpod.io#`.
 * in Github Codespaces: via button "Code"
 
 image::src/docs/images/codespaces.png[]
 
-Next, in gitpod and Github Codespaces there will be a web based visual studio instance with everything pre-installed.
+In Github Codespaces there will be a web based visual studio instance with everything pre-installed.
 
 Open this `README.adoc` and press `Ctrl+k` then `v` to activate the AsciiDoc preview.
 
@@ -57,7 +56,7 @@ To preview the files (e.g. html files), start a small server from within the ter
 python -m http.server 8000
 ----
 
-Gitpod or Codespaces will now ask you what to do with the opened port. Just click on "open in browser" and navigate through the `build` folder.
+Codespaces will now ask you what to do with the opened port. Just click on "open in browser" and navigate through the `build` folder.
 
 === Practical example
 
