@@ -38,6 +38,15 @@
       "problemMatcher": []
     },
     {
+      "label": "Lint: arc42 (verbose per file)",
+      "type": "shell",
+      "command": "bash ./scripts/lint-arc42-verbose.sh",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Workshop Demo: Alles",
       "dependsOn": [
         "Workshop Demo: Bausteinsicht (b11t)",
